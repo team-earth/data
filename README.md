@@ -1,5 +1,5 @@
 # team.earth data
-Data behind the "Unsolvable: Think Again!" e-book series
+Data behind the "[Unsolvable: Think Again!](https://www.amazon.com/dp/B0CP7HNP3B)" e-book series
 
 This repository contains structured, location-based datasets and solution maps for tackling complex social problems at the community level. Each dataset represents a *"problem-solving book"*, where a deep analysis of the issue is translated into a hierarchical outline of obstacles, solutions, and real-world programs.
 
@@ -53,5 +53,8 @@ The model’s core steps:
 - Submit additions, corrections, or ideas to: `info@team.earth`
 - You may also request GitHub collaboration access or pull instructions
 
+## Amazon availability
+The e-books are available on Kindle at Amazon in the [Unsolvable: Think Again!](https://www.amazon.com/dp/B0CP7HNP3B) series.
+
 ## License
-Unless otherwise noted, our data sets are available under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+Unless otherwise noted, our data sets, mappings, and e-books are available under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). 
