@@ -3,7 +3,7 @@ Data behind the "[Unsolvable: Think Again!](https://www.amazon.com/dp/B0CP7HNP3B
 
 This repository contains structured, location-based datasets and solution maps for tackling complex social problems at the community level. Each dataset represents a *"problem-solving book"*, where a deep analysis of the issue is translated into a hierarchical outline of obstacles, solutions, and real-world programs.
 
-These books are published under the **team.earth** initiative, and all follow a consistent, structured methodology rooted in systems thinking and collaborative action.
+These books are published under the **[team.earth](https://team.earth)** initiative, and all follow a consistent, structured methodology rooted in systems thinking and collaborative action.
 
 ## 🧭 Purpose
 
