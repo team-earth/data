@@ -19,9 +19,20 @@ Like its companion volume, *Un-Lonely New York City*, this guide is structured a
 
 ## 📁 Files in This Directory
 
-- `un-lonely-nova-scotia.pdf` – The complete guidebook with narrative, outline, and solution listings  
-- `un-lonely-nova-scotia.json` – Structured data for AI, web, or mapping tools (to be added)  
+- `Un-Lonely Nova Scotia.pdf` – The complete guidebook with narrative, outline, and solution listings  
+- `un-lonely-nova-scotia.json` – The full radially hierarchical structure of goals, obstacles, sub-obstacles, and linked resource IDs  
+- `un-lonely-nova-scotia-resources.json` – A flat table of all resources with metadata (names, descriptions, websites, contact info) used in the outline  
 - `README.md` – This file
+
+## 🧠 How the JSON Files Work Together
+
+- **`un-lonely-nova-scotia.json`** is the structural mindmap of the problem and its solutions.  
+  It includes references to specific resource IDs at the outermost layer.
+
+- **`un-lonely-nova-scotia-resources.json`** contains detailed entries for those resources, matched by ID.  
+  This allows separation of structure and content, enabling easier reuse, updating, and visualization.
+
+Together, they allow both human readers and software tools (including AI) to navigate from high-level goals down to detailed real-world programs — or vice versa.
 
 ## 🧠 Systems Approach
 
@@ -33,11 +44,6 @@ This guide applies a published framework that blends:
 > Framework reference:  
 > *A Proposed Practical Problem-Solving Framework for Multi-Stakeholder Initiatives in Socio-Ecological Systems*  
 > [Read on arXiv →](https://arxiv.org/pdf/1911.13155.pdf)
-
-This allows contributors, funders, nonprofits, and government to see:
-- What the problem looks like **as a whole**  
-- What solutions are already **underway**  
-- Where new energy or support can be **most helpful**
 
 ## 🗺️ Resource Map
 
