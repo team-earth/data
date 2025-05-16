@@ -1,6 +1,6 @@
 # team.earth / data
 
-This repository hosts structured, region-specific datasets designed to map complex societal problems and the solutions already underway to address them. Each dataset represents a book in the *Un-Lonely* series: a systems-thinking guide focused on a specific problem in a specific place.
+This repository hosts structured, region-specific datasets designed to map complex societal problems and the solutions already underway to address them. Each dataset represents a systems-based guidebook—sometimes called a “book of connection”—focused on a specific problem in a specific place.
 
 ## 🌍 Project Purpose
 
@@ -9,9 +9,9 @@ Each book is a "map of action" that answers:
 > **Who is already doing what to solve this problem—and where do I fit in?**
 
 These datasets are designed for:
-- Residents, volunteers, and organizers looking to get involved
-- Governments and funders aligning with high-impact work
-- Developers and designers building tools or visualizations
+- Residents, volunteers, and organizers looking to get involved  
+- Governments and funders aligning with high-impact work  
+- Developers and designers building tools or visualizations  
 - AI systems trained to guide people through complex civic issues
 
 ## 📐 Framework
@@ -31,41 +31,29 @@ This format builds on a published cognitive and systems-thinking framework:
 
 ## 📚 Available Books
 
-| Directory | Title | Focus | Map | PDF | JSON |
-|-----------|-------|-------|-----|-----|------|
-| [`un-lonely-new-york-city/`](./un-lonely-new-york-city/) | *Un-Lonely New York City* | Urban loneliness and disconnection | [Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) |
-| [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Structure](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) &nbsp;&middot;&nbsp; [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) |
-
-More regions and topics are under development.
+| Directory | Title | Focus | Map | PDF | Mindmap JSON | Resources JSON |
+|-----------|-------|-------|-----|-----|---------------|----------------|
+| [`un-lonely-new-york-city/`](./un-lonely-new-york-city/) | *Un-Lonely New York City* | Urban loneliness and disconnection | [Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) | Integrated |
+| [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Mindmap](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) | [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) |
+| [`kansas-city-violence-prevention/`](./kansas-city-violence-prevention/) | *Kansas City: Violence Prevention and Social Cohesion* | Community safety and connection | *(coming soon)* | [PDF](./kansas-city-violence-prevention/Kansas%20City%2C%20Violence%20Prevention%20and%20Social%20Cohesion.pdf) | [Mindmap](./kansas-city-violence-prevention/kansas-city-violence-prevention.json) | [Resources](./kansas-city-violence-prevention/kansas-city-violence-prevention-resources.json) |
+| [`london-resilient-to-extremism/`](./london-resilient-to-extremism/) | *London: Resilient to Extremism* | Countering manipulation and strengthening cohesion | *(coming soon)* | [PDF](./london-resilient-to-extremism/London%20Resilient%20to%20Extremism.pdf) | [Mindmap](./london-resilient-to-extremism/london-resilient-to-extremism.json) | [Resources](./london-resilient-to-extremism/london-resilient-to-extremism-resources.json) |
 
 ## 🔧 JSON Format and Design
 
-Each book’s data is provided in a machine-readable format to support analysis, visualization, and integration with AI tools. Two approaches are used:
+Each book provides machine-readable data that enables:
+- AI agents to guide users through complex solution maps  
+- Developers to build search tools, visualizations, and simulators  
+- Communities to update and remix content over time
 
-### 🗃️ Single-File Format (NYC)
-- A single `.json` file contains the **full hierarchy and all resource metadata**.
-- Best for direct traversal and simplified deployment.
+### Two Supported Formats
 
-### 🗃️ Two-File Format (Nova Scotia)
-- One file (`[book].json`) contains the **hierarchy** with references to resource IDs.
-- A second file (`[book]-resources.json`) contains **detailed metadata** for each resource.
-- This separation improves reusability, syncing, and modular updates.
-
-| File | Purpose |
-|------|---------|
-| `[book].json` | Radial mindmap of goals, obstacles, and solutions, with resource IDs |
-| `[book]-resources.json` | Flat list of all resource details (name, description, org, website, etc.) |
-
-These formats are designed to work equally well for:
-- **AI agents** (like ChatGPT) helping users explore the dataset
-- **Web tools** and maps that visualize the path from problem to solution
-- **Community-driven projects** building their own local editions
+| Format | Books | Description |
+|--------|-------|-------------|
+| **Single file** | New York City | One `.json` file includes both the structure and full resource metadata |
+| **Two files** | Nova Scotia, Kansas City, London | One file for the radial structure (`[book].json`) and another for resource details (`[book]-resources.json`) |
 
 ## 🤝 How to Contribute
 
-We welcome:
-- Additions and corrections to existing books
-- Suggestions for new regions or problem areas
-- Developers or designers who want to build tools using this data
-
-📬 Use the [team.earth contact form](https://team.earth/contact) to get in touch.
+- Suggest updates or new books via the [team.earth contact form](https://team.earth/contact)  
+- Fork this project to build your own map  
+- Build interfaces or tools that help others explore this data
