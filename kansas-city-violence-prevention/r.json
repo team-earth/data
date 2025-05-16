@@ -1,0 +1,1553 @@
+{
+    "goal": {
+        "children": [
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "data": {
+                                    "kc360-10": "Collaboration: Create KC 360 Collaborative, sub-groups, and advisory council",
+                                    "title": "Create KC 360 Collaborative",
+                                    "description": "Create KC 360 Collaborative (6/22), Sub-Groups (4/24) and Advisory Council (5/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of efforts to bring leaders and residents together consistently to develop and implement strategies to prevent and reduce gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "data": {
+                                    "kc360-10": "Collaboration: Include all voices: lived experience, youth, families, leaders, stakeholders",
+                                    "title": "Include all voices",
+                                    "description": "Include all Voices: Lived Experience, Youth, Families, Leaders & Stakeholders. (7/23). Goal is reducing gun violence through direct intervention and addressing root causes. Part of efforts to bring leaders and residents together consistently to develop and implement strategies to prevent and reduce gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 0
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 2
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 3
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 4
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Collaboration: Common goals, vision, database/inventory of resources",
+                                    "title": "Common goals",
+                                    "description": "Common Goals (11/22), Vision (1/23) & Database/Inventory of Resources (6/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of efforts to bring leaders and residents together consistently to develop and implement strategies to prevent and reduce gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 5
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 6
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 7
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 8
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 9
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 10
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 11
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 12
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 13
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 14
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Collaboration: 10 things individuals and organizations can do",
+                                    "title": "Identify 10 things individuals and organizations can do",
+                                    "description": "Identify 10 Things Individuals Can Do and 10 Things Organizations Can Do (KC Blueprint). Goal is reducing gun violence through direct intervention and addressing root causes. Part of efforts to bring leaders and residents together consistently to develop and implement strategies to prevent and reduce gun violence."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Collaboration: Bring leaders and residents together consistently",
+                        "description": "CREATE ONE UNITED PLAN (4/2024). Lead: KCCG/KC360, City of KC, KC Health Department, KCPD."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 15
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 16
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 17
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 18
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Collaboration: Bold data sharing, communication, and maps",
+                                    "title": "Create channels for bold/open communication",
+                                    "description": "Create channels for bold/open communication/sharing of data, trends, and maps. (6/22). Goal is reducing gun violence through direct intervention and addressing root causes. Part of building stronger and more effective police community relationships."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 19
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 20
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 21
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 22
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 23
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Collaboration: Consistent engagement of stakeholders",
+                                    "title": "Engage consistently",
+                                    "description": "Engage consistently with youth, families, neighborhoods, stakeholders, and leaders. Goal is reducing gun violence through direct intervention and addressing root causes. Part of building stronger and more effective police community relationships."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "data": {
+                                    "kc360-10": "Collaboration: Build and implement systems of transparency, accountability, and reform",
+                                    "title": "Build and implement systems of transparency",
+                                    "description": "Build and implement systems of transparency, accountability, and reform. Goal is reducing gun violence through direct intervention and addressing root causes. Part of building stronger and more effective police community relationships."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 24
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 25
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 26
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 27
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 28
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Collaboration: De-escalation training",
+                                    "title": "Implement training on de-escalation",
+                                    "description": "Implement training on de-escalation (everyone goes home safe), bias and mental health. Goal is reducing gun violence through direct intervention and addressing root causes. Part of building stronger and more effective police community relationships."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Collaboration: Build stronger and more effective police community relationships",
+                        "description": "Lead: KCPD, KCCG/KC 360 Police-Community Sub-group."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 29
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 30
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 31
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 32
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 33
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Provide positive activities and entertainment outside school",
+                                    "title": "Provide positive activities and entertainment",
+                                    "description": "Provide positive activities and entertainment/after school, evenings and weekends. Goal is reducing gun violence through direct intervention and addressing root causes. Part of addressing root causes and implementing quality programs."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 34
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Expand school-based programs for youth/families",
+                                    "title": "Provide quality programs for youth/families",
+                                    "description": "Provide quality programs for youth/families. Expand school-based programs. (7/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of addressing root causes and implementing quality programs."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 35
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 36
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 37
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 38
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 39
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 40
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Invest in root cause basic needs, education, economics",
+                                    "title": "Address root causes through investments",
+                                    "description": "Address root causes through investments in basic needs, education, income, higher wage employment, home ownership, entrepreneurship, health, and wealth-building. Goal is reducing gun violence through direct intervention and addressing root causes. Part of addressing root causes and implementing quality programs."
+                                }
+                            }
+                        }
+                    ],
+                    "label": "Prevention - Address root causes and implement quality programs, positive activities",
+                    "data": {
+                        "title": "Prevention: Address root causes and implement quality programs/positive activities",
+                        "description": "Lead: Youth KC 360 Sub-group. Root Cause - EN, City, Urban League, Civic Council."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 41
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 42
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 43
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 44
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 45
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Address beautification, vacant lots, abandoned and dilapidated homes",
+                                    "title": "Use assets and build capacity",
+                                    "description": "Use assets and build capacity of neighborhoods and partners to address beautification, vacant lots, abandoned and dilapidated homes. (Santa Fe(23)/Neighborhoods \u2013 Ongoing). Goal is reducing gun violence through direct intervention and addressing root causes. Part of transforming the built environment in disinvested neighborhoods."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 46
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Invest in home renovations and developments",
+                                    "title": "Invest in home renovations and developments",
+                                    "description": "Invest in home renovations, affordable housing, and mixed income developments. Goal is reducing gun violence through direct intervention and addressing root causes. Part of transforming the built environment in disinvested neighborhoods."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 47
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 48
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 49
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 50
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 51
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 52
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Prevention: Improve streets, parks, trees, and sidewalks",
+                                    "title": "Improve streets, parks, trees, and sidewalks",
+                                    "description": "Improve streets, parks, trees, and sidewalks. Goal is reducing gun violence through direct intervention and addressing root causes. Part of transforming the built environment in disinvested neighborhoods."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Prevention: Transform the built environment by investing in disinvested neighborhoods",
+                        "description": "Lead: EN and KCCG Village Strategy, Neighborhood Associations, City of KC."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 53
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 54
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 55
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 56
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 57
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Invest in street intervention and outreach",
+                                    "title": "Invest in street intervention and outreach",
+                                    "description": "Invest in street intervention and outreach organizations and workers. (22/23 & 5/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of identifying and engaging individuals/groups most engaged in gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 58
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 59
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 60
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 61
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 62
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Public health approach, provide alternatives through intervention teams",
+                                    "title": "Provide alternatives through intervention teams",
+                                    "description": "Provide alternatives through intervention teams (violence as public health approach): income, education, housing, employment with living wage+ opportunities. Goal is reducing gun violence through direct intervention and addressing root causes. Part of identifying and engaging individuals/groups most engaged in gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 63
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 64
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 65
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 66
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 67
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Support families impacted by violence and conduct mediation and intervention",
+                                    "title": "Support families impacted by violence",
+                                    "description": "Support families impacted by violence and conduct mediation and intervention: street, schools, events, hospitals, prayerwalks and generationally involved families. Goal is reducing gun violence through direct intervention and addressing root causes. Part of identifying and engaging individuals/groups most engaged in gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 68
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Engage Risk Terrain Model locations",
+                                    "title": "Engage specific locations support",
+                                    "description": "Engage specific locations support w/Risk Terrain Model & Multi-disciplinary teams (23). Goal is reducing gun violence through direct intervention and addressing root causes. Part of identifying and engaging individuals/groups most engaged in gun violence."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 69
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 70
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 71
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 72
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 73
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Support families in Crisis/Homicides",
+                                    "title": "Support families in Crisis/Homicides",
+                                    "description": "Support families in Crisis/Homicides. Interrupters. Chaplains. Funerals. Follow-up. Goal is reducing gun violence through direct intervention and addressing root causes. Part of identifying and engaging individuals/groups most engaged in gun violence."
+                                }
+                            }
+                        }
+                    ],
+                    "label": "Intervention - Identify individuals, groups most engaged in gun violence and engage",
+                    "data": {
+                        "title": "Intervention: Identify individuals/groups most engaged in gun violence and engage",
+                        "description": "Lead: KC 360 Intervention Sub-Group, P4P, Aim 4 Peace, Save KC, UL, FEC, Great Jobs KC."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 74
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 75
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 76
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 77
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 78
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Training on empathy, mediation, and de-escalation",
+                                    "title": "Training on empathy, mediation, and de-escalation",
+                                    "description": "Training on empathy, mediation, and de-escalation. (6/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing city-wide strategies and training focused on Conflict Resolution."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 79
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 80
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 81
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 82
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 83
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Training on preventing and addressing social media conflicts",
+                                    "title": "Training on preventing and addressing social media conflicts",
+                                    "description": "Training on preventing and addressing social media conflicts. Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing city-wide strategies and training focused on Conflict Resolution."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 84
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Cognitive behavioral therapy with high risk and whole family counseling",
+                                    "title": "Implement cognitive behavioral therapy",
+                                    "description": "Implement cognitive behavioral therapy with high risk and whole family counseling. Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing city-wide strategies and training focused on Conflict Resolution."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 85
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 86
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 87
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 88
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 89
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Intervention: Quality wrap-around services and address intergenerational poverty",
+                                    "title": "Provide quality wrap-around services",
+                                    "description": "Provide quality wrap-around services. Address trauma of intergenerational poverty. Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing city-wide strategies and training focused on Conflict Resolution."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Intervention: Implement city-wide strategies and training focused on Conflict Resolution",
+                        "description": "Lead: KC 360 Intervention Sub-group, Center for Conflict Resolution."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 90
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 91
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 92
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 93
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Enforcement and Community Support: Options and alternatives to violence lifestyle",
+                                    "title": "Provide options and alternatives to leave the violence lifestyle",
+                                    "description": "Provide options and alternatives to leave the violence lifestyle. (6/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing strategies focused on highest level offenders for immediate impact."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 94
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 95
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 96
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 97
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 98
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Enforcement and Community Support: Tools & Strategies",
+                                    "title": "Hold others accountable through targeted efforts",
+                                    "description": "Hold others accountable through targeted efforts engaging law enforcement partners and community. Tools & Strategies. Shoot Review. ShotSpotter. CrimeStoppers. Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing strategies focused on highest level offenders for immediate impact."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 99
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 100
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 101
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 102
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 103
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Enforcement and Community Support: Remove illegal guns",
+                                    "title": "Remove illegal guns",
+                                    "description": "Remove illegal guns. Address suppliers and straw purchases. Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing strategies focused on highest level offenders for immediate impact."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 104
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 105
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 106
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 107
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Enforcement and Community Support: Gun violence hot spot focus",
+                                    "title": "Focus attention on areas with the high level of gun violence",
+                                    "description": "Focus attention on areas with the high level of gun violence. (Hot Spots, Risk Terrain Modeling, Multi-disciplinary Teams). Goal is reducing gun violence through direct intervention and addressing root causes. Part of implementing strategies focused on highest level offenders for immediate impact."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Enforcement with Community Support: Implement strategies focused on highest level offenders (Focused deterrence)",
+                        "description": "Top priority for immediate impact. Lead: Save KC (focused deterrence board), KCPD, PSP and Law Enforcement Agencies."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 108
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Reentry and Recovery: Education, training, healing and trauma-informed care",
+                                    "title": "Begin preparation upon entry",
+                                    "description": "Begin preparation upon entry to include education, training, healing and trauma-informed care. Goal is reducing gun violence through direct intervention and addressing root causes. Part of preparing returning citizens for successful reentry."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 109
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 110
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 111
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 112
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 113
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Reentry and Recovery: Pre-release basic needs planning",
+                                    "title": "Prepare for pre-release with a plan",
+                                    "description": "Prepare for pre-release with a plan to address basic needs, education, employment, housing, reunification, substance abuse, restorative justice and other needs. Goal is reducing gun violence through direct intervention and addressing root causes. Part of preparing returning citizens for successful reentry."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 114
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 115
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 116
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 117
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 118
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Reentry and Recovery: Recidivism reduction and drug courts/treatment",
+                                    "title": "Recidivism reduction and drug courts/treatment",
+                                    "description": "Recidivism reduction and drug courts/treatment. Goal is reducing gun violence through direct intervention and addressing root causes. Part of preparing returning citizens for successful reentry."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Reentry and Recovery: Identify and prepare returning citizens for successful reentry",
+                        "description": "Lead: KC 360 Reentry Sub-Group, Second Chance."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 119
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 120
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 121
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 122
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 123
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Support Services: Mental and physical health",
+                                    "title": "Provide mental and physical health, health insurance, trauma-informed care",
+                                    "description": "Provide mental and physical health, health insurance, trauma-informed care. Goal is reducing gun violence through direct intervention and addressing root causes. Part of assuring that communities most impacted have access to quality health care services."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 124
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 125
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 126
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 127
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 128
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Support Services: Training on grief counseling and coping mechanisms",
+                                    "title": "Provide training on grief counseling and coping mechanisms",
+                                    "description": "Provide training on grief counseling and coping mechanisms. Goal is reducing gun violence through direct intervention and addressing root causes. Part of assuring that communities most impacted have access to quality health care services."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 129
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Support Services: healthy foods and environmental safety",
+                                    "title": "Provide healthy foods and environmental safety",
+                                    "description": "Provide healthy foods and environmental safety. Goal is reducing gun violence through direct intervention and addressing root causes. Part of assuring that communities most impacted have access to quality health care services."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Support Services: Assure that communities most impacted have access to trauma-informed, quality health care and wrap-around services",
+                        "description": "Lead: KC Health Department, Swope Health and others."
+                    }
+                }
+            },
+            {
+                "obstacle": {
+                    "children": [
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 130
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 131
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 132
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 133
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 134
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Sustainability: Best practice research and evaluation",
+                                    "title": "Best practice research and evaluation",
+                                    "description": "Best practice research and evaluation (in development). Goal is reducing gun violence through direct intervention and addressing root causes. Part of keeping violence prevention efforts strong for the long-term."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 135
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 136
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 137
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 138
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 139
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Sustainability: Raise Funding",
+                                    "title": "Raise Funding \u2013 Public/Private; Local and National; Violence Impact Fund",
+                                    "description": "Raise Funding \u2013 Public/Private; Local and National; Violence Impact Fund (Phase I 6/24). Goal is reducing gun violence through direct intervention and addressing root causes. Part of keeping violence prevention efforts strong for the long-term."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 140
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 141
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 142
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 143
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 144
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Sustainability: Voter Education and Advocacy",
+                                    "title": "Policy \u2013 Voter Education, Engagement, Mobilization and Advocacy with Elected Officials",
+                                    "description": "Policy \u2013 Voter Education, Engagement, Mobilization and Advocacy with Elected Officials. Goal is reducing gun violence through direct intervention and addressing root causes. Part of keeping violence prevention efforts strong for the long-term."
+                                }
+                            }
+                        },
+                        {
+                            "solution": {
+                                "children": [
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 145
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 146
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 147
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resource": {
+                                            "data": {
+                                                "id": 148
+                                            }
+                                        }
+                                    }
+                                ],
+                                "data": {
+                                    "kc360-10": "Sustainability: Innovation and evolution",
+                                    "title": "Consistent innovation and evolution based on ever changing needs",
+                                    "description": "Consistent innovation and evolution based on ever changing needs. Goal is reducing gun violence through direct intervention and addressing root causes. Part of keeping violence prevention efforts strong for the long-term."
+                                }
+                            }
+                        }
+                    ],
+                    "data": {
+                        "title": "Sustainability: Keep violence prevention efforts strong for the long-term",
+                        "description": "Lead: Research \u2013 UMKC, Funding \u2013 Funders Collab, Policy \u2013 ENofKC, Innovation - KCCG."
+                    }
+                }
+            }
+        ],
+        "data": "Reducing gun violence through direct intervention and addressing root causes. (A Comprehensive and Balanced Approach: Based on National Best Practices & Local Innovation using the Omaha 360 Framework.)"
+    }
+}
