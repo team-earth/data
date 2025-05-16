@@ -1,60 +1,71 @@
-# team.earth data
-Data behind the "[Unsolvable: Think Again!](https://www.amazon.com/dp/B0CP7HNP3B)" e-book series
+# team.earth / data
 
-This repository contains structured, location-based datasets and solution maps for tackling complex social problems at the community level. Each dataset represents a *"problem-solving book"*, where a deep analysis of the issue is translated into a hierarchical outline of obstacles, solutions, and real-world programs.
+This repository hosts structured, region-specific datasets designed to map complex societal problems and the solutions already underway to address them. Each dataset represents a book in the *Un-Lonely* series: a systems-thinking guide focused on a specific problem in a specific place.
 
-These books are published under the **[team.earth](https://team.earth)** initiative, and all follow a consistent, structured methodology rooted in systems thinking and collaborative action.
+## 🌍 Project Purpose
 
-## 🧭 Purpose
+Each book is a "map of action" that answers:
 
-To empower community members, nonprofits, policymakers, and funders with:
+> **Who is already doing what to solve this problem—and where do I fit in?**
 
-- A **map of who is doing what** to solve complex problems in their city or region
-- A **framework** for aligning scattered efforts toward shared goals
-- A **living document** for coordination, recognition, and strategic support
+These datasets are designed for:
+- Residents, volunteers, and organizers looking to get involved
+- Governments and funders aligning with high-impact work
+- Developers and designers building tools or visualizations
+- AI systems trained to guide people through complex civic issues
 
-## 📚 Book Directories
+## 📐 Framework
 
-Each subdirectory under `/data/` is a standalone “book” that includes:
+Each book uses a **radially hierarchical structure** to show how complex problems can be broken down and addressed at multiple levels:
 
-- A printable PDF version with contextual essays and a structured outline
-- A `*.json` file representing the hierarchical problem breakdown
-- A public Google Map of geocoded resources
-- A localized README explaining the project
+1. 🎯 **Goal** – What success looks like (the “Future Picture”)  
+2. 🪨 **Obstacles** – Major themes blocking that goal  
+3. ⛓️ **Sub-Obstacles** – Specific barriers as experienced by people  
+4. 💡 **Solutions** – Actionable ideas to address each sub-obstacle  
+5. 🧭 **Resources** – Real-world organizations or programs implementing those solutions
 
-| Book Directory | Region / Theme            | Goal Summary                           | PDF | JSON | Map |
-|----------------|----------------------------|----------------------------------------|------|------|-----|
-| `un-lonely-new-york-city/` | New York City – Loneliness | Improve social connection across NYC  | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) | [View Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) |
+This format builds on a published cognitive and systems-thinking framework:
 
-## 🧠 Methodology
+> *A Proposed Practical Problem-Solving Framework for Multi-Stakeholder Initiatives*  
+> [Read on arXiv →](https://arxiv.org/pdf/1911.13155.pdf)
 
-This repository is built on a published framework:
+## 📚 Available Books
 
-> **A Proposed Practical Problem-Solving Framework for Multi-Stakeholder Initiatives**  
-> Based on a model of the human cognitive problem-solving process.  
-> 📄 [Read on arXiv (1911.13155)](https://arxiv.org/pdf/1911.13155.pdf)
+| Directory | Title | Focus | Map | PDF | JSON |
+|-----------|-------|-------|-----|-----|------|
+| [`un-lonely-new-york-city/`](./un-lonely-new-york-city/) | *Un-Lonely New York City* | Urban loneliness and disconnection | [Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) |
+| [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Structure](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) &nbsp;&middot;&nbsp; [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) |
 
-The model’s core steps:
-1. Define a **Future Picture Statement** (e.g., “Loneliness in NYC will be improved”)
-2. Identify **major obstacles** to this future
-3. Break them into **facets** and **components**
-4. Propose **solutions** for each component
-5. Index **real-world resources** already implementing those solutions
+More regions and topics are under development.
 
-## 💡 Use Cases
+## 🔧 JSON Format and Design
 
-- **Community organizers**: Discover who’s doing what and connect efforts
-- **Funders**: Target high-impact solutions that are already working
-- **Government**: Support and align grassroots efforts
-- **Residents**: Join, support, or replicate programs near you
+Each book’s data is provided in a machine-readable format to support analysis, visualization, and integration with AI tools. Two approaches are used:
+
+### 🗃️ Single-File Format (NYC)
+- A single `.json` file contains the **full hierarchy and all resource metadata**.
+- Best for direct traversal and simplified deployment.
+
+### 🗃️ Two-File Format (Nova Scotia)
+- One file (`[book].json`) contains the **hierarchy** with references to resource IDs.
+- A second file (`[book]-resources.json`) contains **detailed metadata** for each resource.
+- This separation improves reusability, syncing, and modular updates.
+
+| File | Purpose |
+|------|---------|
+| `[book].json` | Radial mindmap of goals, obstacles, and solutions, with resource IDs |
+| `[book]-resources.json` | Flat list of all resource details (name, description, org, website, etc.) |
+
+These formats are designed to work equally well for:
+- **AI agents** (like ChatGPT) helping users explore the dataset
+- **Web tools** and maps that visualize the path from problem to solution
+- **Community-driven projects** building their own local editions
 
 ## 🤝 How to Contribute
 
-- Submit additions, corrections, or ideas to: `info@team.earth`
-- You may also request GitHub collaboration access or pull instructions
+We welcome:
+- Additions and corrections to existing books
+- Suggestions for new regions or problem areas
+- Developers or designers who want to build tools using this data
 
-## Amazon availability
-The e-books are available on Kindle at Amazon in the [Unsolvable: Think Again!](https://www.amazon.com/dp/B0CP7HNP3B) series.
-
-## License
-Unless otherwise noted, our data sets, mappings, and e-books are available under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). 
+📬 Use the [team.earth contact form](https://team.earth/contact) to get in touch.
