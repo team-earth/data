@@ -39,6 +39,7 @@ This format builds on a published cognitive and systems-thinking framework:
 | [`london-resilient-to-extremism/`](./london-resilient-to-extremism/) | *London: Resilient to Extremism* | Countering manipulation and strengthening cohesion | [Map](https://www.google.com/maps/d/viewer?mid=1AOCH0ejxKldfTGImIvW06GlPKY6PZxg) | [PDF](./london-resilient-to-extremism/London%20Resilient%20to%20Extremism.pdf) | [Mindmap](./london-resilient-to-extremism/london-resilient-to-extremism.json) | [Resources](./london-resilient-to-extremism/london-resilient-to-extremism-resources.json) |
 | [`ottawa-resilient-to-extremism/`](./ottawa-resilient-to-extremism/) | *Ottawa: Resilient to Extremism* | Community resilience in the face of radicalization tactics | [Map](https://www.google.com/maps/d/viewer?mid=1DeYqLaVvjHn6JrxWRYly5JwQm19mnYI) | [PDF](./ottawa-resilient-to-extremism/Ottawa%20Resilient%20to%20Extremism.pdf) | [Mindmap](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism.json) | [Resources](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism-resources.json) |
 | [`food-security-nova-scotia/`](./food-security-nova-scotia/) | *Food Security in Nova Scotia* | Structural drivers of food insecurity | [Map](https://www.google.com/maps/d/viewer?mid=1rw0t5pZObIdHdPuv2szH8E5Fh2KzvJ0) | [PDF](./food-security-nova-scotia/Food%20Security%20in%20Nova%20Scotia.pdf) | [Mindmap](./food-security-nova-scotia/food-security-nova-scotia.json) |  |
+| [`mental-health-nova-scotia/`](./mental-health-nova-scotia/) | *Mental Health and Addiction in Nova Scotia* | Gaps in care, access, and coordination | [Map](https://www.google.com/maps/d/edit?mid=1lWINczsNTJUtsOjqqyoXH4YcEYaUaAk&usp=sharing) | [PDF](./mental-health-nova-scotia/Mental%20Health%20and%20Addiction%20in%20Nova%20Scotia.pdf) | [Mindmap](./mental-health-nova-scotia/mental-health-nova-scotia.json) |  |
 
 **Legend:**  
 Integrated = Resources included in the same JSON file as the structure
@@ -56,7 +57,7 @@ Each map provides machine-readable data that enables:
 |--------|------|-------------|
 | **Single file** | New York City | One `.json` file includes both the structure and full resource metadata |
 | **Two files** | Nova Scotia, Kansas City, London, Ottawa | Separate structure and resource files (`[book].json` + `[book]-resources.json`) |
-| **Structure-only** | Food Security in Nova Scotia | Radial mindmap only; no resources file yet included |
+| **Structure-only** | Food Security in Nova Scotia, Mental Health in Nova Scotia | Radial mindmap only; no resources file yet included |
 
 ## 🤝 How to Contribute
 
