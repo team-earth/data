@@ -41,6 +41,7 @@ This format builds on a published cognitive and systems-thinking framework:
 | [`food-security-nova-scotia/`](./food-security-nova-scotia/) | *Food Security in Nova Scotia* | Structural drivers of food insecurity |  | [PDF](./food-security-nova-scotia/Food%20Security%20in%20Nova%20Scotia.pdf) | [Mindmap](./food-security-nova-scotia/food-security-nova-scotia.json) |  |
 | [`mental-health-nova-scotia/`](./mental-health-nova-scotia/) | *Mental Health and Addiction in Nova Scotia* | Gaps in care, access, and coordination | [Map](https://www.google.com/maps/d/edit?mid=1lWINczsNTJUtsOjqqyoXH4YcEYaUaAk&usp=sharing) | [PDF](./mental-health-nova-scotia/Mental%20Health%20and%20Addiction%20in%20Nova%20Scotia.pdf) | [Mindmap](./mental-health-nova-scotia/mental-health-nova-scotia.json) | [Resources](./mental-health-nova-scotia/mental-health-nova-scotia-resources.json) |
 | [`education-innovation/`](./education-innovation/) | *Education Innovation* | Overcoming systemic barriers in education reform |  | [PDF](./education-innovation/Education%20Innovation.pdf) | [Mindmap](./education-innovation/education-innovation.json) |  |
+| [`climate-change-adaptation/`](./climate-change-adaptation/) | *Climate Change Adaptation* | Resilience strategies for climate-related threats |  | [PDF](./climate-change-adaptation/Climate%20Change%20Adaptation.pdf) | [Mindmap](./climate-change-adaptation/climate-change-adaptation.json) |  |
 
 **Legend:**  
 Integrated = Resources included in the same JSON file as the structure
@@ -58,7 +59,7 @@ Each map provides machine-readable data that enables:
 |--------|------|-------------|
 | **Single file** | New York City | One `.json` file includes both the structure and full resource metadata |
 | **Two files** | Nova Scotia, Kansas City, London, Ottawa, Mental Health (NS) | Separate structure and resource files (`[book].json` + `[book]-resources.json`) |
-| **Solutions-only** | Education Innovation, Food Security in Nova Scotia | Includes obstacles and solutions, but no linked resources yet |
+| **Solutions-only** | Education Innovation, Food Security in Nova Scotia, Climate Change Adaptation | Includes obstacles and solutions, but no linked resources yet |
 
 ## 🤝 How to Contribute
 
