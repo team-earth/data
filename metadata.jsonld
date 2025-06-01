@@ -1,0 +1,117 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BookSeries",
+      "name": "Unsolvable: Think Again!",
+      "author": {
+        "@type": "Person",
+        "name": "Kevin Kells"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Team Earth"
+      }
+    },
+    {
+      "@type": "Book",
+      "name": "Un-Lonely New York",
+      "url": "https://www.amazon.com/dp/B0D6YJ9G6F",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2024-09-08",
+      "about": ["loneliness", "mental health", "community", "New York"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Education Innovation",
+      "url": "https://www.amazon.com/dp/B0CPNLPN5Z",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-12-05",
+      "about": ["education", "systems change", "learning equity", "innovation"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Fortifying Our Resilience for Climate Change Adaptation",
+      "url": "https://www.amazon.com/dp/B0CP9Y99QJ",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-11-29",
+      "about": ["climate adaptation", "resilience", "environment", "policy"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Youth Mental Health",
+      "url": "https://www.amazon.com/dp/B0CP5TYMYS",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-11-30",
+      "about": ["youth", "mental health", "early intervention", "social emotional learning"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "UnLonely New York City",
+      "url": "https://www.amazon.com/dp/B0CPZ1DP6S",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-11-30",
+      "about": ["urban loneliness", "NYC", "social connection", "policy"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Israeli Palestinian Peace",
+      "url": "https://www.amazon.com/dp/B0CPH2MW4Y",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-12-08",
+      "about": ["peacebuilding", "Israel", "Palestine", "AI", "diplomacy"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "London: Resilient to Extremism",
+      "url": "https://www.amazon.com/dp/B0CR1TF9G2",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2024-01-07",
+      "about": ["extremism", "London", "civic safety", "radicalization"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Un-Lonely New York State",
+      "url": "https://www.amazon.com/dp/B0CR7B1NBG",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2023-12-29",
+      "about": ["loneliness", "New York State", "community", "public health"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Kansas City",
+      "url": "https://www.amazon.com/dp/B0CWQG9QT6",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2024-03-04",
+      "about": ["Kansas City", "public safety", "social cohesion", "violence prevention"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "name": "Ottawa: Resilient to Extremism",
+      "url": "https://www.amazon.com/dp/B0CR1LSX9L",
+      "bookSeries": "Unsolvable: Think Again!",
+      "author": "Kevin Kells",
+      "datePublished": "2024-01-04",
+      "about": ["Ottawa", "extremism", "resilience", "Canada"],
+      "inLanguage": "en"
+    }
+  ]
+}
