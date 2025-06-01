@@ -1,0 +1,117 @@
+series_title: "Unsolvable: Think Again!"
+author: "Kevin Kells, PhD"
+series_description: >
+  The "Unsolvable: Think Again!" series offers whole-system frameworks for solving
+  complex societal challenges. Each book identifies a Future Picture for a major issue,
+  then uses AI-assisted analysis to break the problem into parts and map thousands of
+  active or potential solutions. Designed for individuals, communities, organizations,
+  and policymakers, these books empower collaborative problem-solving at scale.
+books:
+  - title: "Un-Lonely New York"
+    subtitle: "1,000 Programs in New York that Support 100 Ways to Beat Loneliness"
+    asin: "B0D6YJ9G6F"
+    publication_date: "September 8, 2024"
+    url: "https://www.amazon.com/dp/B0D6YJ9G6F"
+    tags: [loneliness, social connection, mental health, community mapping, New York, urban issues]
+    summary: >
+      Connects 1,000 programs in New York with strategies to overcome loneliness, based on a whole-system
+      framework. Helps communities align efforts and move from advice to action.
+    related_dataset: "https://github.com/team-earth/data/tree/main/unlonely-nyc"
+
+  - title: "Education Innovation"
+    subtitle: "Collaborative Strategies for Individuals, Organizations, and Policy Makers"
+    asin: "B0CPNLPN5Z"
+    publication_date: "December 5, 2023"
+    url: "https://www.amazon.com/dp/B0CPNLPN5Z"
+    tags: [education, systems change, collaboration, learning equity, innovation]
+    summary: >
+      Uses system-based planning to rethink education by mapping challenges and opportunities and aligning
+      ongoing efforts for equitable reform.
+    related_dataset: "https://github.com/team-earth/data/tree/main/education-innovation"
+
+  - title: "Fortifying Our Resilience for Climate Change Adaptation"
+    subtitle: "Collaborative Strategies for Individuals, Organizations, and Policy Makers"
+    asin: "B0CP9Y99QJ"
+    publication_date: "November 29, 2023"
+    url: "https://www.amazon.com/dp/B0CP9Y99QJ"
+    tags: [climate adaptation, resilience, community preparedness, environment, policy]
+    summary: >
+      Explores system-wide resilience-building in response to climate change, identifying collaboration pathways
+      for adaptation and sustainability.
+    related_dataset: "https://github.com/team-earth/data/tree/main/climate-adaptation"
+
+  - title: "Youth Mental Health"
+    subtitle: "Supporting Our Youngsters"
+    asin: "B0CP5TYMYS"
+    publication_date: "November 30, 2023"
+    url: "https://www.amazon.com/dp/B0CP5TYMYS"
+    tags: [youth, teens, mental health, community support, early intervention, social emotional learning]
+    summary: >
+      Maps hundreds of community-based strategies for youth mental wellness, reducing stigma and
+      improving access to support systems.
+    related_dataset: "https://github.com/team-earth/data/tree/main/youth-mental-health"
+
+  - title: "UnLonely New York City"
+    subtitle: "A comprehensive outline with actions for community members, organizations, and policy makers"
+    asin: "B0CPZ1DP6S"
+    publication_date: "November 30, 2023"
+    url: "https://www.amazon.com/dp/B0CPZ1DP6S"
+    tags: [urban loneliness, NYC, social connection, civic policy, community action]
+    summary: >
+      Breaks down loneliness in NYC by theme and maps solutions across government, nonprofits, and neighborhoods.
+    related_dataset: "https://github.com/team-earth/data/tree/main/unlonely-nyc-city"
+
+  - title: "Israeli Palestinian Peace"
+    subtitle: "AI Insights"
+    asin: "B0CPH2MW4Y"
+    publication_date: "December 8, 2023"
+    url: "https://www.amazon.com/dp/B0CPH2MW4Y"
+    tags: [conflict resolution, peacebuilding, Israel, Palestine, AI, diplomacy]
+    summary: >
+      Applies AI-guided systems analysis to the Israeli-Palestinian conflict, offering a broad map of peacebuilding
+      initiatives and insights for coordination.
+    related_dataset: "https://github.com/team-earth/data/tree/main/israel-palestine"
+
+  - title: "London: Resilient to Extremism"
+    subtitle: "A Collaborative Action Map"
+    asin: "B0CR1TF9G2"
+    publication_date: "January 7, 2024"
+    url: "https://www.amazon.com/dp/B0CR1TF9G2"
+    tags: [extremism, London, civic safety, radicalization, counterterrorism, social cohesion]
+    summary: >
+      Maps programs countering extremism in London, helping stakeholders visualize overlaps, gaps, and collaborative
+      opportunities for impact.
+    related_dataset: "https://github.com/team-earth/data/tree/main/london-extremism"
+
+  - title: "Un-Lonely New York State"
+    subtitle: "A comprehensive outline with actions for community members, organizations, and policy makers"
+    asin: "B0CR7B1NBG"
+    publication_date: "December 29, 2023"
+    url: "https://www.amazon.com/dp/B0CR7B1NBG"
+    tags: [loneliness, New York State, community health, civic policy, resource mapping]
+    summary: >
+      A state-wide extension of the NYC project, analyzing loneliness across New York and aligning efforts at
+      the regional and local level.
+    related_dataset: "https://github.com/team-earth/data/tree/main/unlonely-ny-state"
+
+  - title: "Kansas City"
+    subtitle: "Safety and Social Cohesion"
+    asin: "B0CWQG9QT6"
+    publication_date: "March 4, 2024"
+    url: "https://www.amazon.com/dp/B0CWQG9QT6"
+    tags: [Kansas City, public safety, social cohesion, violence prevention, community engagement]
+    summary: >
+      Offers a deep dive into safety and social cohesion programs in Kansas City, highlighting alignment across
+      health, housing, and violence prevention.
+    related_dataset: "https://github.com/team-earth/data/tree/main/kansas-city-safety"
+
+  - title: "Ottawa: Resilient to Extremism"
+    subtitle: "A Collaborative Action Map"
+    asin: "B0CR1LSX9L"
+    publication_date: "January 4, 2024"
+    url: "https://www.amazon.com/dp/B0CR1LSX9L"
+    tags: [Ottawa, extremism, civic safety, community resilience, Canada]
+    summary: >
+      Analyzes extremism-related interventions in Ottawa and provides a system map to help funders, agencies,
+      and civic leaders coordinate and improve outcomes.
+    related_dataset: "https://github.com/team-earth/data/tree/main/ottawa-extremism"
