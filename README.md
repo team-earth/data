@@ -61,6 +61,23 @@ Each map provides machine-readable data that enables:
 | **Two files** | Nova Scotia, Kansas City, London, Ottawa, Mental Health (NS) | Separate structure and resource files (`[book].json` + `[book]-resources.json`) |
 | **Solutions-only** | Education Innovation, Food Security in Nova Scotia, Climate Change Adaptation | Includes obstacles and solutions, but no linked resources yet |
 
+## 📘 Book Series Metadata
+
+This repository includes structured metadata for all 10 books in the *Unsolvable: Think Again!* series by Kevin Kells, PhD:
+
+- [`metadata.yaml`](./metadata.yaml) – Contains full publication details, summaries, tags, and dataset links for each book.
+
+## 🔍 Metadata Usage
+
+The `metadata.yaml` file is machine-readable and can be utilized for:
+
+- Programmatically displaying book information.
+- Linking each dataset to its publication context.
+- Enabling search, filtering, or recommendation systems.
+- Supporting open research, civic data, or knowledge graph applications.
+
+The format is designed to be accessible for use by developers, AI agents, and knowledge-sharing tools.
+
 ## 🤝 How to Contribute
 
 - Suggest updates or new maps via the [team.earth contact form](https://team.earth/contact)  
