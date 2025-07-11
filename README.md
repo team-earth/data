@@ -13,6 +13,7 @@ These resources are designed for:
 - Governments and funders aligning with high-impact work  
 - Developers and designers building tools or visualizations  
 - AI systems trained to guide people through complex civic issues
+- **Research applications**: Agent-based modeling, simulation studies, and computational analysis of civic ecosystem dynamics
 
 ## 📐 Framework
 
@@ -22,7 +23,9 @@ Each map follows a **radially hierarchical structure** to represent how complex 
 2. 🪨 **Obstacles** – Major themes blocking that goal  
 3. ⛓️ **Sub-Obstacles** – Specific barriers as experienced by people  
 4. 💡 **Solutions** – Actionable ideas to address each sub-obstacle  
-5. 🧭 **Resources** – Real-world organizations or programs implementing those solutions (where available)
+5. 🧭 **Resources** – Real-world programs implementing those solutions (where available)
+
+**Key Principle**: GOSR is an **alignment framework**, not a coordination mechanism. It enables voluntary self-organization through transparency and shared understanding, rather than imposed coordination or centralized control.
 
 This format builds on a published cognitive and systems-thinking framework:
 
@@ -46,12 +49,16 @@ This format builds on a published cognitive and systems-thinking framework:
 **Legend:**  
 Integrated = Resources included in the same JSON file as the structure
 
+**Data Quality Note**: Some datasets include duplicate entries marked with `is_duplicate` flags. For accurate resource counts, filter duplicates when conducting analysis (e.g., London contains 2,381 duplicates out of 7,072 total entries).
+
 ## 🔧 JSON Format and Design
 
 Each map provides machine-readable data that enables:
 - AI agents to guide users through complex solution maps  
 - Developers to build search tools, visualizations, and simulators  
 - Communities to update and remix content over time
+
+**Note on Resources**: In GOSR maps, Resources represent real programs that can be modeled as autonomous agents in computational simulations, each with their own capabilities, constraints, and decision-making processes.
 
 ### JSON Formats
 
