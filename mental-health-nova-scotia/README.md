@@ -1,39 +1,45 @@
 # Mental Health and Addiction in Nova Scotia
 
-This folder contains the structured outline and linked resource data for the systems-level guidebook:  
-**Mental Health and Addiction in Nova Scotia: A Map of Challenges, Solutions, and Community Resources**
 
-This resource organizes a broad range of challenges and potential interventions related to mental health and addiction in Nova Scotia. It is designed to help community leaders, service providers, and system navigators see how local efforts can align and where support is most needed.
+This folder contains the structured outline for the systems-level guidebook:  
+**Mental Health and Addiction in Nova Scotia: A Map of Challenges and Solutions**
+
+This resource organizes a broad range of challenges and potential interventions related to mental health and addiction in Nova Scotia. It is designed to help community leaders, service providers, and system navigators see how local efforts can align and where support is most needed. **Note:** The data does not include a list of resources or programs.
 
 ## 🌟 Purpose
 
 > **Future Picture Statement**: *Mental health and addiction outcomes in Nova Scotia will improve through collaborative, inclusive, and well-supported systems of care.*
 
-This map identifies structural obstacles to mental wellness and addiction recovery and presents strategic solutions—many of which are linked to real-world programs already in motion.
+This map identifies structural obstacles to mental wellness and addiction recovery and presents strategic solutions. The data does not include real-world programs or resource listings.
 
 ## 🧠 Hierarchical Model
 
-This map follows the standard five-layer framework used across this collection:
+This map follows a hierarchical framework:
 
 1. **Goal** – A healthier, more supported Nova Scotia  
 2. **Major Obstacles** – Systemic and social barriers to care  
 3. **Sub-Obstacles** – Specific access, stigma, and coordination issues  
-4. **Solutions** – Actionable strategies  
-5. **Resources** – Real-world programs and services implementing those solutions
+4. **Solutions** – Actionable strategies
+
+**Note:** There are no resources or real-world program listings in the JSON data.
 
 ## 📁 Files in This Directory
 
 - `Mental Health and Addiction in Nova Scotia.pdf` – Narrative version of the guide  
-- `mental-health-nova-scotia.json` – Radial structure (goal → solutions → resource IDs)  
-- `mental-health-nova-scotia-resources.json` – Detailed resource metadata file  
+- `mental-health-nova-scotia.json` – Hierarchical structure (goal → obstacles → sub-obstacles → solutions)  
 - `README.md` – This file
 
-## 🗺️ Public Resource Map
 
-An interactive Google Map of services is available here:  
-**[Mental Health & Addiction Resource Map →](https://www.google.com/maps/d/edit?mid=1lWINczsNTJUtsOjqqyoXH4YcEYaUaAk&usp=sharing)**
+## Data Structure
 
-This map includes geocoded programs related to housing, crisis services, addiction treatment, and wraparound support.
+The JSON file contains:
+
+- **Goal**: The overarching aim for mental health and addiction in Nova Scotia
+- **Obstacles**: Major barriers (e.g., cultural/linguistic, funding, prevention, social determinants, education, post-treatment support, policy coordination, resistance to new approaches, impact of social media/technology)
+- **Sub-Obstacles**: Nested, more specific challenges under each obstacle
+- **Solutions**: Actionable strategies for each obstacle or sub-obstacle
+
+**There are no resources, program listings, or resources file in this project.**
 
 ## 🧠 Systems Approach
 
