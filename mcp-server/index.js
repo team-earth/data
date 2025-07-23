@@ -396,12 +396,36 @@ function extractHierarchyLevel(data, level, obstacleFilter = null) {
             if (data.goal.children) {
                 for (const child of data.goal.children) {
                     if (child.obstacle) {
-                        const obstacleText = child.obstacle.text || child.obstacle.data;
-                        if (!obstacleFilter || obstacleText.toLowerCase().includes(obstacleFilter.toLowerCase())) {
-                            obstacles.push({
-                                obstacle: obstacleText,
-                                solutions_count: child.children ? child.children.length : 0
-                            });
+                        // First try to get obstacle text from the obstacle object itself
+                        let obstacleText = child.obstacle.text || child.obstacle.data;
+
+                        // If not found, look for it in the parent structure
+                        if (!obstacleText && child.data) {
+                            obstacleText = child.data;
+                        }
+
+                        // If still not found, look for label as fallback
+                        if (!obstacleText && child.label) {
+                            obstacleText = child.label;
+                        }
+
+                        // Count solutions in the obstacle's children
+                        let solutionsCount = 0;
+                        if (child.obstacle.children) {
+                            for (const obstacleChild of child.obstacle.children) {
+                                if (obstacleChild.solution) {
+                                    solutionsCount++;
+                                }
+                            }
+                        }
+
+                        if (obstacleText) {
+                            if (!obstacleFilter || obstacleText.toLowerCase().includes(obstacleFilter.toLowerCase())) {
+                                obstacles.push({
+                                    obstacle: obstacleText,
+                                    solutions_count: solutionsCount
+                                });
+                            }
                         }
                     }
                 }

@@ -49,6 +49,37 @@ Goal: "Building Community Resilience Against Extremism"
 - **Search capabilities** across all datasets
 - **Structured access** via MCP protocol
 
+## 🏗️ Data Pipeline & Schema Evolution
+
+### Current Status
+- **Data Format**: Mixed JSON structures with manual parsing logic
+- **Validation**: Runtime error handling without formal schema
+- **Generation**: Python scripts with LLM interaction (external to this repo)
+- **Maintenance**: Manual fixes for inconsistent data structures
+
+### Industry Standard Migration Plan
+We're moving toward industry-standard practices for robust, maintainable data pipelines:
+
+**Target Stack:**
+- **Pydantic Models**: Type-safe schema definition for GOSR structures
+- **JSON Schema Validation**: Formal schema enforcement at generation time
+- **Structured LLM Output**: Using libraries like `instructor` or `langchain` with Pydantic
+- **Automated Pipeline**: Python-based generation with built-in validation
+
+**Benefits:**
+- **Type Safety**: Catch schema issues at generation time, not runtime
+- **Consistency**: All datasets follow identical, validated structure
+- **Maintainability**: Schema changes propagate automatically
+- **Developer Experience**: IDE support, auto-completion, and clear error messages
+
+**Implementation Approach:**
+1. Define Pydantic models matching current hierarchical structure
+2. Create validation layer for existing data
+3. Migrate generation scripts to use structured output
+4. Gradually normalize inconsistent datasets
+
+*This evolution will maintain full backward compatibility with the current MCP server while making future data generation more reliable and maintainable.*
+
 ## Quick Start
 
 1. **Install dependencies:**
