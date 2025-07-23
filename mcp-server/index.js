@@ -383,60 +383,80 @@ function searchInHierarchy(node, keywords, results = [], path = []) {
 }
 
 function extractHierarchyLevel(data, level, obstacleFilter = null) {
-    if (!data || !data.goal) return null;
+    // Validate input data
+    if (!data) {
+        console.error('extractHierarchyLevel: data is null or undefined');
+        return null;
+    }
 
-    switch (level) {
-        case 'goal':
-            return {
-                goal: data.goal.text || data.goal.data || 'Goal'
-            };
+    if (!data.goal) {
+        console.error('extractHierarchyLevel: data.goal is missing', JSON.stringify(data, null, 2).slice(0, 500));
+        return null;
+    }
 
-        case 'obstacles':
-            const obstacles = [];
-            if (data.goal.children) {
-                for (const child of data.goal.children) {
-                    if (child.obstacle) {
-                        // First try to get obstacle text from the obstacle object itself
-                        let obstacleText = child.obstacle.text || child.obstacle.data;
+    try {
+        switch (level) {
+            case 'goal':
+                return {
+                    goal: data.goal.text || data.goal.data || 'Goal'
+                };
 
-                        // If not found, look for it in the parent structure
-                        if (!obstacleText && child.data) {
-                            obstacleText = child.data;
-                        }
+            case 'obstacles':
+                const obstacles = [];
+                if (data.goal.children && Array.isArray(data.goal.children)) {
+                    for (const child of data.goal.children) {
+                        if (child && child.obstacle) {
+                            try {
+                                // First try to get obstacle text from the obstacle object itself
+                                let obstacleText = child.obstacle.text || child.obstacle.data;
 
-                        // If still not found, look for label as fallback
-                        if (!obstacleText && child.label) {
-                            obstacleText = child.label;
-                        }
-
-                        // Count solutions in the obstacle's children
-                        let solutionsCount = 0;
-                        if (child.obstacle.children) {
-                            for (const obstacleChild of child.obstacle.children) {
-                                if (obstacleChild.solution) {
-                                    solutionsCount++;
+                                // If not found, look for it in the parent structure
+                                if (!obstacleText && child.data) {
+                                    obstacleText = child.data;
                                 }
-                            }
-                        }
 
-                        if (obstacleText) {
-                            if (!obstacleFilter || obstacleText.toLowerCase().includes(obstacleFilter.toLowerCase())) {
-                                obstacles.push({
-                                    obstacle: obstacleText,
-                                    solutions_count: solutionsCount
-                                });
+                                // If still not found, look for label as fallback
+                                if (!obstacleText && child.label) {
+                                    obstacleText = child.label;
+                                }
+
+                                // Count solutions in the obstacle's children
+                                let solutionsCount = 0;
+                                if (child.obstacle.children && Array.isArray(child.obstacle.children)) {
+                                    for (const obstacleChild of child.obstacle.children) {
+                                        if (obstacleChild && obstacleChild.solution) {
+                                            solutionsCount++;
+                                        }
+                                    }
+                                }
+
+                                if (obstacleText) {
+                                    if (!obstacleFilter || obstacleText.toLowerCase().includes(obstacleFilter.toLowerCase())) {
+                                        obstacles.push({
+                                            obstacle: obstacleText,
+                                            solutions_count: solutionsCount
+                                        });
+                                    }
+                                }
+                            } catch (childError) {
+                                console.error('Error processing obstacle child:', childError.message, child);
                             }
                         }
                     }
+                } else {
+                    console.warn('data.goal.children is not an array or is missing');
                 }
-            }
-            return { obstacles };
+                return { obstacles };
 
-        case 'solutions':
-        case 'resources':
-        case 'full':
-        default:
-            return data;
+            case 'solutions':
+            case 'resources':
+            case 'full':
+            default:
+                return data;
+        }
+    } catch (error) {
+        console.error('Error in extractHierarchyLevel:', error.message);
+        return null;
     }
 }
 
@@ -694,17 +714,50 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             const { level = 'full', obstacle_filter } = args;
             const hierarchies = {};
 
+            // Add validation for args
+            if (!args || typeof args !== 'object') {
+                throw new Error('Invalid arguments provided to get_gosr_hierarchy');
+            }
+
+            // Validate DATASETS exists
+            if (!DATASETS || typeof DATASETS !== 'object') {
+                throw new Error('DATASETS configuration is not properly defined');
+            }
+
             for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
                 try {
+                    // Validate dataset info
+                    if (!datasetInfo || !datasetInfo.dataFile) {
+                        console.error(`Invalid dataset configuration for ${datasetId}:`, datasetInfo);
+                        hierarchies[datasetId] = {
+                            dataset_name: datasetInfo?.name || datasetId,
+                            hierarchy: null,
+                            error: 'Invalid dataset configuration'
+                        };
+                        continue;
+                    }
+
                     const data = await readJSONFile(datasetInfo.dataFile);
                     if (data) {
+                        const hierarchy = extractHierarchyLevel(data, level, obstacle_filter);
                         hierarchies[datasetId] = {
                             dataset_name: datasetInfo.name,
-                            hierarchy: extractHierarchyLevel(data, level, obstacle_filter)
+                            hierarchy: hierarchy
+                        };
+                    } else {
+                        hierarchies[datasetId] = {
+                            dataset_name: datasetInfo.name,
+                            hierarchy: null,
+                            error: 'No data found'
                         };
                     }
                 } catch (error) {
                     console.error(`Error reading hierarchy from ${datasetId}:`, error.message);
+                    hierarchies[datasetId] = {
+                        dataset_name: datasetInfo?.name || datasetId,
+                        hierarchy: null,
+                        error: error.message
+                    };
                 }
             }
 
