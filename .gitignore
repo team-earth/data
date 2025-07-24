@@ -27,3 +27,5 @@ build/
 # Logs
 logs/
 *.log
+
+*_unvalidated.json

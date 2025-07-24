@@ -80,7 +80,28 @@ Configure with your LLM client (Claude Desktop, etc.) to enable AI agents to:
 
 See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instructions and API documentation.
 
-## �🔧 JSON Format and Design
+
+## ✅ Data Validation
+
+This repository includes [Pydantic](https://pydantic.dev/) models for programmatic data validation:
+
+- **Type validation**: Data types and structure consistency across datasets
+- **Schema support**: Models handle hierarchical, Goal-Obstacle-Solution, and resource collection formats
+- **Validation status**: 12,369 resources across 4 resource files currently pass validation
+- **Compatibility**: Original JSON structures preserved
+
+### Technical Details
+
+- **Models**: [`models.py`](./models.py) contains Pydantic models for the dataset schemas
+- **Coverage**: All JSON files validate against the defined models
+- **Standardization**: Field names normalized across entries
+
+Supported formats:
+- Hierarchical tree structures (Climate Change, Education)  
+- Goal-Obstacle-Solution patterns (Un-Lonely, Kansas City)
+- Resource collections (all resource files)
+
+## 🔧 JSON Format and Design
 
 Each map provides machine-readable data that enables:
 - AI agents to guide users through complex solution maps  
@@ -113,6 +134,26 @@ The `metadata.yaml` file is machine-readable and can be utilized for:
 - Supporting open research, civic data, or knowledge graph applications.
 
 The format is designed to be accessible for use by developers, AI agents, and knowledge-sharing tools.
+
+## 🐍 Python Integration
+
+Python developers can use the included models:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Import models
+from models import Dataset, Resource
+
+# Load dataset with validation
+dataset = Dataset.from_legacy_json(json_data, resources_data, "Dataset Name")
+```
+
+Features:
+- Type checking and validation
+- Format conversion utilities
+- IDE type hint support
 
 ## 🤝 How to Contribute
 
