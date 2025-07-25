@@ -1,0 +1,145 @@
+{
+  "$defs": {
+    "Contact": {
+      "additionalProperties": true,
+      "description": "Standardized contact information.",
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Address"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "website": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Website"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Phone"
+        }
+      },
+      "title": "Contact",
+      "type": "object"
+    },
+    "Metadata": {
+      "additionalProperties": true,
+      "description": "Resource metadata for enhanced querying.",
+      "properties": {
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Category"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "status": {
+          "default": "active",
+          "title": "Status",
+          "type": "string"
+        },
+        "source_file": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source File"
+        }
+      },
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "description": "Standardized GOSR resource model.\nDesigned for JSONL format - one resource per line.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "integer"
+    },
+    "program": {
+      "description": "Name of the program or service",
+      "title": "Program",
+      "type": "string"
+    },
+    "description": {
+      "description": "Detailed description of the program",
+      "title": "Description",
+      "type": "string"
+    },
+    "organization": {
+      "description": "Organization providing the program",
+      "title": "Organization",
+      "type": "string"
+    },
+    "contact": {
+      "$ref": "#/$defs/Contact",
+      "description": "Contact information"
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata",
+      "description": "Additional metadata"
+    }
+  },
+  "required": [
+    "id",
+    "program",
+    "description",
+    "organization",
+    "contact",
+    "metadata"
+  ],
+  "title": "Resource",
+  "type": "object"
+}

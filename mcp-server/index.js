@@ -462,9 +462,9 @@ function extractHierarchyLevel(data, level, obstacleFilter = null) {
 
 function findResourcesByIds(resourceIds, allResources) {
     const results = [];
-    if (!allResources || !allResources.resources) return results;
+    if (!allResources || !Array.isArray(allResources)) return results;
 
-    for (const resource of allResources.resources) {
+    for (const resource of allResources) {
         if (resourceIds.includes(resource.id)) {
             results.push(resource);
         }
@@ -504,8 +504,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                             // Also search in separate resources file if available
                             if (datasetInfo.resourcesFile) {
                                 const resources = await readJSONFile(datasetInfo.resourcesFile);
-                                if (resources && resources.resources) {
-                                    const matchingResources = resources.resources.filter(resource => {
+                                if (resources && Array.isArray(resources)) {
+                                    const matchingResources = resources.filter(resource => {
                                         const resourceText = JSON.stringify(resource).toLowerCase();
                                         return keywords.some(keyword =>
                                             resourceText.includes(keyword.toLowerCase())
@@ -626,8 +626,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 if (datasetInfo.resourcesFile) {
                     try {
                         const resources = await readJSONFile(datasetInfo.resourcesFile);
-                        if (resources && resources.resources) {
-                            const resource = resources.resources.find(r => r.id === resource_id);
+                        if (resources && Array.isArray(resources)) {
+                            const resource = resources.find(r => r.id === resource_id);
                             if (resource) {
                                 resourceDetails = {
                                     dataset: datasetId,
