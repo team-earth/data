@@ -366,7 +366,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         case 'search_solutions_by_obstacle': {
-            const { obstacle_name, dataset, solution_keywords = [] } = args;
+            const { obstacle_name, dataset, solution_keywords = [], limit = 5, offset = 0 } = args;
 
             // REQUIRED: Dataset must be specified
             if (!dataset) {
@@ -377,31 +377,58 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 throw new Error(`Dataset '${dataset}' not found. Available: ${Object.keys(DATASETS).join(', ')}`);
             }
 
-            let results = [];
+            let results = {
+                solutions: [],
+                total: 0,
+                pagination: {
+                    limit,
+                    offset,
+                    has_more: false
+                }
+            };
 
             try {
                 const data = await readJSONFile(DATASETS[dataset].dataFile);
                 if (data && data.goal) {
                     const solutions = extractSolutionsFromHierarchy(data.goal);
 
-                    // Filter solutions by obstacle context
-                    const matchingSolutions = solutions.filter(solution => {
-                        const obstacleMatch = solution.obstacle_context &&
-                            solution.obstacle_context.toLowerCase().includes(obstacle_name.toLowerCase());
-
-                        const keywordMatch = solution_keywords.length === 0 ||
-                            solution_keywords.some(keyword =>
+                    // Filter solutions by obstacle context with flexible matching
+                    let matchingSolutions = solutions.filter(solution => {
+                        // More flexible obstacle matching - check if obstacle context contains any key words
+                        const obstacleMatch = solution.obstacle_context && (
+                            solution.obstacle_context.toLowerCase().includes(obstacle_name.toLowerCase()) ||
+                            obstacle_name.toLowerCase().split(' ').some(word => 
+                                word.length > 3 && solution.obstacle_context.toLowerCase().includes(word)
+                            )
+                        );
+                        
+                        const keywordMatch = solution_keywords.length === 0 || 
+                            solution_keywords.some(keyword => 
                                 JSON.stringify(solution).toLowerCase().includes(keyword.toLowerCase())
                             );
-
+                        
                         return obstacleMatch && keywordMatch;
-                    }).map(s => ({
-                        ...s,
-                        dataset: dataset,
-                        problemArea: DATASETS[dataset].problemArea
-                    }));
-
-                    results = matchingSolutions;
+                    });
+                    
+                    // Apply pagination
+                    const totalSolutions = matchingSolutions.length;
+                    matchingSolutions = matchingSolutions
+                        .slice(offset, offset + limit)
+                        .map(s => ({
+                            ...s,
+                            dataset: dataset,
+                            problemArea: DATASETS[dataset].problemArea
+                        }));
+                    
+                    results = {
+                        solutions: matchingSolutions,
+                        total: totalSolutions,
+                        pagination: {
+                            limit,
+                            offset,
+                            has_more: offset + limit < totalSolutions
+                        }
+                    };
                 }
             } catch (error) {
                 throw new Error(`Error searching solutions in ${dataset}: ${error.message}`);
@@ -415,8 +442,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                         dataset,
                         problemArea: DATASETS[dataset].problemArea,
                         solution_keywords,
-                        solutions: results,
-                        total: results.length
+                        ...results
                     }, null, 2)
                 }]
             };
@@ -468,7 +494,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         case 'get_gosr_hierarchy': {
-            const { level = 'full', dataset, obstacle_filter } = args;
+            const { level = 'full', dataset, obstacle_filter, specific_obstacle, limit = 10 } = args;
 
             if (!dataset) {
                 // Return available datasets
@@ -506,16 +532,81 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
                 switch (level) {
                     case 'obstacles':
-                        result.obstacles = extractObstaclesFromHierarchy(data.goal);
+                        let obstacles = extractObstaclesFromHierarchy(data.goal);
+                        
+                        // Filter by specific obstacle if provided
+                        if (specific_obstacle) {
+                            obstacles = obstacles.filter(obs => 
+                                obs.name.toLowerCase().includes(specific_obstacle.toLowerCase()) ||
+                                obs.description?.toLowerCase().includes(specific_obstacle.toLowerCase())
+                            );
+                        }
+                        
+                        // Apply obstacle_filter if provided
+                        if (obstacle_filter) {
+                            obstacles = obstacles.filter(obs => 
+                                obs.name.toLowerCase().includes(obstacle_filter.toLowerCase()) ||
+                                obs.description?.toLowerCase().includes(obstacle_filter.toLowerCase())
+                            );
+                        }
+                        
+                        // Apply limit
+                        result.obstacles = obstacles.slice(0, limit);
+                        result.total_obstacles = obstacles.length;
+                        result.showing = Math.min(limit, obstacles.length);
                         break;
+                        
                     case 'solutions':
-                        result.solutions = extractSolutionsFromHierarchy(data.goal);
+                        let solutions = extractSolutionsFromHierarchy(data.goal);
+                        
+                        // Filter by specific obstacle if provided
+                        if (specific_obstacle) {
+                            solutions = solutions.filter(sol => 
+                                sol.obstacle_context?.toLowerCase().includes(specific_obstacle.toLowerCase())
+                            );
+                        }
+                        
+                        // Apply limit
+                        result.solutions = solutions.slice(0, limit);
+                        result.total_solutions = solutions.length;
+                        result.showing = Math.min(limit, solutions.length);
                         break;
+                        
                     case 'full':
                     default:
                         result.goal = data.goal.data;
-                        result.obstacles = extractObstaclesFromHierarchy(data.goal);
-                        result.solutions = extractSolutionsFromHierarchy(data.goal);
+                        
+                        let allObstacles = extractObstaclesFromHierarchy(data.goal);
+                        let allSolutions = extractSolutionsFromHierarchy(data.goal);
+                        
+                        // Apply filtering
+                        if (specific_obstacle) {
+                            allObstacles = allObstacles.filter(obs => 
+                                obs.name.toLowerCase().includes(specific_obstacle.toLowerCase()) ||
+                                obs.description?.toLowerCase().includes(specific_obstacle.toLowerCase())
+                            );
+                            allSolutions = allSolutions.filter(sol => 
+                                sol.obstacle_context?.toLowerCase().includes(specific_obstacle.toLowerCase())
+                            );
+                        }
+                        
+                        if (obstacle_filter) {
+                            allObstacles = allObstacles.filter(obs => 
+                                obs.name.toLowerCase().includes(obstacle_filter.toLowerCase()) ||
+                                obs.description?.toLowerCase().includes(obstacle_filter.toLowerCase())
+                            );
+                        }
+                        
+                        result.obstacles = allObstacles.slice(0, limit);
+                        result.solutions = allSolutions.slice(0, limit);
+                        result.totals = {
+                            obstacles: allObstacles.length,
+                            solutions: allSolutions.length
+                        };
+                        result.showing = {
+                            obstacles: Math.min(limit, allObstacles.length),
+                            solutions: Math.min(limit, allSolutions.length)
+                        };
                         break;
                 }
 
@@ -619,6 +710,16 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
                             type: 'array',
                             items: { type: 'string' },
                             description: 'Filter solutions by keywords'
+                        },
+                        limit: {
+                            type: 'number',
+                            description: 'Maximum number of solutions to return',
+                            default: 5
+                        },
+                        offset: {
+                            type: 'number',
+                            description: 'Number of solutions to skip (for pagination)',
+                            default: 0
                         }
                     },
                     required: ['obstacle_name', 'dataset']
@@ -663,6 +764,15 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
                         obstacle_filter: {
                             type: 'string',
                             description: 'Filter to specific obstacle theme'
+                        },
+                        specific_obstacle: {
+                            type: 'string',
+                            description: 'Filter solutions to one specific obstacle name'
+                        },
+                        limit: {
+                            type: 'number',
+                            description: 'Maximum number of solutions to return per obstacle',
+                            default: 10
                         }
                     },
                     required: ['dataset']
