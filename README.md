@@ -50,31 +50,24 @@ This format builds on a published cognitive and systems-thinking framework:
 Integrated = Resources included in the same JSON file as the structure  
 ✨ = Enhanced with validated data, standardized schema, and rich metadata
 
-**Data Quality Note**: All resource files marked with ✨ have been validated and cleaned of duplicates and corrupt entries. Original unvalidated files are backed up with `_unvalidated` suffix. Current resource counts represent clean, deduplicated data ready for analysis.
+**Data Quality Note**: All resource files marked with ✨ contain validated, clean data ready for analysis. Original files are preserved as backups with `_unvalidated` suffix.
 
 ## ✅ Enhanced Data Validation & Standardization
 
 This repository features validated, high-quality data with enhanced [Pydantic](https://pydantic.dev/) models:
 
-### **Current Data Status**
-- **✅ All resource files updated** with validated, standardized data
-- **✅ 12,147 clean resources** across 4 datasets (200+ corrupt records filtered out)
-- **✅ Unified schema** with consistent field names and structure
+### **Data Features**
+- **✅ 12,147 validated resources** across 4 datasets
+- **✅ Standardized schema** with consistent field names and structure
 - **✅ Rich metadata** with auto-generated tags and structured contact information
-
-### **Data Improvements Made**
-- **Standardized field names**: `name` → `program` (more semantically accurate)
-- **Structured contacts**: Nested `contact` object (address, email, website, phone)
-- **Enhanced metadata**: Auto-generated tags, categories, and source tracking
-- **Data quality**: Removed incomplete/corrupt entries, normalized text encoding
-- **Type safety**: Full Pydantic validation with proper type checking
+- **✅ Type safety** with full Pydantic validation
 
 ### **Available Models**
-- **`models.py`**: Original legacy format support for backward compatibility
+- **`models.py`**: Legacy format support for backward compatibility
 - **`models_jsonl.py`**: Enhanced models with streaming support and search capabilities
 - **`PYDANTIC_DOCS.md`**: Complete documentation and usage examples
 
-### **New Resource Schema Example**
+### **Resource Schema**
 ```json
 {
   "id": 0,
