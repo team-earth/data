@@ -37,34 +37,58 @@ This format builds on a published cognitive and systems-thinking framework:
 | Directory | Title | Focus | Map | PDF | Mindmap JSON | Resources JSON |
 |-----------|-------|-------|-----|-----|---------------|----------------|
 | [`un-lonely-new-york-city/`](./un-lonely-new-york-city/) | *Un-Lonely New York City* | Urban loneliness and disconnection | [Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) | Integrated |
-| [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Mindmap](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) | [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) |
-| [`kansas-city-violence-prevention/`](./kansas-city-violence-prevention/) | *Kansas City: Violence Prevention and Social Cohesion* | Community safety and connection | [Map](https://www.google.com/maps/d/viewer?mid=1zp2LX82X8_EqGyBBAN9ul_Rm_5a_1XA) | [PDF](./kansas-city-violence-prevention/Kansas%20City%2C%20Violence%20Prevention%20and%20Social%20Cohesion.pdf) | [Mindmap](./kansas-city-violence-prevention/kansas-city-violence-prevention.json) | [Resources](./kansas-city-violence-prevention/kansas-city-violence-prevention-resources.json) |
-| [`london-resilient-to-extremism/`](./london-resilient-to-extremism/) | *London: Resilient to Extremism* | Countering manipulation and strengthening cohesion | [Map](https://www.google.com/maps/d/edit?mid=1NX1rbU-EIr_0_PcscMxRksNVuIPgvVg&usp=sharing) | [PDF](./london-resilient-to-extremism/London%20Resilient%20to%20Extremism.pdf) | [Mindmap](./london-resilient-to-extremism/london-resilient-to-extremism.json) | [Resources](./london-resilient-to-extremism/london-resilient-to-extremism-resources.json) |
-| [`ottawa-resilient-to-extremism/`](./ottawa-resilient-to-extremism/) | *Ottawa: Resilient to Extremism* | Community resilience in the face of radicalization tactics | [Map](https://www.google.com/maps/d/edit?mid=1BBKUIh6s8sJZP4bebkweZbmwmwipNYk&usp=sharing) | [PDF](./ottawa-resilient-to-extremism/Ottawa%20Resilient%20to%20Extremism.pdf) | [Mindmap](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism.json) | [Resources](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism-resources.json) |
+| [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Mindmap](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) | [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) ✨ |
+| [`kansas-city-violence-prevention/`](./kansas-city-violence-prevention/) | *Kansas City: Violence Prevention and Social Cohesion* | Community safety and connection | [Map](https://www.google.com/maps/d/viewer?mid=1zp2LX82X8_EqGyBBAN9ul_Rm_5a_1XA) | [PDF](./kansas-city-violence-prevention/Kansas%20City%2C%20Violence%20Prevention%20and%20Social%20Cohesion.pdf) | [Mindmap](./kansas-city-violence-prevention/kansas-city-violence-prevention.json) | [Resources](./kansas-city-violence-prevention/kansas-city-violence-prevention-resources.json) ✨ |
+| [`london-resilient-to-extremism/`](./london-resilient-to-extremism/) | *London: Resilient to Extremism* | Countering manipulation and strengthening cohesion | [Map](https://www.google.com/maps/d/edit?mid=1NX1rbU-EIr_0_PcscMxRksNVuIPgvVg&usp=sharing) | [PDF](./london-resilient-to-extremism/London%20Resilient%20to%20Extremism.pdf) | [Mindmap](./london-resilient-to-extremism/london-resilient-to-extremism.json) | [Resources](./london-resilient-to-extremism/london-resilient-to-extremism-resources.json) ✨ |
+| [`ottawa-resilient-to-extremism/`](./ottawa-resilient-to-extremism/) | *Ottawa: Resilient to Extremism* | Community resilience in the face of radicalization tactics | [Map](https://www.google.com/maps/d/edit?mid=1BBKUIh6s8sJZP4bebkweZbmwmwipNYk&usp=sharing) | [PDF](./ottawa-resilient-to-extremism/Ottawa%20Resilient%20to%20Extremism.pdf) | [Mindmap](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism.json) | [Resources](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism-resources.json) ✨ |
 | [`food-security-nova-scotia/`](./food-security-nova-scotia/) | *Food Security in Nova Scotia* | Structural drivers of food insecurity |  | [PDF](./food-security-nova-scotia/Food%20Security%20in%20Nova%20Scotia.pdf) | [Mindmap](./food-security-nova-scotia/food-security-nova-scotia.json) |  |
 | [`mental-health-nova-scotia/`](./mental-health-nova-scotia/) | *Mental Health and Addiction in Nova Scotia* | Gaps in care, access, and coordination | [Map](https://www.google.com/maps/d/edit?mid=1lWINczsNTJUtsOjqqyoXH4YcEYaUaAk&usp=sharing) | [PDF](./mental-health-nova-scotia/Mental%20Health%20and%20Addiction%20in%20Nova%20Scotia.pdf) | [Mindmap](./mental-health-nova-scotia/mental-health-nova-scotia.json) | |
 | [`education-innovation/`](./education-innovation/) | *Education Innovation* | Overcoming systemic barriers in education reform |  | [PDF](./education-innovation/Education%20Innovation.pdf) | [Mindmap](./education-innovation/education-innovation.json) |  |
 | [`climate-change-adaptation/`](./climate-change-adaptation/) | *Climate Change Adaptation* | Resilience strategies for climate-related threats |  | [PDF](./climate-change-adaptation/Climate%20Change%20Adaptation.pdf) | [Mindmap](./climate-change-adaptation/climate-change-adaptation.json) |  |
 
 **Legend:**  
-Integrated = Resources included in the same JSON file as the structure
+Integrated = Resources included in the same JSON file as the structure  
+✨ = Schema-compliant data with standardized format and rich metadata
 
-**Data Quality Note**: Some datasets include duplicate entries marked with `is_duplicate` flags. For accurate resource counts, filter duplicates when conducting analysis (e.g., London contains 2,381 duplicates out of 7,072 total entries).
+**Data Quality Note**: All resource files marked with ✨ contain schema-compliant, clean data ready for analysis.
 
-## ✅ Data Validation
+## ✅ Data Schema & Standardization
 
-This repository includes [Pydantic](https://pydantic.dev/) models for programmatic data validation:
+This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
-- **Type validation**: Data types and structure consistency across datasets
-- **Schema support**: Models handle hierarchical, Goal-Obstacle-Solution, and resource collection formats
-- **Validation status**: 12,369 resources across 4 resource files currently pass validation
-- **Compatibility**: Original JSON structures preserved
+### **Data Features**
+- **✅ 12,147 schema-compliant resources** across 4 datasets
+- **✅ Standardized schema** with consistent field names and structure
+- **✅ Rich metadata** with auto-generated tags and structured contact information
+- **✅ Type safety** with full Pydantic schema checking
 
-### Technical Details
+### **Available Models**
+- **`models_jsonl.py`**: Pydantic models with streaming support and search capabilities
+- **`PYDANTIC_DOCS.md`**: Complete documentation and usage examples
 
-- **Models**: [`models.py`](./models.py) contains Pydantic models for the dataset schemas
-- **Coverage**: All JSON files validate against the defined models
-- **Standardization**: Field names normalized across entries
+### **Resource Schema**
+```json
+{
+  "id": 0,
+  "program": "Building Resilience Against Terrorism",
+  "description": "Program description...",
+  "organization": "Public Safety Canada",
+  "contact": {
+    "address": "269 Laurier Avenue West, Ottawa, ON K1A 0P8, Canada",
+    "email": "contact@example.com",
+    "website": "https://www.publicsafety.gc.ca",
+    "phone": "+1-613-xxx-xxxx"
+  },
+  "metadata": {
+    "category": "Counter-terrorism",
+    "tags": ["resilience", "education", "community"],
+    "status": "active",
+    "source_file": "ottawa-resilient-to-extremism-resources.json"
+  }
+}
+```
+
+**📚 Documentation**: See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete technical documentation and usage examples.
 
 Supported formats:
 - Hierarchical tree structures (Climate Change, Education)  
@@ -90,7 +114,7 @@ Each map provides machine-readable data that enables:
 
 ## 📘 Book Series Metadata
 
-This repository includes structured metadata for all 10 books in the *Unsolvable: Think Again!* series by Kevin Kells, PhD:
+This repository includes structured metadata for books in the *Unsolvable: Think Again!* series by Kevin Kells, PhD:
 
 - [`metadata.yaml`](./metadata.yaml) – Contains full publication details, summaries, tags, and dataset links for each book.
 
@@ -107,21 +131,61 @@ The format is designed to be accessible for use by developers, AI agents, and kn
 
 ## 🐍 Python Integration
 
-Python developers can use the included models:
-
 ```bash
 # Install dependencies
 pip install -r requirements.txt
+```
 
+```python
 # Import models
-from models import Dataset, Resource
+from models_jsonl import Dataset
+import json
 
-# Load dataset with validation
-dataset = Dataset.from_legacy_json(json_data, resources_data, "Dataset Name")
+# Load a dataset
+with open("./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json", "r") as f:
+    data = json.load(f)
+
+dataset = Dataset.model_validate({
+    "name": "un-lonely-nova-scotia",
+    "resources": data
+})
+
+# Stream resources without loading everything into memory
+for resource in dataset.stream_resources():
+    print(f"{resource.program} - {resource.organization}")
+
+# Search within the dataset
+results = dataset.search_resources(query="mental health", limit=10)
+```
+
+**Features:**
+- 📊 **12,147 schema-compliant resources** across 4 datasets
+- 🚀 **Streaming support** for memory efficiency
+- 🧹 **Clean data** with consistent schema
+- 🔍 **Search capabilities** with metadata tags
+- 💾 **Type safety** with Pydantic models
+
+See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete documentation.
+
+### Python Integration
+
+```python
+# Import models
+from models_jsonl import Dataset
+import json
+
+# Load dataset with schema checking
+with open("path/to/resources.json", "r") as f:
+    data = json.load(f)
+
+dataset = Dataset.model_validate({
+    "name": "dataset-name", 
+    "resources": data
+})
 ```
 
 Features:
-- Type checking and validation
+- Type checking and schema compliance
 - Format conversion utilities
 - IDE type hint support
 
