@@ -50,7 +50,7 @@ async function testTools() {
             console.log('✅ Basic call successful');
             console.log('Result type:', typeof result);
             console.log('Result keys:', Object.keys(result || {}));
-            
+
             if (result && result.content) {
                 console.log('Content length:', result.content.length);
                 if (result.content[0]) {

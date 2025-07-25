@@ -22,15 +22,15 @@ const server = new Server(
 // Simple debug tool
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
-    
+
     console.error(`DEBUG: Tool called: ${name}`);
     console.error(`DEBUG: Arguments:`, JSON.stringify(args, null, 2));
-    
+
     if (name === 'search_solutions_by_obstacle') {
         try {
             const { obstacle_name, dataset, solution_keywords = [], limit = 5, offset = 0 } = args;
             console.error(`DEBUG: Destructured - obstacle_name: ${obstacle_name}, dataset: ${dataset}, limit: ${limit}, offset: ${offset}`);
-            
+
             const result = {
                 obstacle_name,
                 dataset,
@@ -42,9 +42,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                     has_more: false
                 }
             };
-            
+
             console.error(`DEBUG: Result created:`, JSON.stringify(result, null, 2));
-            
+
             return {
                 content: [{
                     type: 'text',
@@ -56,7 +56,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             throw error;
         }
     }
-    
+
     throw new Error(`Unknown tool: ${name}`);
 });
 
