@@ -10,7 +10,7 @@ This document describes the standardized data format and Pydantic models for the
 - **Location**: Resource files in dataset directories (marked with ✨)
 - **Total Resources**: 12,147 community programs and services
 
-### 2. **Enhanced Pydantic Models**
+### 2. **Pydantic Models**
 - **File**: `models_jsonl.py`
 - **Features**: Type checking, streaming support, search capabilities
 - **Backward Compatible**: Works with existing JSON data
@@ -40,10 +40,10 @@ This document describes the standardized data format and Pydantic models for the
 ## 📊 **Data Quality Features**
 
 ### Schema Standardization
-- ✅ **Consistent field names**: Always use `program` (semantic accuracy)
+- ✅ **Consistent field names**: Uses `program` field for resource names
 - ✅ **Structured contacts**: Nested object for all contact information
-- ✅ **Rich metadata**: Tags, categories, status for better querying
-- ✅ **Type safety**: Clear string/number/object distinctions
+- ✅ **Rich metadata**: Tags, categories, status for querying
+- ✅ **Type safety**: Full Pydantic model validation
 - ✅ **Quality filtering**: Removed 200+ incomplete/corrupt records
 
 ## 🛠️ **Available Tools**
@@ -84,7 +84,7 @@ results = dataset.search_resources(
 ├── PYDANTIC_DOCS.md                # This documentation
 ├── metadata.jsonld
 ├── metadata.yaml
-├── models_jsonl.py                 # Enhanced Pydantic models
+├── models_jsonl.py                 # Pydantic models
 ├── requirements.txt
 ├── un-lonely-nova-scotia/
 │   ├── Un-Lonely Nova Scotia.pdf
@@ -104,14 +104,12 @@ results = dataset.search_resources(
 │   └── kansas-city-violence-prevention-resources.json ✨  # Schema-compliant data
 └── [other dataset directories...]
 ```
-
-**Note**: Original unvalidated files are backed up locally with `_unvalidated` suffix but are excluded from the repository via `.gitignore`.
 ```
 
 ## 🎯 **Usage Guide**
 
 ### For Developers
-1. **Use enhanced models**: Import from `models_jsonl.py`
+1. **Use models**: Import from `models_jsonl.py`
 2. **Stream data**: Use `dataset.stream_resources()` for large datasets
 3. **Search efficiently**: Use built-in search methods
 4. **Check data**: Use Pydantic models for type safety
@@ -125,7 +123,7 @@ results = dataset.search_resources(
 ### For Applications
 1. **Resource files**: Load from dataset directories (files marked with ✨)
 2. **Streaming support**: Process resources one at a time
-3. **Enhanced search**: Use metadata for better filtering
+3. **Search capabilities**: Use metadata for filtering
 4. **Type safety**: Leverage Pydantic schema checking
 
 ## 🔍 **Dataset Statistics**
@@ -142,14 +140,14 @@ results = dataset.search_resources(
 
 Test the Pydantic models:
 ```bash
-# Test enhanced models
+# Test models
 python models_jsonl.py
 ```
 
-## 📈 **Performance Benefits**
+## 📈 **Features**
 
-- **Memory Usage**: 90% reduction when streaming vs loading all data
-- **Schema Safety**: Type checking prevents runtime errors
-- **Data Quality**: 200+ corrupt records cleaned/removed
-- **Type Safety**: 100% validation with Pydantic models
-- **Search Speed**: Indexed metadata for faster queries
+- **Memory Efficient**: Streaming support for large datasets
+- **Schema Safety**: Type checking prevents runtime errors  
+- **Data Quality**: Clean, standardized resource data
+- **Search Capabilities**: Built-in search and filtering
+- **Type Safety**: Full Pydantic model validation

@@ -48,13 +48,13 @@ This format builds on a published cognitive and systems-thinking framework:
 
 **Legend:**  
 Integrated = Resources included in the same JSON file as the structure  
-✨ = Enhanced with schema-compliant data, standardized format, and rich metadata
+✨ = Schema-compliant data with standardized format and rich metadata
 
-**Data Quality Note**: All resource files marked with ✨ contain schema-compliant, clean data ready for analysis. Original files are backed up locally (not in repository) with `_unvalidated` suffix.
+**Data Quality Note**: All resource files marked with ✨ contain schema-compliant, clean data ready for analysis.
 
-## ✅ Enhanced Data Schema & Standardization
+## ✅ Data Schema & Standardization
 
-This repository features schema-compliant, high-quality data with enhanced [Pydantic](https://pydantic.dev/) models:
+This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
 ### **Data Features**
 - **✅ 12,147 schema-compliant resources** across 4 datasets
@@ -63,7 +63,7 @@ This repository features schema-compliant, high-quality data with enhanced [Pyda
 - **✅ Type safety** with full Pydantic schema checking
 
 ### **Available Models**
-- **`models_jsonl.py`**: Enhanced models with streaming support and search capabilities
+- **`models_jsonl.py`**: Pydantic models with streaming support and search capabilities
 - **`PYDANTIC_DOCS.md`**: Complete documentation and usage examples
 
 ### **Resource Schema**
@@ -88,7 +88,7 @@ This repository features schema-compliant, high-quality data with enhanced [Pyda
 }
 ```
 
-**📚 Documentation**: See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete technical documentation, migration guides, and usage examples.
+**📚 Documentation**: See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete technical documentation and usage examples.
 
 Supported formats:
 - Hierarchical tree structures (Climate Change, Education)  
@@ -129,50 +129,59 @@ The `metadata.yaml` file is machine-readable and can be utilized for:
 
 The format is designed to be accessible for use by developers, AI agents, and knowledge-sharing tools.
 
-## 🐍 Python Integration & Data Formats
-
-### New JSONL Format (Pydantic Conversion Branch)
-
-For enhanced performance and scalability, a new standardized JSONL format is available:
+## 🐍 Python Integration
 
 ```bash
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Use new JSONL models for better performance
-from models_jsonl import DatasetCollection
+```python
+# Import models
+from models_jsonl import Dataset
+import json
 
-# Load all datasets efficiently
-collection = DatasetCollection.from_jsonl_directory("./jsonl")
+# Load a dataset
+with open("./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json", "r") as f:
+    data = json.load(f)
+
+dataset = Dataset.model_validate({
+    "name": "un-lonely-nova-scotia",
+    "resources": data
+})
 
 # Stream resources without loading everything into memory
-dataset = collection.get_dataset("ottawa-resilient-to-extremism")
 for resource in dataset.stream_resources():
     print(f"{resource.program} - {resource.organization}")
 
-# Search across 12,147+ resources
-results = collection.search_all_datasets(query="mental health", limit=10)
+# Search within the dataset
+results = dataset.search_resources(query="mental health", limit=10)
 ```
 
-**JSONL Benefits:**
+**Features:**
 - 📊 **12,147 schema-compliant resources** across 4 datasets
-- 🚀 **3x faster loading** with streaming support  
-- 🧹 **Cleaned data** with consistent schema
-- 🔍 **Enhanced search** with metadata tags
-- 💾 **90% less memory** usage for large datasets
+- 🚀 **Streaming support** for memory efficiency
+- 🧹 **Clean data** with consistent schema
+- 🔍 **Search capabilities** with metadata tags
+- 💾 **Type safety** with Pydantic models
 
 See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete documentation.
 
-### Legacy Python Integration
+### Python Integration
 
-For backward compatibility with original JSON format:
-
-```bash
-# Import legacy models
-from models import Dataset, Resource
+```python
+# Import models
+from models_jsonl import Dataset
+import json
 
 # Load dataset with schema checking
-dataset = Dataset.from_legacy_json(json_data, resources_data, "Dataset Name")
+with open("path/to/resources.json", "r") as f:
+    data = json.load(f)
+
+dataset = Dataset.model_validate({
+    "name": "dataset-name", 
+    "resources": data
+})
 ```
 
 Features:

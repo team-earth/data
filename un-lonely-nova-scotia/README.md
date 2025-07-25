@@ -24,13 +24,6 @@ Like its companion volume, *Un-Lonely New York City*, this guide is structured a
 - `un-lonely-nova-scotia-resources.json` – A flat table of all resources with metadata (names, descriptions, websites, contact info) used in the outline  
 - `README.md` – This file
 
-### 🚀 **New: Enhanced Data Formats (Pydantic Conversion Branch)**
-
-- **`../jsonl/un-lonely-nova-scotia.jsonl`** – Standardized JSONL format with 4,434 schema-compliant resources
-- **Enhanced schema**: Structured contact info, metadata tags, and consistent field names
-- **Streaming support**: Memory-efficient processing for large datasets
-- **Type checking**: Full Pydantic model schema checking
-
 ## 🧠 How the JSON Files Work Together
 
 - **`un-lonely-nova-scotia.json`** is the structural mindmap of the problem and its solutions.  
@@ -38,12 +31,6 @@ Like its companion volume, *Un-Lonely New York City*, this guide is structured a
 
 - **`un-lonely-nova-scotia-resources.json`** contains detailed entries for those resources, matched by ID.  
   This allows separation of structure and content, enabling easier reuse, updating, and visualization.
-
-- **`../jsonl/un-lonely-nova-scotia.jsonl`** *(New)* provides the same resource data in a more efficient format:
-  - One resource per line for streaming
-  - Standardized schema with nested contact information  
-  - Enhanced metadata with auto-generated tags
-  - 90% memory reduction for large-scale processing
 
 Together, they allow both human readers and software tools (including AI) to navigate from high-level goals down to detailed real-world programs — or vice versa.
 
