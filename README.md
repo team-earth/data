@@ -48,19 +48,19 @@ This format builds on a published cognitive and systems-thinking framework:
 
 **Legend:**  
 Integrated = Resources included in the same JSON file as the structure  
-✨ = Enhanced with validated data, standardized schema, and rich metadata
+✨ = Enhanced with schema-compliant data, standardized format, and rich metadata
 
-**Data Quality Note**: All resource files marked with ✨ contain validated, clean data ready for analysis. Original files are backed up locally (not in repository) with `_unvalidated` suffix.
+**Data Quality Note**: All resource files marked with ✨ contain schema-compliant, clean data ready for analysis. Original files are backed up locally (not in repository) with `_unvalidated` suffix.
 
-## ✅ Enhanced Data Validation & Standardization
+## ✅ Enhanced Data Schema & Standardization
 
-This repository features validated, high-quality data with enhanced [Pydantic](https://pydantic.dev/) models:
+This repository features schema-compliant, high-quality data with enhanced [Pydantic](https://pydantic.dev/) models:
 
 ### **Data Features**
-- **✅ 12,147 validated resources** across 4 datasets
+- **✅ 12,147 schema-compliant resources** across 4 datasets
 - **✅ Standardized schema** with consistent field names and structure
 - **✅ Rich metadata** with auto-generated tags and structured contact information
-- **✅ Type safety** with full Pydantic validation
+- **✅ Type safety** with full Pydantic schema checking
 
 ### **Available Models**
 - **`models.py`**: Legacy format support for backward compatibility
@@ -156,7 +156,7 @@ results = collection.search_all_datasets(query="mental health", limit=10)
 ```
 
 **JSONL Benefits:**
-- 📊 **12,147 validated resources** across 4 datasets
+- 📊 **12,147 schema-compliant resources** across 4 datasets
 - 🚀 **3x faster loading** with streaming support  
 - 🧹 **Cleaned data** with consistent schema
 - 🔍 **Enhanced search** with metadata tags
@@ -172,12 +172,12 @@ For backward compatibility with original JSON format:
 # Import legacy models
 from models import Dataset, Resource
 
-# Load dataset with validation
+# Load dataset with schema checking
 dataset = Dataset.from_legacy_json(json_data, resources_data, "Dataset Name")
 ```
 
 Features:
-- Type checking and validation
+- Type checking and schema compliance
 - Format conversion utilities
 - IDE type hint support
 

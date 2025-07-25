@@ -26,10 +26,10 @@ Like its companion volume, *Un-Lonely New York City*, this guide is structured a
 
 ### 🚀 **New: Enhanced Data Formats (Pydantic Conversion Branch)**
 
-- **`../jsonl/un-lonely-nova-scotia.jsonl`** – Standardized JSONL format with 4,434 validated resources
+- **`../jsonl/un-lonely-nova-scotia.jsonl`** – Standardized JSONL format with 4,434 schema-compliant resources
 - **Enhanced schema**: Structured contact info, metadata tags, and consistent field names
 - **Streaming support**: Memory-efficient processing for large datasets
-- **Type validation**: Full Pydantic model validation
+- **Type checking**: Full Pydantic model schema checking
 
 ## 🧠 How the JSON Files Work Together
 
