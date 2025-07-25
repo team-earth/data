@@ -50,7 +50,7 @@ This format builds on a published cognitive and systems-thinking framework:
 Integrated = Resources included in the same JSON file as the structure  
 ✨ = Enhanced with validated data, standardized schema, and rich metadata
 
-**Data Quality Note**: All resource files marked with ✨ contain validated, clean data ready for analysis. Original files are preserved as backups with `_unvalidated` suffix.
+**Data Quality Note**: All resource files marked with ✨ contain validated, clean data ready for analysis. Original files are backed up locally (not in repository) with `_unvalidated` suffix.
 
 ## ✅ Enhanced Data Validation & Standardization
 

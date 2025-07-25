@@ -95,24 +95,23 @@ results = dataset.search_resources(
 ├── un-lonely-nova-scotia/
 │   ├── Un-Lonely Nova Scotia.pdf
 │   ├── un-lonely-nova-scotia.json
-│   ├── un-lonely-nova-scotia-resources.json ✨  # Validated data
-│   └── un-lonely-nova-scotia-resources_unvalidated.json
+│   └── un-lonely-nova-scotia-resources.json ✨  # Validated data
 ├── london-resilient-to-extremism/
 │   ├── London Resilient to Extremism.pdf
 │   ├── london-resilient-to-extremism.json
-│   ├── london-resilient-to-extremism-resources.json ✨  # Validated data
-│   └── london-resilient-to-extremism-resources_unvalidated.json
+│   └── london-resilient-to-extremism-resources.json ✨  # Validated data
 ├── ottawa-resilient-to-extremism/
 │   ├── Ottawa Resilient to Extremism.pdf
 │   ├── ottawa-resilient-to-extremism.json
-│   ├── ottawa-resilient-to-extremism-resources.json ✨  # Validated data
-│   └── ottawa-resilient-to-extremism-resources_unvalidated.json
+│   └── ottawa-resilient-to-extremism-resources.json ✨  # Validated data
 ├── kansas-city-violence-prevention/
 │   ├── Kansas City, Violence Prevention and Social Cohesion.pdf
 │   ├── kansas-city-violence-prevention.json
-│   ├── kansas-city-violence-prevention-resources.json ✨  # Validated data
-│   └── kansas-city-violence-prevention-resources_unvalidated.json
+│   └── kansas-city-violence-prevention-resources.json ✨  # Validated data
 └── [other dataset directories...]
+```
+
+**Note**: Original unvalidated files are backed up locally with `_unvalidated` suffix but are excluded from the repository via `.gitignore`.
 ```
 
 ## 🎯 **Usage Guide**
