@@ -48,6 +48,33 @@ Goal: "Building Community Resilience Against Extremism"
 - **Resource listings** for programs implementing solutions
 - **Search capabilities** across all datasets
 - **Structured access** via MCP protocol
+- **🔬 Schema validation** with Pydantic-to-TypeScript integration
+
+## 🔄 Schema Validation Integration
+
+This MCP server features **end-to-end schema validation** from Pydantic models to TypeScript types:
+
+```
+Pydantic Models → JSON Schema → AJV Validation → TypeScript Types
+    (Python)         (JSON)        (Node.js)         (Dev)
+```
+
+### Quick Start with Validation
+```bash
+# Standard MCP server
+npm start
+
+# Schema-validated server (recommended)
+node index_validated.js
+```
+
+**Features:**
+- ✅ **12,147+ validated resources** across 4 datasets
+- ✅ **Runtime schema compliance** checking with detailed error reporting  
+- ✅ **Auto-generated TypeScript types** from Pydantic models
+- ✅ **Type-safe data access** from Python to JavaScript
+
+📋 **See [SCHEMA_VALIDATION.md](./SCHEMA_VALIDATION.md) for complete integration details.**
 
 ## 🏗️ Data Pipeline & Schema Evolution
 

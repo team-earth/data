@@ -153,7 +153,10 @@ This repository features schema-compliant, high-quality data with [Pydantic](htt
 }
 ```
 
-**📚 Documentation**: See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete technical documentation and usage examples.
+**📚 Documentation**: 
+- [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) - Complete technical documentation and usage examples
+- [`PYDANTIC_TYPESCRIPT_INTEGRATION.md`](./PYDANTIC_TYPESCRIPT_INTEGRATION.md) - End-to-end schema validation pipeline
+- [`mcp-server/SCHEMA_VALIDATION.md`](./mcp-server/SCHEMA_VALIDATION.md) - MCP server schema integration details
 
 Supported formats:
 - Hierarchical tree structures (Climate Change, Education)  

@@ -7,10 +7,16 @@
     "scripts": {
         "start": "node index.js",
         "dev": "node --watch index.js",
+        "start-validated": "node index_validated.js",
+        "dev-validated": "node --watch index_validated.js", 
         "start-jsonl": "node index_jsonl.js",
         "dev-jsonl": "node --watch index_jsonl.js",
         "http": "node http-server.js",
-        "http-dev": "node --watch http-server.js"
+        "http-dev": "node --watch http-server.js",
+        "test": "node test-client.js",
+        "test-tools": "node test-tool.js", 
+        "test-validation": "node test-validation.js",
+        "export-schemas": "cd .. && python export_schemas.py"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^0.5.0",
