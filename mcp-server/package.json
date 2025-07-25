@@ -7,6 +7,8 @@
     "scripts": {
         "start": "node index.js",
         "dev": "node --watch index.js",
+        "start-jsonl": "node index_jsonl.js",
+        "dev-jsonl": "node --watch index_jsonl.js",
         "http": "node http-server.js",
         "http-dev": "node --watch http-server.js"
     },
