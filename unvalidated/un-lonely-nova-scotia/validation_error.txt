@@ -1,4 +1,0 @@
-Validation error: 1 validation error for Resource
-program
-  Field required [type=missing, input_value={'name': 'Spencer House S...ncerhouse.ca/', 'id': 0}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing

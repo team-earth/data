@@ -1,4 +1,0 @@
-Validation error: 1 validation error for Resource
-organization
-  Input should be a valid string [type=string_type, input_value={'program': 'London Unite...//www.londonunited.org'}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/string_type
