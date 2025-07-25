@@ -18,6 +18,73 @@ const DATA_ROOT = path.join(__dirname, '..');
 // Initialize schema validation
 let schemaValidator;
 
+// Initialize schema validation on startup
+async function initializeValidation() {
+    try {
+        schemaValidator = await initializeSchemaValidation();
+        console.error('✅ Pydantic schema validation initialized');
+        return true;
+    } catch (error) {
+        console.error('⚠️ Schema validation initialization failed:', error.message);
+        console.error('📝 Continuing without validation...');
+        return false;
+    }
+}
+
+// Enhanced resource validation using Pydantic schemas
+function validateAndEnhanceResource(resource, dataset) {
+    try {
+        // Validate against Pydantic Resource schema
+        const validation = validateResource(resource);
+        if (!validation.valid) {
+            console.error(`⚠️ Resource validation failed for ID ${resource.id}:`, validation.errors);
+            // Continue with warning but don't reject
+        }
+
+        // Enhance with dataset context (following TypeScript interface)
+        return {
+            ...resource,
+            dataset: dataset,
+            problemArea: DATASETS[dataset]?.problemArea || 'unknown',
+            source: 'resources_file',
+            validated: validation.valid,
+            validation_errors: validation.valid ? null : validation.errors
+        };
+    } catch (error) {
+        console.error(`❌ Error validating resource ${resource.id}:`, error.message);
+        // Return resource with validation error flag
+        return {
+            ...resource,
+            dataset: dataset,
+            problemArea: DATASETS[dataset]?.problemArea || 'unknown',
+            source: 'resources_file',
+            validated: false,
+            validation_errors: [error.message]
+        };
+    }
+}
+
+// Enhanced resource loading with Pydantic validation
+async function loadDatasetResources(datasetId) {
+    const dataset = DATASETS[datasetId];
+    if (!dataset || !dataset.resourcesFile) {
+        return [];
+    }
+
+    try {
+        const resources = await readJSONFile(dataset.resourcesFile);
+        if (!resources || !Array.isArray(resources)) {
+            return [];
+        }
+
+        // Validate and enhance each resource using Pydantic schemas
+        return resources.map(resource => validateAndEnhanceResource(resource, datasetId));
+    } catch (error) {
+        console.error(`Error loading resources for ${datasetId}:`, error.message);
+        return [];
+    }
+}
+
 // FIXED: Dataset metadata with clear problem area focus
 const DATASETS = {
     'mental-health-nova-scotia': {
@@ -100,80 +167,49 @@ async function readJSONFile(filePath) {
     }
 }
 
-// FIXED: Dataset-specific resource loading
-async function loadDatasetResources(datasetId) {
-    const dataset = DATASETS[datasetId];
-    if (!dataset || !dataset.resourcesFile) {
-        return [];
-    }
-    
-    try {
-        const resources = await readJSONFile(dataset.resourcesFile);
-        if (!resources || !Array.isArray(resources)) {
-            return [];
-        }
-        
-        // Add dataset context to each resource
-        return resources.map(resource => ({
-            ...resource,
-            dataset: datasetId,
-            problemArea: dataset.problemArea,
-            source: 'resources_file'
-        }));
-    } catch (error) {
-        console.error(`Error loading resources for ${datasetId}:`, error.message);
-        return [];
-    }
-}
-
-// FIXED: Extract solutions from hierarchical data 
-function extractSolutionsFromHierarchy(node, solutions = [], targetObstacle = null) {
+// FIXED: Extract solutions from hierarchical data with proper obstacle context
+function extractSolutionsFromHierarchy(node, solutions = [], currentObstacle = null) {
     if (!node) return solutions;
-    
+
+    // Track the current obstacle context
+    let obstacleContext = currentObstacle;
+    if (node.obstacle && node.obstacle.data) {
+        obstacleContext = node.obstacle.data;
+    }
+
     // If this is a solution node
     if (node.solution) {
         const solutionText = node.solution.data || 'Unknown solution';
-        
-        // If filtering by obstacle, check if this solution is under the target obstacle
-        if (targetObstacle) {
-            // For obstacle-filtered searches, we'll include all solutions found in the hierarchy
-            // since we're already traversing from the correct obstacle
-            solutions.push({
-                text: solutionText,
-                data: node.solution.data,
-                obstacle: targetObstacle,
-                resourceCount: node.solution.children ? node.solution.children.length : 0
-            });
-        } else {
-            solutions.push({
-                text: solutionText,
-                data: node.solution.data,
-                resourceCount: node.solution.children ? node.solution.children.length : 0
-            });
-        }
-    }
-    
-    // Continue to children
-    if (node.children && Array.isArray(node.children)) {
-        node.children.forEach(child => {
-            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+
+        solutions.push({
+            text: solutionText,
+            data: node.solution.data,
+            obstacle_context: obstacleContext,
+            resourceCount: node.solution.children ? node.solution.children.length : 0
         });
     }
-    
+
+    // Continue to children, passing down obstacle context
+    if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(child => {
+            extractSolutionsFromHierarchy(child, solutions, obstacleContext);
+        });
+    }
+
     // Check solution children
     if (node.solution && node.solution.children) {
         node.solution.children.forEach(child => {
-            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+            extractSolutionsFromHierarchy(child, solutions, obstacleContext);
         });
     }
-    
-    // Check obstacle children  
+
+    // Check obstacle children, updating obstacle context
     if (node.obstacle && node.obstacle.children) {
         node.obstacle.children.forEach(child => {
-            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+            extractSolutionsFromHierarchy(child, solutions, obstacleContext);
         });
     }
-    
+
     return solutions;
 }
 
@@ -183,27 +219,27 @@ function checkObstacleInPath(node, targetObstacle) {
     // This is a simplified version, you may need to enhance based on your data structure
     const nodeText = JSON.stringify(node).toLowerCase();
     const obstacleText = targetObstacle.toLowerCase();
-    
+
     // Check if obstacle text appears in the current node context
-    return nodeText.includes(obstacleText) || 
-           nodeText.includes(obstacleText.substring(0, 50)); // Partial match
+    return nodeText.includes(obstacleText) ||
+        nodeText.includes(obstacleText.substring(0, 50)); // Partial match
 }
 
 // FIXED: Extract obstacles from hierarchical data
 function extractObstaclesFromHierarchy(node, obstacles = []) {
     if (!node) return obstacles;
-    
+
     // If this is an obstacle node
     if (node.obstacle) {
         const obstacleText = node.obstacle.data || 'Unknown obstacle';
         const solutionCount = node.obstacle.children ? node.obstacle.children.filter(child => child.solution).length : 0;
-        
+
         obstacles.push({
             text: obstacleText,
             data: node.obstacle.data,
             solutionCount: solutionCount
         });
-        
+
         // Continue to children
         if (node.obstacle.children) {
             node.obstacle.children.forEach(child => {
@@ -211,14 +247,14 @@ function extractObstaclesFromHierarchy(node, obstacles = []) {
             });
         }
     }
-    
+
     // If this has children array directly
     if (node.children && Array.isArray(node.children)) {
         node.children.forEach(child => {
             extractObstaclesFromHierarchy(child, obstacles);
         });
     }
-    
+
     return obstacles;
 }
 
@@ -229,40 +265,48 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (name) {
         case 'query_knowledge_graph': {
             const { query_type, keywords = [], resource_ids = [], dataset, obstacle_theme, limit = 5 } = args;
-            
+
             // REQUIRED: Dataset must be specified
             if (!dataset) {
                 throw new Error(`Dataset parameter is required. Available datasets: ${Object.keys(DATASETS).join(', ')}`);
             }
-            
+
             if (!DATASETS[dataset]) {
                 throw new Error(`Dataset '${dataset}' not found. Available: ${Object.keys(DATASETS).join(', ')}`);
             }
-            
+
             let results = [];
 
             switch (query_type) {
                 case 'find_resources_by_keywords': {
                     try {
                         const resources = await loadDatasetResources(dataset);
+
+                        // Filter and validate using Pydantic schemas
                         const matchingResources = resources.filter(resource => {
+                            // Skip resources that failed schema validation
+                            if (!resource.validated && resource.validation_errors) {
+                                console.warn(`⚠️ Skipping invalid resource ${resource.id}: ${resource.validation_errors.join(', ')}`);
+                                return false;
+                            }
+
                             const resourceText = JSON.stringify(resource).toLowerCase();
                             return keywords.some(keyword =>
                                 resourceText.includes(keyword.toLowerCase())
                             );
                         }).slice(0, limit);
-                        
+
                         results = matchingResources;
                     } catch (error) {
                         throw new Error(`Error searching resources in ${dataset}: ${error.message}`);
                     }
                     break;
                 }
-                
+
                 case 'get_resources_by_ids': {
                     try {
                         const resources = await loadDatasetResources(dataset);
-                        const matchingResources = resources.filter(resource => 
+                        const matchingResources = resources.filter(resource =>
                             resource_ids.includes(resource.id)
                         );
                         results = matchingResources;
@@ -271,7 +315,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                     }
                     break;
                 }
-                
+
                 case 'get_solutions_for_keywords': {
                     try {
                         const data = await readJSONFile(DATASETS[dataset].dataFile);
@@ -287,7 +331,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                                 dataset: dataset,
                                 problemArea: DATASETS[dataset].problemArea
                             }));
-                            
+
                             results = matchingSolutions;
                         }
                     } catch (error) {
@@ -295,7 +339,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                     }
                     break;
                 }
-                
+
                 default:
                     throw new Error(`Unsupported query type: ${query_type}`);
             }
@@ -310,7 +354,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                         keywords,
                         resource_ids,
                         results: results.slice(0, limit),
-                        total_found: results.length
+                        total_found: results.length,
+                        schema_validation: {
+                            enabled: schemaValidator !== null,
+                            validated_count: results.filter(r => r.validated).length,
+                            invalid_count: results.filter(r => !r.validated).length
+                        }
                     }, null, 2)
                 }]
             };
@@ -318,40 +367,40 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         case 'search_solutions_by_obstacle': {
             const { obstacle_name, dataset, solution_keywords = [] } = args;
-            
+
             // REQUIRED: Dataset must be specified
             if (!dataset) {
                 throw new Error(`Dataset parameter is required. Available datasets: ${Object.keys(DATASETS).join(', ')}`);
             }
-            
+
             if (!DATASETS[dataset]) {
                 throw new Error(`Dataset '${dataset}' not found. Available: ${Object.keys(DATASETS).join(', ')}`);
             }
-            
+
             let results = [];
 
             try {
                 const data = await readJSONFile(DATASETS[dataset].dataFile);
                 if (data && data.goal) {
                     const solutions = extractSolutionsFromHierarchy(data.goal);
-                    
+
                     // Filter solutions by obstacle context
                     const matchingSolutions = solutions.filter(solution => {
-                        const obstacleMatch = solution.obstacle_context && 
+                        const obstacleMatch = solution.obstacle_context &&
                             solution.obstacle_context.toLowerCase().includes(obstacle_name.toLowerCase());
-                        
-                        const keywordMatch = solution_keywords.length === 0 || 
-                            solution_keywords.some(keyword => 
+
+                        const keywordMatch = solution_keywords.length === 0 ||
+                            solution_keywords.some(keyword =>
                                 JSON.stringify(solution).toLowerCase().includes(keyword.toLowerCase())
                             );
-                        
+
                         return obstacleMatch && keywordMatch;
                     }).map(s => ({
                         ...s,
                         dataset: dataset,
                         problemArea: DATASETS[dataset].problemArea
                     }));
-                    
+
                     results = matchingSolutions;
                 }
             } catch (error) {
@@ -384,7 +433,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 try {
                     const resources = await loadDatasetResources(datasetId);
                     const resource = resources.find(r => r.id === resource_id);
-                    
+
                     if (resource) {
                         resourceDetails = {
                             ...resource,
@@ -420,7 +469,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         case 'get_gosr_hierarchy': {
             const { level = 'full', dataset, obstacle_filter } = args;
-            
+
             if (!dataset) {
                 // Return available datasets
                 return {
@@ -623,7 +672,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
     };
 });
 
-// Start the server
+// Start the server with schema validation
+console.log('🚀 Initializing Unsolvable Data MCP Server...');
+
+// Initialize Pydantic schema validation
+await initializeValidation();
+
 const transport = new StdioServerTransport();
 await server.connect(transport);
-console.log('FIXED: Unsolvable Data MCP Server with dataset filtering running on stdio');
+console.log('✅ Unsolvable Data MCP Server running with dataset isolation and schema validation');

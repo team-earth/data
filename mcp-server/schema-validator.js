@@ -25,7 +25,7 @@ async function loadSchemas() {
         };
 
         for (const [name, filename] of Object.entries(schemaFiles)) {
-            const schemaPath = path.join(__dirname, 'schemas', filename);
+            const schemaPath = path.join(__dirname, '..', 'schemas', filename);
             const schemaContent = await fs.readFile(schemaPath, 'utf-8');
             const schema = JSON.parse(schemaContent);
 
