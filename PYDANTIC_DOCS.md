@@ -4,10 +4,10 @@ This document describes the standardized data format and Pydantic models for the
 
 ## 🚀 **Data Format Features**
 
-### 1. **JSONL Format Support**
-- **Format**: JSON Lines (.jsonl) - one resource per line
-- **Benefits**: Memory-efficient streaming, faster processing, better scalability
-- **Location**: `./jsonl/` directory
+### 1. **Validated JSON Data**
+- **Format**: Standard JSON with validated, standardized schema
+- **Benefits**: Type safety, consistent structure, clean data
+- **Location**: Resource files in dataset directories (marked with ✨)
 - **Total Resources**: 12,147 community programs and services
 
 ### 2. **Enhanced Pydantic Models**
@@ -55,19 +55,25 @@ This document describes the standardized data format and Pydantic models for the
 
 ### Usage Examples
 ```python
-from models_jsonl import DatasetCollection, Dataset
+from models_jsonl import Dataset
+import json
 
-# Load all datasets
-collection = DatasetCollection.from_jsonl_directory("./jsonl")
+# Load a specific dataset
+with open("./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json", "r") as f:
+    data = json.load(f)
+
+dataset = Dataset.model_validate({
+    "name": "un-lonely-nova-scotia",
+    "resources": data
+})
 
 # Stream resources efficiently
-dataset = collection.get_dataset("ottawa-resilient-to-extremism")
 for resource in dataset.stream_resources():
     print(f"{resource.id}: {resource.program}")
 
-# Search across all datasets
-results = collection.search_all_datasets(
-    query="terrorism",
+# Search within a dataset
+results = dataset.search_resources(
+    query="mental health",
     limit=10
 )
 ```
@@ -75,18 +81,38 @@ results = collection.search_all_datasets(
 ## 📁 **Directory Structure**
 
 ```
-├── jsonl/                          # JSONL format data
-│   ├── ottawa-resilient-to-extremism.jsonl
-│   ├── london-resilient-to-extremism.jsonl
-│   ├── un-lonely-nova-scotia.jsonl
-│   └── kansas-city-violence-prevention.jsonl
-├── standardized/                   # Intermediate JSON format
-├── validated/                      # Pydantic-validated data
-├── unvalidated/                    # Data that failed validation
+├── LICENSE
+├── README.md
+├── PYDANTIC_DOCS.md                # This documentation
+├── metadata.jsonld
+├── metadata.yaml
+├── models.py                       # Legacy Pydantic models
 ├── models_jsonl.py                 # Enhanced Pydantic models
 ├── convert_format.py               # Data conversion tools
 ├── convert_to_jsonl.py            # JSONL converter
-└── validate_data.py               # Validation pipeline
+├── validate_data.py               # Validation pipeline
+├── requirements.txt
+├── un-lonely-nova-scotia/
+│   ├── Un-Lonely Nova Scotia.pdf
+│   ├── un-lonely-nova-scotia.json
+│   ├── un-lonely-nova-scotia-resources.json ✨  # Validated data
+│   └── un-lonely-nova-scotia-resources_unvalidated.json
+├── london-resilient-to-extremism/
+│   ├── London Resilient to Extremism.pdf
+│   ├── london-resilient-to-extremism.json
+│   ├── london-resilient-to-extremism-resources.json ✨  # Validated data
+│   └── london-resilient-to-extremism-resources_unvalidated.json
+├── ottawa-resilient-to-extremism/
+│   ├── Ottawa Resilient to Extremism.pdf
+│   ├── ottawa-resilient-to-extremism.json
+│   ├── ottawa-resilient-to-extremism-resources.json ✨  # Validated data
+│   └── ottawa-resilient-to-extremism-resources_unvalidated.json
+├── kansas-city-violence-prevention/
+│   ├── Kansas City, Violence Prevention and Social Cohesion.pdf
+│   ├── kansas-city-violence-prevention.json
+│   ├── kansas-city-violence-prevention-resources.json ✨  # Validated data
+│   └── kansas-city-violence-prevention-resources_unvalidated.json
+└── [other dataset directories...]
 ```
 
 ## 🎯 **Usage Guide**
@@ -98,13 +124,13 @@ results = collection.search_all_datasets(
 4. **Validate data**: Use Pydantic models for type safety
 
 ### For Data Scientists
-1. **JSONL benefits**: Faster loading, streaming processing
+1. **Validated data**: Clean, standardized format ready for analysis
 2. **Rich metadata**: Use tags and categories for analysis
-3. **Clean data**: Pre-validated and normalized
-4. **Scalable**: Memory-efficient for large datasets
+3. **Type safety**: Pre-validated and normalized
+4. **Scalable**: Memory-efficient streaming processing
 
 ### For Applications
-1. **JSONL endpoints**: Point to `./jsonl/` directory
+1. **Resource files**: Load from dataset directories (files marked with ✨)
 2. **Streaming support**: Process resources one at a time
 3. **Enhanced search**: Use metadata for better filtering
 4. **Type safety**: Leverage Pydantic validation
@@ -113,11 +139,11 @@ results = collection.search_all_datasets(
 
 | Dataset | Resources | Format | Status |
 |---------|-----------|--------|--------|
-| London Resilient to Extremism | 7,070 | JSONL | ✅ Validated |
-| Un-Lonely Nova Scotia | 4,434 | JSONL | ✅ Validated |
-| Ottawa Resilient to Extremism | 494 | JSONL | ✅ Validated |
-| Kansas City Violence Prevention | 149 | JSONL | ✅ Validated |
-| **Total** | **12,147** | **JSONL** | **✅ Validated** |
+| London Resilient to Extremism | 7,070 | JSON | ✅ Validated |
+| Un-Lonely Nova Scotia | 4,434 | JSON | ✅ Validated |
+| Ottawa Resilient to Extremism | 494 | JSON | ✅ Validated |
+| Kansas City Violence Prevention | 149 | JSON | ✅ Validated |
+| **Total** | **12,147** | **JSON** | **✅ Validated** |
 
 ## 🧪 **Testing**
 
