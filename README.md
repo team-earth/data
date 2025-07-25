@@ -114,7 +114,7 @@ Each map provides machine-readable data that enables:
 
 ## 📘 Book Series Metadata
 
-This repository includes structured metadata for all 10 books in the *Unsolvable: Think Again!* series by Kevin Kells, PhD:
+This repository includes structured metadata for books in the *Unsolvable: Think Again!* series by Kevin Kells, PhD:
 
 - [`metadata.yaml`](./metadata.yaml) – Contains full publication details, summaries, tags, and dataset links for each book.
 
