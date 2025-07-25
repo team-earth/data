@@ -84,7 +84,6 @@ results = dataset.search_resources(
 ├── PYDANTIC_DOCS.md                # This documentation
 ├── metadata.jsonld
 ├── metadata.yaml
-├── models.py                       # Legacy Pydantic models
 ├── models_jsonl.py                 # Enhanced Pydantic models
 ├── requirements.txt
 ├── un-lonely-nova-scotia/
@@ -145,9 +144,6 @@ Test the Pydantic models:
 ```bash
 # Test enhanced models
 python models_jsonl.py
-
-# Test legacy models  
-python models.py
 ```
 
 ## 📈 **Performance Benefits**

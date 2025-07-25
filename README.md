@@ -63,7 +63,6 @@ This repository features schema-compliant, high-quality data with enhanced [Pyda
 - **✅ Type safety** with full Pydantic schema checking
 
 ### **Available Models**
-- **`models.py`**: Legacy format support for backward compatibility
 - **`models_jsonl.py`**: Enhanced models with streaming support and search capabilities
 - **`PYDANTIC_DOCS.md`**: Complete documentation and usage examples
 
