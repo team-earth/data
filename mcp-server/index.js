@@ -10,22 +10,28 @@ import {
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { initializeSchemaValidation, validateResources, validateResource } from './schema-validator.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_ROOT = path.join(__dirname, '..');
 
-// Dataset metadata
+// Initialize schema validation
+let schemaValidator;
+
+// FIXED: Dataset metadata with clear problem area focus
 const DATASETS = {
     'mental-health-nova-scotia': {
         name: 'Mental Health and Addiction in Nova Scotia',
-        description: 'Hierarchical data on mental health challenges, obstacles, and solutions in Nova Scotia',
+        description: 'Mental health gaps in care, access, and coordination in Nova Scotia',
+        problemArea: 'mental-health',
         type: 'hierarchical',
         dataFile: 'mental-health-nova-scotia/mental-health-nova-scotia.json',
         readmeFile: 'mental-health-nova-scotia/README.md'
     },
     'un-lonely-nova-scotia': {
         name: 'Un-Lonely Nova Scotia',
-        description: 'Programs and resources addressing loneliness in Nova Scotia',
+        description: 'Rural and regional loneliness in Atlantic Canada',
+        problemArea: 'loneliness',
         type: 'hierarchical',
         dataFile: 'un-lonely-nova-scotia/un-lonely-nova-scotia.json',
         resourcesFile: 'un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json',
@@ -33,14 +39,16 @@ const DATASETS = {
     },
     'un-lonely-new-york-city': {
         name: 'Un-Lonely New York City',
-        description: 'Programs and resources addressing loneliness in New York City',
+        description: 'Urban loneliness and disconnection in New York City',
+        problemArea: 'loneliness',
         type: 'hierarchical',
         dataFile: 'un-lonely-new-york-city/un-lonely-new-york-city.json',
         readmeFile: 'un-lonely-new-york-city/README.md'
     },
     'ottawa-resilient-to-extremism': {
         name: 'Ottawa Resilient to Extremism',
-        description: 'Community programs and resources countering extremism in Ottawa',
+        description: 'Community resilience against radicalization tactics in Ottawa',
+        problemArea: 'extremism-prevention',
         type: 'hierarchical',
         dataFile: 'ottawa-resilient-to-extremism/ottawa-resilient-to-extremism.json',
         resourcesFile: 'ottawa-resilient-to-extremism/ottawa-resilient-to-extremism-resources.json',
@@ -48,43 +56,25 @@ const DATASETS = {
     },
     'london-resilient-to-extremism': {
         name: 'London Resilient to Extremism',
-        description: 'Community programs and resources countering extremism in London',
+        description: 'Countering manipulation and strengthening cohesion in London',
+        problemArea: 'extremism-prevention',
         type: 'hierarchical',
         dataFile: 'london-resilient-to-extremism/london-resilient-to-extremism.json',
         resourcesFile: 'london-resilient-to-extremism/london-resilient-to-extremism-resources.json',
         readmeFile: 'london-resilient-to-extremism/README.md'
     },
     'kansas-city-violence-prevention': {
-        name: 'Kansas City Violence Prevention',
-        description: 'Violence prevention and social cohesion programs in Kansas City',
+        name: 'Kansas City: Violence Prevention and Social Cohesion',
+        description: 'Community violence prevention and social cohesion in Kansas City',
+        problemArea: 'violence-prevention',
         type: 'hierarchical',
         dataFile: 'kansas-city-violence-prevention/kansas-city-violence-prevention.json',
         resourcesFile: 'kansas-city-violence-prevention/kansas-city-violence-prevention-resources.json',
         readmeFile: 'kansas-city-violence-prevention/README.md'
-    },
-    'food-security-nova-scotia': {
-        name: 'Food Security in Nova Scotia',
-        description: 'Structural drivers and solutions for food insecurity in Nova Scotia',
-        type: 'hierarchical',
-        dataFile: 'food-security-nova-scotia/food-security-nova-scotia.json',
-        readmeFile: 'food-security-nova-scotia/README.md'
-    },
-    'education-innovation': {
-        name: 'Education Innovation',
-        description: 'Barriers and solutions for education reform and innovation',
-        type: 'hierarchical',
-        dataFile: 'education-innovation/education-innovation.json',
-        readmeFile: 'education-innovation/README.md'
-    },
-    'climate-change-adaptation': {
-        name: 'Climate Change Adaptation',
-        description: 'Challenges and solutions for climate change adaptation',
-        type: 'hierarchical',
-        dataFile: 'climate-change-adaptation/climate-change-adaptation.json',
-        readmeFile: 'climate-change-adaptation/README.md'
     }
 };
 
+// Initialize the server
 const server = new Server(
     {
         name: 'unsolvable-data',
@@ -98,11 +88,11 @@ const server = new Server(
     }
 );
 
-// Helper function to read JSON files safely
+// Helper function to read JSON files
 async function readJSONFile(filePath) {
     try {
         const fullPath = path.join(DATA_ROOT, filePath);
-        const content = await fs.readFile(fullPath, 'utf8');
+        const content = await fs.readFile(fullPath, 'utf-8');
         return JSON.parse(content);
     } catch (error) {
         console.error(`Error reading ${filePath}:`, error.message);
@@ -110,496 +100,204 @@ async function readJSONFile(filePath) {
     }
 }
 
-// Helper function to read text files safely
-async function readTextFile(filePath) {
-    try {
-        const fullPath = path.join(DATA_ROOT, filePath);
-        const content = await fs.readFile(fullPath, 'utf8');
-        return content;
-    } catch (error) {
-        console.error(`Error reading ${filePath}:`, error.message);
-        return null;
-    }
-}
-
-// List all available resources
-server.setRequestHandler(ListResourcesRequestSchema, async () => {
-    const resources = [];
-
-    for (const [id, dataset] of Object.entries(DATASETS)) {
-        // Main dataset
-        resources.push({
-            uri: `unsolvable://${id}`,
-            name: dataset.name,
-            description: dataset.description,
-            mimeType: 'application/json'
-        });
-
-        // Resources file if available
-        if (dataset.resourcesFile) {
-            resources.push({
-                uri: `unsolvable://${id}/resources`,
-                name: `${dataset.name} - Resources`,
-                description: `Resource listings for ${dataset.name}`,
-                mimeType: 'application/json'
-            });
-        }
-
-        // README file
-        resources.push({
-            uri: `unsolvable://${id}/readme`,
-            name: `${dataset.name} - README`,
-            description: `Documentation for ${dataset.name}`,
-            mimeType: 'text/markdown'
-        });
-    }
-
-    // Add metadata overview
-    resources.push({
-        uri: 'unsolvable://metadata',
-        name: 'Dataset Metadata',
-        description: 'Overview of all available datasets and their structure',
-        mimeType: 'application/json'
-    });
-
-    return { resources };
-});
-
-// Read specific resources
-server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
-    const uri = request.params.uri;
-
-    if (uri === 'unsolvable://metadata') {
-        return {
-            contents: [{
-                uri,
-                mimeType: 'application/json',
-                text: JSON.stringify({
-                    collection: 'Unsolvable: Think Again!',
-                    author: 'Kevin Kells, PhD',
-                    description: 'Whole-system frameworks for solving complex societal challenges',
-                    datasets: DATASETS,
-                    structure: {
-                        hierarchical: {
-                            description: 'Goal → Obstacles → Sub-obstacles → Solutions → Resources',
-                            levels: ['goal', 'obstacle', 'solution', 'resource']
-                        }
-                    }
-                }, null, 2)
-            }]
-        };
-    }
-
-    // Parse dataset URI
-    const match = uri.match(/^unsolvable:\/\/([^\/]+)(?:\/(.+))?$/);
-    if (!match) {
-        throw new Error(`Invalid URI format: ${uri}`);
-    }
-
-    const [, datasetId, resourceType] = match;
+// FIXED: Dataset-specific resource loading
+async function loadDatasetResources(datasetId) {
     const dataset = DATASETS[datasetId];
-
-    if (!dataset) {
-        throw new Error(`Dataset not found: ${datasetId}`);
+    if (!dataset || !dataset.resourcesFile) {
+        return [];
     }
-
-    let content, mimeType, filePath;
-
-    switch (resourceType) {
-        case 'resources':
-            if (!dataset.resourcesFile) {
-                throw new Error(`No resources file available for ${datasetId}`);
-            }
-            content = await readJSONFile(dataset.resourcesFile);
-            mimeType = 'application/json';
-            filePath = dataset.resourcesFile;
-            break;
-
-        case 'readme':
-            content = await readTextFile(dataset.readmeFile);
-            mimeType = 'text/markdown';
-            filePath = dataset.readmeFile;
-            break;
-
-        default:
-            // Main dataset
-            content = await readJSONFile(dataset.dataFile);
-            mimeType = 'application/json';
-            filePath = dataset.dataFile;
-            break;
-    }
-
-    if (content === null) {
-        throw new Error(`Could not read file: ${filePath}`);
-    }
-
-    return {
-        contents: [{
-            uri,
-            mimeType,
-            text: mimeType === 'application/json' ? JSON.stringify(content, null, 2) : content
-        }]
-    };
-});
-
-// List available tools - MVP GOSR Implementation
-server.setRequestHandler(ListToolsRequestSchema, async () => {
-    return {
-        tools: [
-            {
-                name: 'query_knowledge_graph',
-                description: 'Query GOSR knowledge graph for resources, solutions, and obstacles',
-                inputSchema: {
-                    type: 'object',
-                    properties: {
-                        query_type: {
-                            type: 'string',
-                            enum: ['find_resources_by_keywords', 'get_resources_by_ids', 'get_solutions_for_keywords', 'find_resources_by_obstacle'],
-                            description: 'Type of query to perform'
-                        },
-                        keywords: {
-                            type: 'array',
-                            items: { type: 'string' },
-                            description: 'Keywords to search for (e.g., ["youth", "mental health", "employment"])'
-                        },
-                        resource_ids: {
-                            type: 'array',
-                            items: { type: 'number' },
-                            description: 'Resource IDs from resources.json'
-                        },
-                        obstacle_theme: {
-                            type: 'string',
-                            description: 'Top-level obstacle from major_theme_obstacles'
-                        },
-                        limit: {
-                            type: 'number',
-                            description: 'Maximum results to return',
-                            default: 5
-                        }
-                    },
-                    required: ['query_type']
-                }
-            },
-            {
-                name: 'get_resource_details',
-                description: 'Get detailed information about a specific resource',
-                inputSchema: {
-                    type: 'object',
-                    properties: {
-                        resource_id: {
-                            type: 'number',
-                            description: 'Resource ID from resources.json'
-                        }
-                    },
-                    required: ['resource_id']
-                }
-            },
-            {
-                name: 'search_solutions_by_obstacle',
-                description: 'Find solutions mapped to specific obstacles',
-                inputSchema: {
-                    type: 'object',
-                    properties: {
-                        obstacle_name: {
-                            type: 'string',
-                            description: 'Obstacle name from the GOSR hierarchy'
-                        },
-                        solution_keywords: {
-                            type: 'array',
-                            items: { type: 'string' },
-                            description: 'Filter solutions by keywords'
-                        }
-                    },
-                    required: ['obstacle_name']
-                }
-            },
-            {
-                name: 'get_gosr_hierarchy',
-                description: 'Get the complete GOSR structure or filtered subset',
-                inputSchema: {
-                    type: 'object',
-                    properties: {
-                        level: {
-                            type: 'string',
-                            enum: ['goal', 'obstacles', 'solutions', 'resources', 'full'],
-                            description: 'Level of hierarchy to return',
-                            default: 'full'
-                        },
-                        obstacle_filter: {
-                            type: 'string',
-                            description: 'Specific obstacle theme to focus on'
-                        }
-                    }
-                }
-            }
-        ]
-    };
-});
-
-// Helper functions for GOSR operations
-function searchInHierarchy(node, keywords, results = [], path = []) {
-    if (!node) return results;
-
-    const nodeText = JSON.stringify(node).toLowerCase();
-    const keywordMatches = keywords.some(keyword =>
-        nodeText.includes(keyword.toLowerCase())
-    );
-
-    if (keywordMatches) {
-        if (node.resource && node.resource.data) {
-            results.push({
-                type: 'resource',
-                path: [...path],
-                data: node.resource.data,
-                context: path.length > 0 ? path[path.length - 1] : 'root'
-            });
-        } else if (node.solution) {
-            results.push({
-                type: 'solution',
-                path: [...path],
-                data: node.solution,
-                context: path.length > 0 ? path[path.length - 1] : 'root'
-            });
-        } else if (node.obstacle) {
-            results.push({
-                type: 'obstacle',
-                path: [...path],
-                data: node.obstacle,
-                context: path.length > 0 ? path[path.length - 1] : 'root'
-            });
-        }
-    }
-
-    if (node.children) {
-        const currentPath = node.obstacle ? [...path, node.obstacle.text || 'obstacle'] :
-            node.solution ? [...path, node.solution.text || 'solution'] : path;
-
-        for (const child of node.children) {
-            searchInHierarchy(child, keywords, results, currentPath);
-        }
-    }
-
-    return results;
-}
-
-function extractHierarchyLevel(data, level, obstacleFilter = null) {
-    // Validate input data
-    if (!data) {
-        console.error('extractHierarchyLevel: data is null or undefined');
-        return null;
-    }
-
-    if (!data.goal) {
-        console.error('extractHierarchyLevel: data.goal is missing', JSON.stringify(data, null, 2).slice(0, 500));
-        return null;
-    }
-
+    
     try {
-        switch (level) {
-            case 'goal':
-                return {
-                    goal: data.goal.text || data.goal.data || 'Goal'
-                };
-
-            case 'obstacles':
-                const obstacles = [];
-                if (data.goal.children && Array.isArray(data.goal.children)) {
-                    for (const child of data.goal.children) {
-                        if (child && child.obstacle) {
-                            try {
-                                // First try to get obstacle text from the obstacle object itself
-                                let obstacleText = child.obstacle.text || child.obstacle.data;
-
-                                // If not found, look for it in the parent structure
-                                if (!obstacleText && child.data) {
-                                    obstacleText = child.data;
-                                }
-
-                                // If still not found, look for label as fallback
-                                if (!obstacleText && child.label) {
-                                    obstacleText = child.label;
-                                }
-
-                                // Count solutions in the obstacle's children
-                                let solutionsCount = 0;
-                                if (child.obstacle.children && Array.isArray(child.obstacle.children)) {
-                                    for (const obstacleChild of child.obstacle.children) {
-                                        if (obstacleChild && obstacleChild.solution) {
-                                            solutionsCount++;
-                                        }
-                                    }
-                                }
-
-                                if (obstacleText) {
-                                    if (!obstacleFilter || obstacleText.toLowerCase().includes(obstacleFilter.toLowerCase())) {
-                                        obstacles.push({
-                                            obstacle: obstacleText,
-                                            solutions_count: solutionsCount
-                                        });
-                                    }
-                                }
-                            } catch (childError) {
-                                console.error('Error processing obstacle child:', childError.message, child);
-                            }
-                        }
-                    }
-                } else {
-                    console.warn('data.goal.children is not an array or is missing');
-                }
-                return { obstacles };
-
-            case 'solutions':
-            case 'resources':
-            case 'full':
-            default:
-                return data;
+        const resources = await readJSONFile(dataset.resourcesFile);
+        if (!resources || !Array.isArray(resources)) {
+            return [];
         }
+        
+        // Add dataset context to each resource
+        return resources.map(resource => ({
+            ...resource,
+            dataset: datasetId,
+            problemArea: dataset.problemArea,
+            source: 'resources_file'
+        }));
     } catch (error) {
-        console.error('Error in extractHierarchyLevel:', error.message);
-        return null;
+        console.error(`Error loading resources for ${datasetId}:`, error.message);
+        return [];
     }
 }
 
-function findResourcesByIds(resourceIds, allResources) {
-    const results = [];
-    if (!allResources || !Array.isArray(allResources)) return results;
-
-    for (const resource of allResources) {
-        if (resourceIds.includes(resource.id)) {
-            results.push(resource);
+// FIXED: Extract solutions from hierarchical data 
+function extractSolutionsFromHierarchy(node, solutions = [], targetObstacle = null) {
+    if (!node) return solutions;
+    
+    // If this is a solution node
+    if (node.solution) {
+        const solutionText = node.solution.data || 'Unknown solution';
+        
+        // If filtering by obstacle, check if this solution is under the target obstacle
+        if (targetObstacle) {
+            // For obstacle-filtered searches, we'll include all solutions found in the hierarchy
+            // since we're already traversing from the correct obstacle
+            solutions.push({
+                text: solutionText,
+                data: node.solution.data,
+                obstacle: targetObstacle,
+                resourceCount: node.solution.children ? node.solution.children.length : 0
+            });
+        } else {
+            solutions.push({
+                text: solutionText,
+                data: node.solution.data,
+                resourceCount: node.solution.children ? node.solution.children.length : 0
+            });
         }
     }
-    return results;
+    
+    // Continue to children
+    if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(child => {
+            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+        });
+    }
+    
+    // Check solution children
+    if (node.solution && node.solution.children) {
+        node.solution.children.forEach(child => {
+            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+        });
+    }
+    
+    // Check obstacle children  
+    if (node.obstacle && node.obstacle.children) {
+        node.obstacle.children.forEach(child => {
+            extractSolutionsFromHierarchy(child, solutions, targetObstacle);
+        });
+    }
+    
+    return solutions;
 }
 
-// Handle tool calls - MVP GOSR Implementation
+// Helper function to check if an obstacle is in the current path
+function checkObstacleInPath(node, targetObstacle) {
+    // Simple text matching approach - look for obstacle text in the hierarchy
+    // This is a simplified version, you may need to enhance based on your data structure
+    const nodeText = JSON.stringify(node).toLowerCase();
+    const obstacleText = targetObstacle.toLowerCase();
+    
+    // Check if obstacle text appears in the current node context
+    return nodeText.includes(obstacleText) || 
+           nodeText.includes(obstacleText.substring(0, 50)); // Partial match
+}
+
+// FIXED: Extract obstacles from hierarchical data
+function extractObstaclesFromHierarchy(node, obstacles = []) {
+    if (!node) return obstacles;
+    
+    // If this is an obstacle node
+    if (node.obstacle) {
+        const obstacleText = node.obstacle.data || 'Unknown obstacle';
+        const solutionCount = node.obstacle.children ? node.obstacle.children.filter(child => child.solution).length : 0;
+        
+        obstacles.push({
+            text: obstacleText,
+            data: node.obstacle.data,
+            solutionCount: solutionCount
+        });
+        
+        // Continue to children
+        if (node.obstacle.children) {
+            node.obstacle.children.forEach(child => {
+                extractObstaclesFromHierarchy(child, obstacles);
+            });
+        }
+    }
+    
+    // If this has children array directly
+    if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(child => {
+            extractObstaclesFromHierarchy(child, obstacles);
+        });
+    }
+    
+    return obstacles;
+}
+
+// FIXED: Enhanced tool handler with dataset filtering
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
 
     switch (name) {
         case 'query_knowledge_graph': {
-            const { query_type, keywords = [], resource_ids = [], obstacle_theme, limit = 5 } = args;
+            const { query_type, keywords = [], resource_ids = [], dataset, obstacle_theme, limit = 5 } = args;
+            
+            // REQUIRED: Dataset must be specified
+            if (!dataset) {
+                throw new Error(`Dataset parameter is required. Available datasets: ${Object.keys(DATASETS).join(', ')}`);
+            }
+            
+            if (!DATASETS[dataset]) {
+                throw new Error(`Dataset '${dataset}' not found. Available: ${Object.keys(DATASETS).join(', ')}`);
+            }
+            
             let results = [];
 
             switch (query_type) {
                 case 'find_resources_by_keywords': {
-                    // Search across all datasets for resources matching keywords
-                    for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                        try {
-                            const data = await readJSONFile(datasetInfo.dataFile);
-                            if (data) {
-                                const hierarchyResults = searchInHierarchy(data.goal, keywords);
-                                const resourceResults = hierarchyResults
-                                    .filter(r => r.type === 'resource')
-                                    .slice(0, limit)
-                                    .map(r => ({
-                                        dataset: datasetId,
-                                        ...r.data,
-                                        context: r.context,
-                                        path: r.path
-                                    }));
-                                results.push(...resourceResults);
-                            }
-
-                            // Also search in separate resources file if available
-                            if (datasetInfo.resourcesFile) {
-                                const resources = await readJSONFile(datasetInfo.resourcesFile);
-                                if (resources && Array.isArray(resources)) {
-                                    const matchingResources = resources.filter(resource => {
-                                        const resourceText = JSON.stringify(resource).toLowerCase();
-                                        return keywords.some(keyword =>
-                                            resourceText.includes(keyword.toLowerCase())
-                                        );
-                                    }).slice(0, limit).map(r => ({
-                                        dataset: datasetId,
-                                        ...r,
-                                        source: 'resources_file'
-                                    }));
-                                    results.push(...matchingResources);
-                                }
-                            }
-                        } catch (error) {
-                            console.error(`Error searching ${datasetId}:`, error.message);
-                        }
+                    try {
+                        const resources = await loadDatasetResources(dataset);
+                        const matchingResources = resources.filter(resource => {
+                            const resourceText = JSON.stringify(resource).toLowerCase();
+                            return keywords.some(keyword =>
+                                resourceText.includes(keyword.toLowerCase())
+                            );
+                        }).slice(0, limit);
+                        
+                        results = matchingResources;
+                    } catch (error) {
+                        throw new Error(`Error searching resources in ${dataset}: ${error.message}`);
                     }
                     break;
                 }
-
+                
                 case 'get_resources_by_ids': {
-                    // Get specific resources by their IDs
-                    for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                        if (datasetInfo.resourcesFile) {
-                            try {
-                                const resources = await readJSONFile(datasetInfo.resourcesFile);
-                                const foundResources = findResourcesByIds(resource_ids, resources);
-                                results.push(...foundResources.map(r => ({
-                                    dataset: datasetId,
-                                    ...r
-                                })));
-                            } catch (error) {
-                                console.error(`Error reading resources from ${datasetId}:`, error.message);
-                            }
-                        }
+                    try {
+                        const resources = await loadDatasetResources(dataset);
+                        const matchingResources = resources.filter(resource => 
+                            resource_ids.includes(resource.id)
+                        );
+                        results = matchingResources;
+                    } catch (error) {
+                        throw new Error(`Error getting resources by IDs in ${dataset}: ${error.message}`);
                     }
                     break;
                 }
-
+                
                 case 'get_solutions_for_keywords': {
-                    // Search for solutions matching keywords
-                    for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                        try {
-                            const data = await readJSONFile(datasetInfo.dataFile);
-                            if (data) {
-                                const hierarchyResults = searchInHierarchy(data.goal, keywords);
-                                const solutionResults = hierarchyResults
-                                    .filter(r => r.type === 'solution')
-                                    .slice(0, limit)
-                                    .map(r => ({
-                                        dataset: datasetId,
-                                        solution: r.data,
-                                        context: r.context,
-                                        path: r.path
-                                    }));
-                                results.push(...solutionResults);
-                            }
-                        } catch (error) {
-                            console.error(`Error searching solutions in ${datasetId}:`, error.message);
+                    try {
+                        const data = await readJSONFile(DATASETS[dataset].dataFile);
+                        if (data && data.goal) {
+                            const solutions = extractSolutionsFromHierarchy(data.goal);
+                            const matchingSolutions = solutions.filter(solution => {
+                                const solutionText = JSON.stringify(solution).toLowerCase();
+                                return keywords.some(keyword =>
+                                    solutionText.includes(keyword.toLowerCase())
+                                );
+                            }).slice(0, limit).map(s => ({
+                                ...s,
+                                dataset: dataset,
+                                problemArea: DATASETS[dataset].problemArea
+                            }));
+                            
+                            results = matchingSolutions;
                         }
+                    } catch (error) {
+                        throw new Error(`Error getting solutions in ${dataset}: ${error.message}`);
                     }
                     break;
                 }
-
-                case 'find_resources_by_obstacle': {
-                    // Find resources associated with specific obstacle themes
-                    for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                        try {
-                            const data = await readJSONFile(datasetInfo.dataFile);
-                            if (data && data.goal && data.goal.children) {
-                                for (const obstacleNode of data.goal.children) {
-                                    if (obstacleNode.obstacle) {
-                                        const obstacleText = obstacleNode.obstacle.text || obstacleNode.obstacle.data || '';
-                                        if (obstacle_theme && obstacleText.toLowerCase().includes(obstacle_theme.toLowerCase())) {
-                                            const obstacleResults = searchInHierarchy(obstacleNode, [''], [], [obstacleText]);
-                                            const resourceResults = obstacleResults
-                                                .filter(r => r.type === 'resource')
-                                                .slice(0, limit)
-                                                .map(r => ({
-                                                    dataset: datasetId,
-                                                    obstacle_theme: obstacleText,
-                                                    ...r.data,
-                                                    path: r.path
-                                                }));
-                                            results.push(...resourceResults);
-                                        }
-                                    }
-                                }
-                            }
-                        } catch (error) {
-                            console.error(`Error searching obstacles in ${datasetId}:`, error.message);
-                        }
-                    }
-                    break;
-                }
+                
+                default:
+                    throw new Error(`Unsupported query type: ${query_type}`);
             }
 
             return {
@@ -607,9 +305,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                     type: 'text',
                     text: JSON.stringify({
                         query_type,
+                        dataset,
+                        problemArea: DATASETS[dataset].problemArea,
                         keywords,
                         resource_ids,
-                        obstacle_theme,
                         results: results.slice(0, limit),
                         total_found: results.length
                     }, null, 2)
@@ -617,43 +316,98 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             };
         }
 
+        case 'search_solutions_by_obstacle': {
+            const { obstacle_name, dataset, solution_keywords = [] } = args;
+            
+            // REQUIRED: Dataset must be specified
+            if (!dataset) {
+                throw new Error(`Dataset parameter is required. Available datasets: ${Object.keys(DATASETS).join(', ')}`);
+            }
+            
+            if (!DATASETS[dataset]) {
+                throw new Error(`Dataset '${dataset}' not found. Available: ${Object.keys(DATASETS).join(', ')}`);
+            }
+            
+            let results = [];
+
+            try {
+                const data = await readJSONFile(DATASETS[dataset].dataFile);
+                if (data && data.goal) {
+                    const solutions = extractSolutionsFromHierarchy(data.goal);
+                    
+                    // Filter solutions by obstacle context
+                    const matchingSolutions = solutions.filter(solution => {
+                        const obstacleMatch = solution.obstacle_context && 
+                            solution.obstacle_context.toLowerCase().includes(obstacle_name.toLowerCase());
+                        
+                        const keywordMatch = solution_keywords.length === 0 || 
+                            solution_keywords.some(keyword => 
+                                JSON.stringify(solution).toLowerCase().includes(keyword.toLowerCase())
+                            );
+                        
+                        return obstacleMatch && keywordMatch;
+                    }).map(s => ({
+                        ...s,
+                        dataset: dataset,
+                        problemArea: DATASETS[dataset].problemArea
+                    }));
+                    
+                    results = matchingSolutions;
+                }
+            } catch (error) {
+                throw new Error(`Error searching solutions in ${dataset}: ${error.message}`);
+            }
+
+            return {
+                content: [{
+                    type: 'text',
+                    text: JSON.stringify({
+                        obstacle_name,
+                        dataset,
+                        problemArea: DATASETS[dataset].problemArea,
+                        solution_keywords,
+                        solutions: results,
+                        total: results.length
+                    }, null, 2)
+                }]
+            };
+        }
+
         case 'get_resource_details': {
-            const { resource_id } = args;
+            const { resource_id, dataset } = args;
             let resourceDetails = null;
 
-            // Search across all datasets for the resource ID
-            for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                if (datasetInfo.resourcesFile) {
-                    try {
-                        const resources = await readJSONFile(datasetInfo.resourcesFile);
-                        if (resources && Array.isArray(resources)) {
-                            const resource = resources.find(r => r.id === resource_id);
-                            if (resource) {
-                                resourceDetails = {
-                                    dataset: datasetId,
-                                    dataset_name: datasetInfo.name,
-                                    ...resource,
-                                    normalized_data: {
-                                        name: resource.name || resource.program || 'Unknown',
-                                        description: resource.description || '',
-                                        organization: resource.organization || '',
-                                        address: resource.address || '',
-                                        email: resource.email || '',
-                                        website: resource.website || '',
-                                        url_validated: resource.url_validated || false
-                                    }
-                                };
-                                break;
+            // FIXED: Search in specific dataset first, then all if not found
+            const searchOrder = dataset ? [dataset, ...Object.keys(DATASETS).filter(d => d !== dataset)] : Object.keys(DATASETS);
+
+            for (const datasetId of searchOrder) {
+                try {
+                    const resources = await loadDatasetResources(datasetId);
+                    const resource = resources.find(r => r.id === resource_id);
+                    
+                    if (resource) {
+                        resourceDetails = {
+                            ...resource,
+                            dataset_name: DATASETS[datasetId].name,
+                            normalized_data: {
+                                name: resource.program || 'Unknown',
+                                description: resource.description || '',
+                                organization: resource.organization || '',
+                                contact_email: resource.contact?.email || '',
+                                contact_website: resource.contact?.website || '',
+                                contact_phone: resource.contact?.phone || '',
+                                tags: resource.metadata?.tags || []
                             }
-                        }
-                    } catch (error) {
-                        console.error(`Error reading resource details from ${datasetId}:`, error.message);
+                        };
+                        break;
                     }
+                } catch (error) {
+                    console.error(`Error getting resource details from ${datasetId}:`, error.message);
                 }
             }
 
             if (!resourceDetails) {
-                throw new Error(`Resource with ID ${resource_id} not found`);
+                throw new Error(`Resource with ID ${resource_id} not found in any dataset`);
             }
 
             return {
@@ -664,110 +418,82 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             };
         }
 
-        case 'search_solutions_by_obstacle': {
-            const { obstacle_name, solution_keywords = [] } = args;
-            const results = [];
-
-            for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                try {
-                    const data = await readJSONFile(datasetInfo.dataFile);
-                    if (data && data.goal && data.goal.children) {
-                        for (const obstacleNode of data.goal.children) {
-                            if (obstacleNode.obstacle) {
-                                const obstacleText = obstacleNode.obstacle.text || obstacleNode.obstacle.data || '';
-                                if (obstacleText.toLowerCase().includes(obstacle_name.toLowerCase())) {
-                                    // Find solutions under this obstacle
-                                    const solutionResults = searchInHierarchy(obstacleNode, solution_keywords.length > 0 ? solution_keywords : ['']);
-                                    const solutions = solutionResults
-                                        .filter(r => r.type === 'solution')
-                                        .map(r => ({
-                                            dataset: datasetId,
-                                            obstacle: obstacleText,
-                                            solution: r.data,
-                                            path: r.path,
-                                            resource_count: r.children ? r.children.filter(c => c.type === 'resource').length : 0
-                                        }));
-                                    results.push(...solutions);
-                                }
-                            }
-                        }
-                    }
-                } catch (error) {
-                    console.error(`Error searching solutions in ${datasetId}:`, error.message);
-                }
+        case 'get_gosr_hierarchy': {
+            const { level = 'full', dataset, obstacle_filter } = args;
+            
+            if (!dataset) {
+                // Return available datasets
+                return {
+                    content: [{
+                        type: 'text',
+                        text: JSON.stringify({
+                            available_datasets: Object.entries(DATASETS).map(([id, info]) => ({
+                                id,
+                                name: info.name,
+                                problemArea: info.problemArea,
+                                description: info.description
+                            })),
+                            message: 'Specify a dataset parameter to get hierarchy for a specific problem area'
+                        }, null, 2)
+                    }]
+                };
             }
 
-            return {
-                content: [{
-                    type: 'text',
-                    text: JSON.stringify({
-                        obstacle_name,
-                        solution_keywords,
-                        solutions: results,
-                        total: results.length
-                    }, null, 2)
-                }]
-            };
+            if (!DATASETS[dataset]) {
+                throw new Error(`Dataset '${dataset}' not found`);
+            }
+
+            try {
+                const data = await readJSONFile(DATASETS[dataset].dataFile);
+                if (!data) {
+                    throw new Error(`Could not load data for ${dataset}`);
+                }
+
+                let result = {
+                    dataset,
+                    problemArea: DATASETS[dataset].problemArea,
+                    name: DATASETS[dataset].name
+                };
+
+                switch (level) {
+                    case 'obstacles':
+                        result.obstacles = extractObstaclesFromHierarchy(data.goal);
+                        break;
+                    case 'solutions':
+                        result.solutions = extractSolutionsFromHierarchy(data.goal);
+                        break;
+                    case 'full':
+                    default:
+                        result.goal = data.goal.data;
+                        result.obstacles = extractObstaclesFromHierarchy(data.goal);
+                        result.solutions = extractSolutionsFromHierarchy(data.goal);
+                        break;
+                }
+
+                return {
+                    content: [{
+                        type: 'text',
+                        text: JSON.stringify(result, null, 2)
+                    }]
+                };
+            } catch (error) {
+                throw new Error(`Error loading hierarchy for ${dataset}: ${error.message}`);
+            }
         }
 
-        case 'get_gosr_hierarchy': {
-            const { level = 'full', obstacle_filter } = args;
-            const hierarchies = {};
-
-            // Add validation for args
-            if (!args || typeof args !== 'object') {
-                throw new Error('Invalid arguments provided to get_gosr_hierarchy');
-            }
-
-            // Validate DATASETS exists
-            if (!DATASETS || typeof DATASETS !== 'object') {
-                throw new Error('DATASETS configuration is not properly defined');
-            }
-
-            for (const [datasetId, datasetInfo] of Object.entries(DATASETS)) {
-                try {
-                    // Validate dataset info
-                    if (!datasetInfo || !datasetInfo.dataFile) {
-                        console.error(`Invalid dataset configuration for ${datasetId}:`, datasetInfo);
-                        hierarchies[datasetId] = {
-                            dataset_name: datasetInfo?.name || datasetId,
-                            hierarchy: null,
-                            error: 'Invalid dataset configuration'
-                        };
-                        continue;
-                    }
-
-                    const data = await readJSONFile(datasetInfo.dataFile);
-                    if (data) {
-                        const hierarchy = extractHierarchyLevel(data, level, obstacle_filter);
-                        hierarchies[datasetId] = {
-                            dataset_name: datasetInfo.name,
-                            hierarchy: hierarchy
-                        };
-                    } else {
-                        hierarchies[datasetId] = {
-                            dataset_name: datasetInfo.name,
-                            hierarchy: null,
-                            error: 'No data found'
-                        };
-                    }
-                } catch (error) {
-                    console.error(`Error reading hierarchy from ${datasetId}:`, error.message);
-                    hierarchies[datasetId] = {
-                        dataset_name: datasetInfo?.name || datasetId,
-                        hierarchy: null,
-                        error: error.message
-                    };
-                }
-            }
-
+        case 'list_datasets': {
             return {
                 content: [{
                     type: 'text',
                     text: JSON.stringify({
-                        level,
-                        obstacle_filter,
-                        hierarchies
+                        datasets: Object.entries(DATASETS).map(([id, info]) => ({
+                            id,
+                            name: info.name,
+                            problemArea: info.problemArea,
+                            description: info.description,
+                            hasResources: !!info.resourcesFile
+                        })),
+                        total: Object.keys(DATASETS).length
                     }, null, 2)
                 }]
             };
@@ -778,13 +504,126 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
 });
 
-async function main() {
-    const transport = new StdioServerTransport();
-    await server.connect(transport);
-    console.error('Unsolvable Data MCP Server running on stdio');
-}
-
-main().catch((error) => {
-    console.error('Server error:', error);
-    process.exit(1);
+// FIXED: Updated tool definitions with dataset filtering
+server.setRequestHandler(ListToolsRequestSchema, async () => {
+    return {
+        tools: [
+            {
+                name: 'list_datasets',
+                description: 'List all available problem area datasets',
+                inputSchema: {
+                    type: 'object',
+                    properties: {}
+                }
+            },
+            {
+                name: 'query_knowledge_graph',
+                description: 'Query GOSR knowledge graph with dataset filtering',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        query_type: {
+                            type: 'string',
+                            enum: ['find_resources_by_keywords', 'get_resources_by_ids', 'get_solutions_for_keywords'],
+                            description: 'Type of query to perform'
+                        },
+                        dataset: {
+                            type: 'string',
+                            description: 'REQUIRED: Specific dataset/problem area to search (e.g., "ottawa-resilient-to-extremism")',
+                            enum: Object.keys(DATASETS)
+                        },
+                        keywords: {
+                            type: 'array',
+                            items: { type: 'string' },
+                            description: 'Keywords to search for'
+                        },
+                        resource_ids: {
+                            type: 'array',
+                            items: { type: 'number' },
+                            description: 'Resource IDs to retrieve'
+                        },
+                        limit: {
+                            type: 'number',
+                            description: 'Maximum results to return',
+                            default: 5
+                        }
+                    },
+                    required: ['query_type', 'dataset']
+                }
+            },
+            {
+                name: 'search_solutions_by_obstacle',
+                description: 'Find solutions mapped to specific obstacles within a dataset',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        obstacle_name: {
+                            type: 'string',
+                            description: 'Obstacle name or partial text to search for'
+                        },
+                        dataset: {
+                            type: 'string',
+                            description: 'REQUIRED: Specific dataset to search in',
+                            enum: Object.keys(DATASETS)
+                        },
+                        solution_keywords: {
+                            type: 'array',
+                            items: { type: 'string' },
+                            description: 'Filter solutions by keywords'
+                        }
+                    },
+                    required: ['obstacle_name', 'dataset']
+                }
+            },
+            {
+                name: 'get_resource_details',
+                description: 'Get detailed information about a specific resource',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        resource_id: {
+                            type: 'number',
+                            description: 'Resource ID'
+                        },
+                        dataset: {
+                            type: 'string',
+                            description: 'Preferred dataset to search in first',
+                            enum: Object.keys(DATASETS)
+                        }
+                    },
+                    required: ['resource_id']
+                }
+            },
+            {
+                name: 'get_gosr_hierarchy',
+                description: 'Get GOSR structure for a specific problem area',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        dataset: {
+                            type: 'string',
+                            description: 'Dataset/problem area to get hierarchy for',
+                            enum: Object.keys(DATASETS)
+                        },
+                        level: {
+                            type: 'string',
+                            enum: ['obstacles', 'solutions', 'full'],
+                            description: 'Level of hierarchy to return',
+                            default: 'full'
+                        },
+                        obstacle_filter: {
+                            type: 'string',
+                            description: 'Filter to specific obstacle theme'
+                        }
+                    },
+                    required: ['dataset']
+                }
+            }
+        ]
+    };
 });
+
+// Start the server
+const transport = new StdioServerTransport();
+await server.connect(transport);
+console.log('FIXED: Unsolvable Data MCP Server with dataset filtering running on stdio');
