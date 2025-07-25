@@ -49,9 +49,7 @@ This document describes the standardized data format and Pydantic models for the
 ## 🛠️ **Available Tools**
 
 ### Data Processing Tools
-1. **`convert_format.py`**: Convert original JSON to standardized format
-2. **`convert_to_jsonl.py`**: Convert standardized JSON to JSONL
-3. **`validate_data.py`**: Check data against Pydantic models
+The data has been processed and standardized using Pydantic models for schema compliance and type safety.
 
 ### Usage Examples
 ```python
@@ -88,9 +86,6 @@ results = dataset.search_resources(
 ├── metadata.yaml
 ├── models.py                       # Legacy Pydantic models
 ├── models_jsonl.py                 # Enhanced Pydantic models
-├── convert_format.py               # Data conversion tools
-├── convert_to_jsonl.py            # JSONL converter
-├── validate_data.py               # Schema checking pipeline
 ├── requirements.txt
 ├── un-lonely-nova-scotia/
 │   ├── Un-Lonely Nova Scotia.pdf
@@ -146,23 +141,19 @@ results = dataset.search_resources(
 
 ## 🧪 **Testing**
 
-Run validation and tests:
+Test the Pydantic models:
 ```bash
-# Validate data with Pydantic models
-python validate_data.py
-
-# Test JSONL models
+# Test enhanced models
 python models_jsonl.py
 
-# Convert formats
-python convert_format.py
-python convert_to_jsonl.py
+# Test legacy models  
+python models.py
 ```
 
 ## 📈 **Performance Benefits**
 
 - **Memory Usage**: 90% reduction when streaming vs loading all data
-- **Load Time**: 3x faster with JSONL format
+- **Schema Safety**: Type checking prevents runtime errors
 - **Data Quality**: 200+ corrupt records cleaned/removed
 - **Type Safety**: 100% validation with Pydantic models
 - **Search Speed**: Indexed metadata for faster queries
