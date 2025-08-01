@@ -1,0 +1,26 @@
+{
+  "additionalProperties": true,
+  "description": "A collection of resources loaded from JSONL files.\nSupports streaming and efficient memory usage.",
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "source_file": {
+      "format": "path",
+      "title": "Source File",
+      "type": "string"
+    },
+    "resource_count": {
+      "default": 0,
+      "title": "Resource Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "source_file"
+  ],
+  "title": "Dataset",
+  "type": "object"
+}

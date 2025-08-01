@@ -52,7 +52,72 @@ Integrated = Resources included in the same JSON file as the structure
 
 **Data Quality Note**: All resource files marked with ✨ contain schema-compliant, clean data ready for analysis.
 
+## 🤖 MCP Server Implementation
+
+This repository includes a **Model Context Protocol (MCP) server** that provides intelligent access to the GOSR dataset collection through structured queries rather than loading massive JSON files into LLM context.
+
+### Quick Start
+
+```bash
+cd mcp-server
+npm install
+npm start
+```
+
+The MCP server transforms static datasets into a queryable **GOSR Knowledge Graph** with these capabilities:
+
+- **`query_knowledge_graph`** - Multi-purpose querying (find resources by keywords, get resources by IDs, search solutions, find resources by obstacle themes)
+- **`get_resource_details`** - Detailed resource lookup with normalized data  
+- **`search_solutions_by_obstacle`** - Navigate GOSR hierarchy by obstacle themes
+- **`get_gosr_hierarchy`** - Extract complete or filtered GOSR structure at any level
+
+### Integration
+
+Configure with your LLM client (Claude Desktop, etc.) to enable AI agents to:
+- Query specific resources and solutions efficiently
+- Navigate the GOSR hierarchy intelligently  
+- Access normalized, schema-compliant resource data
+- Replace loading entire JSON files into context
+
+See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instructions and API documentation.
+
 ## ✅ Data Schema & Standardization
+
+<<<<<<< HEAD
+## � MCP Server Implementation
+
+This repository includes a **Model Context Protocol (MCP) server** that provides intelligent access to the GOSR dataset collection through structured queries rather than loading massive JSON files into LLM context.
+
+### Quick Start
+
+```bash
+cd mcp-server
+npm install
+npm start
+```
+
+The MCP server transforms static datasets into a queryable **GOSR Knowledge Graph** with these capabilities:
+
+- **`query_knowledge_graph`** - Multi-purpose querying (find resources by keywords, get resources by IDs, search solutions, find resources by obstacle themes)
+- **`get_resource_details`** - Detailed resource lookup with normalized data  
+- **`search_solutions_by_obstacle`** - Navigate GOSR hierarchy by obstacle themes
+- **`get_gosr_hierarchy`** - Extract complete or filtered GOSR structure at any level
+
+### Integration
+
+Configure with your LLM client (Claude Desktop, etc.) to enable AI agents to:
+- Query specific resources and solutions efficiently
+- Navigate the GOSR hierarchy intelligently  
+- Access normalized, validated resource data
+- Replace loading entire JSON files into context
+
+See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instructions and API documentation.
+
+
+## ✅ Data Validation
+=======
+## ✅ Data Schema & Standardization
+>>>>>>> origin/main
 
 This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
@@ -88,7 +153,10 @@ This repository features schema-compliant, high-quality data with [Pydantic](htt
 }
 ```
 
-**📚 Documentation**: See [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) for complete technical documentation and usage examples.
+**📚 Documentation**: 
+- [`PYDANTIC_DOCS.md`](./PYDANTIC_DOCS.md) - Complete technical documentation and usage examples
+- [`PYDANTIC_TYPESCRIPT_INTEGRATION.md`](./PYDANTIC_TYPESCRIPT_INTEGRATION.md) - End-to-end schema validation pipeline
+- [`mcp-server/SCHEMA_VALIDATION.md`](./mcp-server/SCHEMA_VALIDATION.md) - MCP server schema integration details
 
 Supported formats:
 - Hierarchical tree structures (Climate Change, Education)  
