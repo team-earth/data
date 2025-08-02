@@ -13,6 +13,9 @@ GOSR facilitates **alignment through transparency**, not coordination through co
 - **🎯 Problem-Area Focus**: Queries are scoped to specific societal challenges
 - **📊 Hierarchical Access**: Navigate Goal → Obstacles → Solutions → Resources structure
 - **🔍 Resource Discovery**: Find concrete programs and organizations implementing solutions
+- **🆔 Industry-Standard Node IDs**: Deterministic SHA-256 hash-based IDs with format `{type}:{dataset}:{hash}`
+- **📝 Comprehensive Logging**: Request tracking with timestamps, IDs, and performance metrics
+- **🧪 Test Suite**: Automated validation for ID generation and server functionality
 
 ## GOSR Framework Structure
 
