@@ -460,9 +460,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const timestamp = new Date().toISOString();
     const requestId = Math.random().toString(36).substring(2, 8);
 
-    // Log incoming request
-    console.log(`📥 [${timestamp}] [${requestId}] Incoming request: ${name}`);
-    console.log(`📝 [${timestamp}] [${requestId}] Arguments:`, JSON.stringify(args, null, 2));
+    // Log incoming request (stderr)
+    console.error(`📥 [${timestamp}] [${requestId}] Incoming request: ${name}`);
+    console.error(`📝 [${timestamp}] [${requestId}] Arguments: ${JSON.stringify(args, null, 2)}`);
 
     const startTime = Date.now();
 
@@ -1000,7 +1000,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         // Log successful completion
         const duration = Date.now() - startTime;
-        console.log(`✅ [${timestamp}] [${requestId}] Request completed: ${name} (${duration}ms)`);
+        console.error(`✅ [${timestamp}] [${requestId}] Request completed: ${name} (${duration}ms)`);
 
         return result;
 
@@ -1019,7 +1019,7 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
     const timestamp = new Date().toISOString();
     const requestId = Math.random().toString(36).substring(2, 8);
 
-    console.log(`📥 [${timestamp}] [${requestId}] Incoming request: tools/list`);
+    console.error(`📥 [${timestamp}] [${requestId}] Incoming request: tools/list`);
 
     const startTime = Date.now();
 
@@ -1251,7 +1251,7 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
         ];
 
         const duration = Date.now() - startTime;
-        console.log(`✅ [${timestamp}] [${requestId}] Request completed: tools/list (${duration}ms)`);
+        console.error(`✅ [${timestamp}] [${requestId}] Request completed: tools/list (${duration}ms)`);
 
         return { tools };
 
@@ -1265,11 +1265,11 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
 });
 
 // Start the server with schema validation
-console.log('🚀 Initializing Unsolvable Data MCP Server...');
+console.error('🚀 Initializing Unsolvable Data MCP Server...');
 
 // Initialize Pydantic schema validation
 await initializeValidation();
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
-console.log('✅ Unsolvable Data MCP Server running with dataset isolation and schema validation');
+console.error('✅ Unsolvable Data MCP Server running with dataset isolation and schema validation');
