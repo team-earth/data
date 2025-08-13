@@ -9,7 +9,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ajv = new Ajv({
     allErrors: true,
     strict: false,
-    allowUnionTypes: true
+    allowUnionTypes: true,
+    // Route AJV internal logging to stderr to avoid contaminating stdout
+    logger: {
+        log: (...args) => console.error(...args),
+        warn: (...args) => console.error(...args),
+        error: (...args) => console.error(...args),
+    },
 });
 
 // Load schemas
@@ -30,10 +36,10 @@ async function loadSchemas() {
             const schema = JSON.parse(schemaContent);
 
             SCHEMAS[name] = ajv.compile(schema);
-            console.log(`✅ Loaded ${name} schema`);
+            console.error(`✅ Loaded ${name} schema`);
         }
 
-        console.log('🎉 All Pydantic schemas loaded successfully');
+        console.error('🎉 All Pydantic schemas loaded successfully');
     } catch (error) {
         console.error('❌ Error loading schemas:', error.message);
         throw error;
