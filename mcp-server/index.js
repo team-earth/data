@@ -458,7 +458,7 @@ function extractObstaclesFromHierarchy(node, obstacles = []) {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
     const timestamp = new Date().toISOString();
-    const requestId = Math.random().toString(36).substring(2, 8);
+    const requestId = crypto.randomUUID();
 
     // Log incoming request (stderr)
     console.error(`📥 [${timestamp}] [${requestId}] Incoming request: ${name}`);
