@@ -7,7 +7,7 @@ console.log('🧪 Testing MCP server logging...');
 
 // Start the MCP server as a child process
 const serverProcess = spawn('node', ['index.js'], {
-    cwd: '/root/data/mcp-server',
+    cwd: process.cwd(),
     stdio: ['pipe', 'pipe', 'pipe'] // stdin, stdout, stderr
 });
 
