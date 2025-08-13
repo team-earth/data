@@ -1017,7 +1017,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 // FIXED: Updated tool definitions with dataset filtering
 server.setRequestHandler(ListToolsRequestSchema, async (request) => {
     const timestamp = new Date().toISOString();
-    const requestId = Math.random().toString(36).substring(2, 8);
+    const requestId = generateRequestId();
 
     console.error(`📥 [${timestamp}] [${requestId}] Incoming request: tools/list`);
 
