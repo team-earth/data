@@ -3,7 +3,7 @@
 // Test the new ID generation system
 import crypto from 'crypto';
 
-// Mock generateNodeId function 
+// Test generateNodeId function
 function generateNodeId(node, nodeType, dataset, path = [], index = 0) {
     // 1. Use existing ID if available (for resources)
     if (nodeType === 'resource' && node.resource?.data?.id !== undefined) {
