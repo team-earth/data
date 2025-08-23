@@ -16,7 +16,7 @@ Using a consistent systems-thinking framework, the problem is mapped across five
 2. **Major Obstacles** – Root-level factors that enable extremism to take hold  
 3. **Sub-Obstacles** – Lived challenges and specific vulnerabilities  
 4. **Solutions** – Actionable, evidence-aligned responses  
-5. **Resources** – Real-world programs and organizations working on these issues
+5. **Resources** – Real-world programs working on these issues
 
 ## 📁 Files in This Directory
 
@@ -28,7 +28,7 @@ Using a consistent systems-thinking framework, the problem is mapped across five
 ## 🧠 How the JSON Files Work Together
 
 - The **mindmap file** (`ottawa-resilient-to-extremism.json`) defines the system of problems and solutions.
-- The **resources file** (`ottawa-resilient-to-extremism-resources.json`) provides detailed information about each organization or program, linked by ID.
+- The **resources file** (`ottawa-resilient-to-extremism-resources.json`) provides detailed information about each program, linked by ID.
 
 This split allows for easier updates, AI integration, and visualization.
 

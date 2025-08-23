@@ -9,7 +9,7 @@ This resource outlines a community-informed understanding of food insecurity in 
 
 > **Future Picture Statement**: *Food insecurity in Nova Scotia will be reduced, and all residents will have stable, sufficient, and dignified access to food.*
 
-Unlike some of the other maps in this collection, this edition focuses on structure only: it identifies what needs to be addressed and how, but does not yet include specific programs or organizations implementing the solutions.
+Unlike some of the other maps in this collection, this edition focuses on structure only: it identifies what needs to be addressed and how, but does not yet include specific programs implementing the solutions.
 
 This format still enables:
 - Community planning
@@ -35,7 +35,7 @@ This map follows the same five-layer structure used across this collection:
 
 ## ❗ Note on Resources
 
-This edition does **not yet include** a companion resource metadata file. A future version may introduce a `food-security-nova-scotia-resources.json` that lists organizations and initiatives aligned with the proposed solutions.
+This edition does **not yet include** a companion resource metadata file. A future version may introduce a `food-security-nova-scotia-resources.json` that lists programs and initiatives aligned with the proposed solutions.
 
 ## 🧠 Systems Approach
 

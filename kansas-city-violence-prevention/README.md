@@ -8,7 +8,7 @@ A framework to help the community understand the root causes of violence and str
 
 > **Future Picture Statement**: *Violence in Kansas City will be reduced, and communities will feel safer, more connected, and more cohesive.*
 
-This book outlines key structural obstacles to safety and belonging in Kansas City. For each sub-obstacle, it proposes practical solutions and maps real-world organizations already implementing those approaches.
+This book outlines key structural obstacles to safety and belonging in Kansas City. For each sub-obstacle, it proposes practical solutions and maps real-world programs already implementing those approaches.
 
 The entire structure follows a radially hierarchical model with five levels:
 
@@ -16,7 +16,7 @@ The entire structure follows a radially hierarchical model with five levels:
 2. **Major Obstacles** – Root causes of violence and disconnection  
 3. **Sub-Obstacles** – Specific barriers in community life  
 4. **Solutions** – Actionable interventions  
-5. **Resources** – Programs and organizations doing the work
+5. **Resources** – Programs doing the work
 
 ## 📁 Files in This Directory
 

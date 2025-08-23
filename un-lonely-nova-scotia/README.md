@@ -7,7 +7,7 @@ This folder contains the complete structured outline, dataset, and resource link
 
 > **Future Picture Statement**: *Loneliness in Nova Scotia will be improved.*
 
-This book breaks down the root causes of loneliness in Nova Scotia and proposes clear, actionable solutions—each linked to real-world organizations, programs, or initiatives already working to solve the problem.
+This book breaks down the root causes of loneliness in Nova Scotia and proposes clear, actionable solutions—each linked to real-world programs and initiatives already working to solve the problem.
 
 Like its companion volume, *Un-Lonely New York City*, this guide is structured as a **radially hierarchical mindmap** with five layers:
 
@@ -15,7 +15,7 @@ Like its companion volume, *Un-Lonely New York City*, this guide is structured a
 2. **Major Obstacles** – Ten core challenges that make loneliness worse  
 3. **Sub-Obstacles** – Specific ways these barriers manifest in daily life  
 4. **Solutions** – Practical strategies to address sub-obstacles  
-5. **Resources** – Organizations and initiatives currently implementing those solutions
+5. **Resources** – Programs and initiatives currently implementing those solutions
 
 ## 📁 Files in This Directory
 

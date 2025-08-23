@@ -36,7 +36,7 @@ This book is organized as a **radially hierarchical mindmap**:
    → Actionable ideas proposed for each sub-obstacle
 
 5. **Resources**  
-   → Real-world organizations already implementing those solutions
+   → Real-world programs already implementing those solutions
 
 Each solution and resource is contextually mapped and hyperlinked.
 
