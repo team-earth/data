@@ -19,7 +19,7 @@ These resources are designed for:
 
 Each map follows a **radially hierarchical structure** to represent how complex problems can be addressed at multiple levels:
 
-1. 🎯 **Goal** – What success looks like (the “Future Picture”)  
+1. 🎯 **Goal** – What success looks like (the "Future Picture")  
 2. 🪨 **Obstacles** – Major themes blocking that goal  
 3. ⛓️ **Sub-Obstacles** – Specific barriers as experienced by people  
 4. 💡 **Solutions** – Actionable ideas to address each sub-obstacle  

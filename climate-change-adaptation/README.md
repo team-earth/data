@@ -8,7 +8,7 @@ It includes:
 
 ## 🌟 Future Picture Statement
 
-> “Our resilience for climate change adaptation is fortified.”
+> "Our resilience for climate change adaptation is fortified."
 
 This dataset maps over 1,000 proposed solutions to climate-related threats, from biodiversity loss to coastal flooding. The book is designed to help communities recognize what’s already being done, coordinate more effectively, and take action in areas where gaps remain.
 
@@ -51,7 +51,7 @@ It is intended as a *living document*, continuously updated to reflect new innov
 ## ⚙️ How This Was Made
 
 - Seeded with AI guidance to draft obstacle trees and solution banks
-- Modeled on the F.L.O.W. framework for problem-solving (Future, Limiting factors, Opportunities, Workstreams)
+- Modeled on the GOSR framework for problem-solving (Goal, Obstacles, Solutions, Resources)
 - Refined using environmental science literature and policy experience
 - Structured to support data visualization, public discussion, and program coordination
 

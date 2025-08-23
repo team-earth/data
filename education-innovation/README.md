@@ -6,13 +6,13 @@ By Kevin Kells, PhD
 
 ## 🎯 Future Picture Statement
 
-> “Our education system provides improved quality of learning after introducing innovative ideas.”
+> "Our education system provides improved quality of learning after introducing innovative ideas."
 
 ## 📘 Overview
 
 This book provides a systems-level approach to overcoming obstacles that hinder education reform. Drawing on a hierarchy of goals, barriers, and solutions, it equips individuals and institutions with a rich menu of **concrete strategies** for addressing personalized education challenges in schools and communities.
 
-It is grounded in the [F.L.O.W. problem-solving framework](https://arxiv.org/pdf/1911.13155.pdf) and presents over 1,000 solution ideas, categorized under ten major system-wide barriers.
+It is grounded in the [GOSR problem-solving framework](https://arxiv.org/pdf/1911.13155.pdf) and presents over 1,000 solution ideas, categorized under ten major system-wide barriers.
 
 This edition contains only **solutions**—no program-level resources are included yet.
 

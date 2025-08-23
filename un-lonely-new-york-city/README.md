@@ -9,7 +9,7 @@ It includes:
 
 ## 🌟 Future Picture Statement
 
-> “Loneliness in New York will be improved.”
+> "Loneliness in New York will be improved."
 
 This dataset maps over 1,000 proposed solutions to loneliness and more than **10,000 community resources** that are already working on those solutions—right now, across the five boroughs.
 
@@ -54,7 +54,7 @@ It is a *living document*, intended to be updated and kept current.
 ## ⚙️ How This Was Made
 
 - Seeded using AI guidance (first draft of obstacles and solutions)
-- Structured using the F.L.O.W. framework (Future, Limiting factors, Opportunities, Workstreams)
+- Structured using the GOSR framework (Goal, Obstacles, Solutions, Resources)
 - Refined by domain knowledge and cross-checked with real programs
 - Designed to invite **future community participation and co-ownership**
 
