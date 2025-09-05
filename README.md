@@ -83,7 +83,6 @@ See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instruct
 
 ## ✅ Data Schema & Standardization
 
-<<<<<<< HEAD
 ## � MCP Server Implementation
 
 This repository includes a **Model Context Protocol (MCP) server** that provides intelligent access to the GOSR dataset collection through structured queries rather than loading massive JSON files into LLM context.
@@ -115,9 +114,6 @@ See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instruct
 
 
 ## ✅ Data Validation
-=======
-## ✅ Data Schema & Standardization
->>>>>>> origin/main
 
 This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
