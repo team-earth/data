@@ -87,7 +87,7 @@ See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instruct
 This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
 ### **Data Features**
-- **✅ 17,515 schema-compliant resources** across 5 datasets (12,147 unique + 5,368 Rust Belt with intentional duplicates)
+- **✅ 16,180 unique resources** across 5 datasets (12,147 + ~4,033 Rust Belt programs from 1,374 organizations)
 - **✅ Standardized schema** with consistent field names and structure
 - **✅ Rich metadata** with auto-generated tags and structured contact information
 - **✅ Geocoded data** with 88.5% coverage for Rust Belt Initiatives
@@ -193,7 +193,7 @@ results = dataset.search_resources(query="mental health", limit=10)
 ```
 
 **Features:**
-- 📊 **12,147 schema-compliant resources** across 4 datasets
+- 📊 **16,180 unique resources** across 5 datasets (12,147 + ~4,033 Rust Belt programs)
 - 🚀 **Streaming support** for memory efficiency
 - 🧹 **Clean data** with consistent schema
 - 🔍 **Search capabilities** with metadata tags

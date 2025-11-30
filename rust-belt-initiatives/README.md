@@ -13,10 +13,10 @@ Western Pennsylvania's deindustrialized communities are places where people belo
 
 ## Data Structure
 
-- **Total resources:** 5,368
 - **Unique programs:** ~4,033
 - **Unique organizations:** 1,374
-- **Geocoded resources:** 4,748 (88.5%)
+- **Total resource entries:** 5,368 (includes intentional duplicates)
+- **Geocoded:** 88.5% coverage
 
 ### About Duplicates
 
