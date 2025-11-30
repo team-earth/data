@@ -1,3 +1,4 @@
 pydantic>=2.0.0
 python-multipart>=0.0.5
 typing-extensions>=4.0.0
+neo4j>=5.0.0

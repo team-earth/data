@@ -39,6 +39,7 @@ This format builds on a published cognitive and systems-thinking framework:
 | [`un-lonely-new-york-city/`](./un-lonely-new-york-city/) | *Un-Lonely New York City* | Urban loneliness and disconnection | [Map](https://www.google.com/maps/d/viewer?mid=1jfIz0rAfu2L8w3gEdjKIxq0BfDGMr3E) | [PDF](./un-lonely-new-york-city/Un-Lonely%20New%20York%20City%20PDF%20r.pdf) | [JSON](./un-lonely-new-york-city/un-lonely-new-york-city.json) | Integrated |
 | [`un-lonely-nova-scotia/`](./un-lonely-nova-scotia/) | *Un-Lonely Nova Scotia* | Rural and regional loneliness in Atlantic Canada | [Map](https://www.google.com/maps/d/viewer?mid=1AJY1yIR4D8bH1LMCGz9fKRLSn8mU5fg) | [PDF](./un-lonely-nova-scotia/Un-Lonely%20Nova%20Scotia.pdf) | [Mindmap](./un-lonely-nova-scotia/un-lonely-nova-scotia.json) | [Resources](./un-lonely-nova-scotia/un-lonely-nova-scotia-resources.json) ✨ |
 | [`kansas-city-violence-prevention/`](./kansas-city-violence-prevention/) | *Kansas City: Violence Prevention and Social Cohesion* | Community safety and connection | [Map](https://www.google.com/maps/d/viewer?mid=1zp2LX82X8_EqGyBBAN9ul_Rm_5a_1XA) | [PDF](./kansas-city-violence-prevention/Kansas%20City%2C%20Violence%20Prevention%20and%20Social%20Cohesion.pdf) | [Mindmap](./kansas-city-violence-prevention/kansas-city-violence-prevention.json) | [Resources](./kansas-city-violence-prevention/kansas-city-violence-prevention-resources.json) ✨ |
+| [`rust-belt-initiatives/`](./rust-belt-initiatives/) | *Rust Belt Initiatives* | Community and economic initiatives in deindustrialized communities (Western PA) | — | — | — | [Resources](./rust-belt-initiatives/rust-belt-initiatives-resources.json) ✨ |
 | [`london-resilient-to-extremism/`](./london-resilient-to-extremism/) | *London: Resilient to Extremism* | Countering manipulation and strengthening cohesion | [Map](https://www.google.com/maps/d/edit?mid=1NX1rbU-EIr_0_PcscMxRksNVuIPgvVg&usp=sharing) | [PDF](./london-resilient-to-extremism/London%20Resilient%20to%20Extremism.pdf) | [Mindmap](./london-resilient-to-extremism/london-resilient-to-extremism.json) | [Resources](./london-resilient-to-extremism/london-resilient-to-extremism-resources.json) ✨ |
 | [`ottawa-resilient-to-extremism/`](./ottawa-resilient-to-extremism/) | *Ottawa: Resilient to Extremism* | Community resilience in the face of radicalization tactics | [Map](https://www.google.com/maps/d/edit?mid=1BBKUIh6s8sJZP4bebkweZbmwmwipNYk&usp=sharing) | [PDF](./ottawa-resilient-to-extremism/Ottawa%20Resilient%20to%20Extremism.pdf) | [Mindmap](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism.json) | [Resources](./ottawa-resilient-to-extremism/ottawa-resilient-to-extremism-resources.json) ✨ |
 | [`food-security-nova-scotia/`](./food-security-nova-scotia/) | *Food Security in Nova Scotia* | Structural drivers of food insecurity |  | [PDF](./food-security-nova-scotia/Food%20Security%20in%20Nova%20Scotia.pdf) | [Mindmap](./food-security-nova-scotia/food-security-nova-scotia.json) |  |
@@ -81,46 +82,15 @@ Configure with your LLM client (Claude Desktop, etc.) to enable AI agents to:
 
 See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instructions and API documentation.
 
-## ✅ Data Schema & Standardization
-
-## � MCP Server Implementation
-
-This repository includes a **Model Context Protocol (MCP) server** that provides intelligent access to the GOSR dataset collection through structured queries rather than loading massive JSON files into LLM context.
-
-### Quick Start
-
-```bash
-cd mcp-server
-npm install
-npm start
-```
-
-The MCP server transforms static datasets into a queryable **GOSR Knowledge Graph** with these capabilities:
-
-- **`query_knowledge_graph`** - Multi-purpose querying (find resources by keywords, get resources by IDs, search solutions, find resources by obstacle themes)
-- **`get_resource_details`** - Detailed resource lookup with normalized data  
-- **`search_solutions_by_obstacle`** - Navigate GOSR hierarchy by obstacle themes
-- **`get_gosr_hierarchy`** - Extract complete or filtered GOSR structure at any level
-
-### Integration
-
-Configure with your LLM client (Claude Desktop, etc.) to enable AI agents to:
-- Query specific resources and solutions efficiently
-- Navigate the GOSR hierarchy intelligently  
-- Access normalized, validated resource data
-- Replace loading entire JSON files into context
-
-See [`mcp-server/README.md`](./mcp-server/README.md) for complete setup instructions and API documentation.
-
-
 ## ✅ Data Validation
 
 This repository features schema-compliant, high-quality data with [Pydantic](https://pydantic.dev/) models:
 
 ### **Data Features**
-- **✅ 12,147 schema-compliant resources** across 4 datasets
+- **✅ 17,515 schema-compliant resources** across 5 datasets (12,147 unique + 5,368 Rust Belt with intentional duplicates)
 - **✅ Standardized schema** with consistent field names and structure
 - **✅ Rich metadata** with auto-generated tags and structured contact information
+- **✅ Geocoded data** with 88.5% coverage for Rust Belt Initiatives
 - **✅ Type safety** with full Pydantic schema checking
 
 ### **Available Models**
