@@ -1,0 +1,40 @@
+RUST BELT INITIATIVES - GOOGLE MY MAPS EXPORT
+======================================================================
+
+Export Date: 2025-11-30 21:01:28
+Database: bolt://localhost:7687
+Dataset: rust-belt-initiatives
+
+Files Created: 7
+Total Locations: 4748
+
+THEMES:
+----------------------------------------------------------------------
+
+1. Absence of Physical Gathering Spaces and Social Infrastructure
+   Resources: 518 geocoded / 518 total
+   Description: Communities lack accessible physical spaces where workers can regularly gather, build relationships, and organize collectively. Former union halls are closed or sold. No neutral gathering places exist...
+
+2. Degraded Physical Infrastructure and Community Environment
+   Resources: 586 geocoded / 586 total
+   Description: Communities suffer from decades of deferred maintenance, environmental contamination, and physical decay. Abandoned factories, deteriorated housing stock, failing roads and utilities, and pollution fr...
+
+3. Dominant Conservative Social Networks and Identity-Formation Systems
+   Resources: 555 geocoded / 555 total
+   Description: Gun clubs, megachurches, and local Republican Party organizations provide the primary social gathering opportunities. These networks actively cultivate identities centered on gun rights, conservative ...
+
+4. Intergenerational Trauma and Learned Helplessness
+   Resources: 721 geocoded / 721 total
+   Description: Communities experiencing decades of broken promises, failed interventions, and continuous decline develop collective trauma and learned helplessness. 'Nothing ever works here' becomes self-fulfilling ...
+
+5. Lack of Credible, Locally-Embedded Progressive Political Infrastructure
+   Resources: 997 geocoded / 997 total
+   Description: Democratic Party has minimal continuous presence in western Pennsylvania counties—no local offices, no regular community engagement, no year-round organizing. No progressive political leaders from the...
+
+6. Union Organizations Currently Operate as Disconnected Bureaucracies
+   Resources: 672 geocoded / 672 total
+   Description: National and regional unions operate through hierarchical structures disconnected from daily worker experiences. Union staff are career professionals who work in offices, not in plants alongside membe...
+
+7. Workers Currently Prioritize Job Security Over Collective Action
+   Resources: 699 geocoded / 699 total
+   Description: Workers' immediate economic vulnerability makes them prioritize keeping current jobs over any action that risks employment. Current labor market conditions and employer power mean workers fear retalia...

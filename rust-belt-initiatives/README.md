@@ -11,6 +11,9 @@ This dataset contains resources (programs and initiatives) addressing challenges
 **Future Picture:**  
 Western Pennsylvania's deindustrialized communities are places where people belong, feel secure, have voice in decisions affecting their lives, find meaning in their work, and can trust their neighbors and institutions.
 
+**📍 Interactive Map:**  
+[Rust Belt Initiatives - Google My Maps](https://www.google.com/maps/d/viewer?mid=10KBdlEKNIkbqu-t6aLcKxGCtkM4daxY&ll=41.362377855744604%2C-77.79934094112018&z=8) - 4,748 geocoded locations organized by 7 major themes
+
 ## Data Structure
 
 - **Unique programs:** ~4,033
