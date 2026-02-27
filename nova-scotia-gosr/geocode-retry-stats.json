@@ -1,0 +1,128 @@
+{
+  "retry_attempted": 301,
+  "recovered": 297,
+  "still_failed": 4,
+  "strategy_breakdown": {
+    "city_only": 76,
+    "strip_suite": 199,
+    "fix_range": 17,
+    "drop_postal": 5
+  },
+  "total_unique_addresses": 926,
+  "total_geocoded": 922,
+  "overall_success_rate": "99.6%",
+  "elapsed_seconds": 725,
+  "recovery_examples": [
+    {
+      "original": "1 Bell Boulevard, Enfield, NS B2T 1K2",
+      "query": "Enfield, Nova Scotia, Canada",
+      "strategy": "city_only",
+      "lat": 44.9302051,
+      "lon": -63.5187837
+    },
+    {
+      "original": "10 Cranberry Court, Dartmouth, NS B2W 4N4",
+      "query": "Dartmouth, Nova Scotia, Canada",
+      "strategy": "city_only",
+      "lat": 44.6799707,
+      "lon": -63.5720232
+    },
+    {
+      "original": "10 Ragged Lake Boulevard, Unit 12, Halifax, NS B3S 1R9",
+      "query": "10 Ragged Lake Boulevard, Halifax, NS B3S 1R9",
+      "strategy": "strip_suite",
+      "lat": 44.6267725,
+      "lon": -63.6665447
+    },
+    {
+      "original": "100 Baker Drive, Suite 200, Dartmouth, NS B2W 4M1",
+      "query": "100 Baker Drive, Dartmouth, NS B2W 4M1",
+      "strategy": "strip_suite",
+      "lat": 44.6589265,
+      "lon": -63.5302412
+    },
+    {
+      "original": "100 Ilsley Avenue, Unit 110, Dartmouth, NS B3B 1L3",
+      "query": "100 Ilsley Avenue, Dartmouth, NS B3B 1L3",
+      "strategy": "strip_suite",
+      "lat": 44.6994707,
+      "lon": -63.5871837
+    },
+    {
+      "original": "100 Ilsley Avenue, Unit N, Dartmouth, NS B3B 1L3",
+      "query": "100 Ilsley Avenue, Dartmouth, NS B3B 1L3",
+      "strategy": "strip_suite",
+      "lat": 44.6994707,
+      "lon": -63.5871837
+    },
+    {
+      "original": "100 Ochterloney Street, Suite 201, Dartmouth, NS B2Y 1C5",
+      "query": "100 Ochterloney Street, Dartmouth, NS B2Y 1C5",
+      "strategy": "strip_suite",
+      "lat": 44.6682178,
+      "lon": -63.5661395
+    },
+    {
+      "original": "100 True South Road, Halifax, NS B3K 5X5",
+      "query": "Halifax, Nova Scotia, Canada",
+      "strategy": "city_only",
+      "lat": 44.648618,
+      "lon": -63.5859487
+    },
+    {
+      "original": "102-605 Prince Street, Truro, NS B2N 1G2",
+      "query": "605 Prince Street, Truro, NS B2N 1G2",
+      "strategy": "fix_range",
+      "lat": 45.3654528,
+      "lon": -63.2832201
+    },
+    {
+      "original": "104-605 Prince Street, Truro, NS B2N 1G2",
+      "query": "605 Prince Street, Truro, NS B2N 1G2",
+      "strategy": "fix_range",
+      "lat": 45.3654528,
+      "lon": -63.2832201
+    },
+    {
+      "original": "104-7071 Bayers Road, Halifax, NS B3L 2C2",
+      "query": "7071 Bayers Road, Halifax, NS B3L 2C2",
+      "strategy": "fix_range",
+      "lat": 44.6541222,
+      "lon": -63.6273462
+    },
+    {
+      "original": "1061 Marginal Road, Suite 140, Halifax, NS B3H 4P7",
+      "query": "1061 Marginal Road, Halifax, NS B3H 4P7",
+      "strategy": "strip_suite",
+      "lat": 44.638734,
+      "lon": -63.5652324
+    },
+    {
+      "original": "10765 Cabot Trail, Wagmatcook, NS B0E 3N0",
+      "query": "Wagmatcook, Nova Scotia, Canada",
+      "strategy": "city_only",
+      "lat": 46.0711623,
+      "lon": -60.9153167
+    },
+    {
+      "original": "11 Thornhill Drive, Unit 110, Dartmouth, NS B3B 1R9",
+      "query": "11 Thornhill Drive, Dartmouth, NS B3B 1R9",
+      "strategy": "strip_suite",
+      "lat": 44.7000117,
+      "lon": -63.5955428
+    },
+    {
+      "original": "111 Ilsley Avenue, Suite 300, Dartmouth, NS B3B 1S8",
+      "query": "111 Ilsley Avenue, Dartmouth, NS B3B 1S8",
+      "strategy": "strip_suite",
+      "lat": 44.6995558,
+      "lon": -63.5850182
+    }
+  ],
+  "remaining_failures": [
+    "1188 Saint\u2011Antoine Street West, Suite 402, Montreal, QC H3C 1B4",
+    "1650 Boulevard King Ouest, Suite 220, Sherbrooke, QC J1J 2C3",
+    "201 Jones Road, Waltham, MA 02451",
+    "908 Mullock Road, Whynott's Settlement, NS B4V 5T9"
+  ]
+}

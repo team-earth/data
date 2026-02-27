@@ -1,0 +1,142 @@
+{
+  "map_id": 25,
+  "map_name": "Stay, Build, Flourish: Nova Scotia",
+  "locality": "Nova Scotia, Canada",
+  "future_picture": "Young people in Nova Scotia build fulfilling lives \u2014 whether in emerging industries or established trades, in entrepreneurial ventures or community services, in technology or the arts \u2014 drawn to stay or return by a welcoming province where diverse communities thrive and quality of life rivals any region in Canada or beyond.",
+  "raw": {
+    "obstacles": 119,
+    "solutions": 1648,
+    "resources": 6425,
+    "unique_orgs_raw": 1608
+  },
+  "dedup": {
+    "pass1_count": 5261,
+    "pass2_count": 2281,
+    "fuzzy_merges": 2980,
+    "fuzzy_examples": [
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Workforce Initiative / Centre for Ocean Ventures and Entrepreneurship (COVE)",
+        "score": 77,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Centre for Ocean Ventures & Entrepreneurship (COVE) / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 70,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Internship Program / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 75,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Ocean Technology Internship Program / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 70,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Ocean Jobs Board and Talent Pipeline / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 77,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures & Entrepreneurship)",
+        "score": 97,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard / COVE (Centre for Ocean Ventures & Entrepreneurship)",
+        "score": 91,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard at COVE / Centre for Ocean Ventures and Entrepreneurship (COVE)",
+        "score": 100,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Mentoring Program / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 76,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Centre for Ocean Ventures & Entrepreneurship (COVE) / COVE",
+        "score": 83,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE and Startup Yard at COVE / COVE (Centre for Ocean Ventures & Entrepreneurship)",
+        "score": 96,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Job Board and Member Opportunities / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 78,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Ocean Careers / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 81,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard at COVE / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 97,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE (Centre for Ocean Ventures & Entrepreneurship) / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 70,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Tenant Program (Flexible Office, Lab, and Workshop Space) / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 70,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard at COVE Demo Day / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 91,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "The Start-Up Yard at COVE / Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 95,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "Start-Up Yard at COVE / Invest Nova Scotia in partnership with the Centre for Ocean Ventures & Entrepreneurship (COVE)",
+        "score": 75,
+        "domain_match": true
+      },
+      {
+        "a": "Start-Up Yard at COVE / COVE (Centre for Ocean Ventures and Entrepreneurship)",
+        "b": "COVE Careers & Opportunities / Centre for Ocean Ventures and Entrepreneurship (COVE)",
+        "score": 82,
+        "domain_match": true
+      }
+    ],
+    "unique_orgs": 1130,
+    "with_addresses": 2267,
+    "with_websites": 2271
+  }
+}

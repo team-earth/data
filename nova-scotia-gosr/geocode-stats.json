@@ -1,0 +1,52 @@
+{
+  "total_resources": 2281,
+  "unique_addresses": 926,
+  "geocoded_success": 625,
+  "geocoded_failed": 301,
+  "success_rate": "67.5%",
+  "elapsed_seconds": 1357,
+  "sample_geocoded": [
+    {
+      "address": "1344 Summer Street, Halifax, NS B3H 0A8",
+      "latitude": 44.6397624,
+      "longitude": -63.5829145,
+      "display_name": "1344, Summer Street, Halifax, Halifax Regional Municipality, Halifax County, Nova Scotia, B3H 0A8, Canada"
+    },
+    {
+      "address": "11 Station Road, Hubbards, NS B0J 1T0",
+      "latitude": 44.6392995,
+      "longitude": -64.0624616,
+      "display_name": "11, Station Road, Hubbards, Halifax Regional Municipality, Halifax County, Nova Scotia, B0J 1T0, Canada"
+    },
+    {
+      "address": "61 Chain Lake Drive, Halifax, NS B3S 1A9",
+      "latitude": 44.6460288,
+      "longitude": -63.6723903,
+      "display_name": "Chain Lake Drive, Halifax, Halifax Regional Municipality, Halifax County, Nova Scotia, B3S 1C7, Canada"
+    },
+    {
+      "address": "82 Baker Drive, Dartmouth, NS B2W 0M1",
+      "latitude": 44.665122,
+      "longitude": -63.5311876,
+      "display_name": "Harris Hall, 82, Baker Drive, Green Village, Portland Estates, Dartmouth, Halifax Regional Municipality, Halifax County, Nova Scotia, B2W 0C8, Canada"
+    },
+    {
+      "address": "133 Troop Avenue, Dartmouth, NS B3B 2A7",
+      "latitude": 44.7099632,
+      "longitude": -63.5846921,
+      "display_name": "133, Troop Avenue, Burnside Industrial Park, Burnside, Dartmouth, Halifax Regional Municipality, Halifax County, Nova Scotia, B3B 2A7, Canada"
+    }
+  ],
+  "sample_failed": [
+    "1201-1809 Barrington Street, Halifax, NS B3J 3K8",
+    "45 Alderney Drive, Suite 204, Dartmouth, NS B2Y 2N6",
+    "18 Whitman Way, Inverness, NS B0E 1N0",
+    "72 Highfield Park Drive, Unit 5, Dartmouth, NS B3A 4X2",
+    "1559 Brunswick Street, Suite 200, Halifax, NS B3J 2G1",
+    "1809 Barrington Street, Suite 1100, Halifax, NS B3J 3K8",
+    "100 Ilsley Avenue, Unit 110, Dartmouth, NS B3B 1L3",
+    "1809 Barrington Street, Suite 1201, Halifax, NS B3J 3K8",
+    "1546 Barrington Street, Suite 104, Halifax, NS B3J 2A2",
+    "1800 Argyle Street, Suite 810, Halifax, NS B3J 3N8"
+  ]
+}

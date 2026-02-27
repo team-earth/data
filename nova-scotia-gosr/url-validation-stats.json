@@ -1,0 +1,70 @@
+{
+  "total_resources": 2281,
+  "unique_urls_checked": 1542,
+  "already_valid": 824,
+  "fixed_to_root_domain": 357,
+  "removed_dead": 84,
+  "kept_suspect_rate_limited": 277,
+  "empty_urls": 0,
+  "confidence_note": "277 URLs kept despite failing \u2014 suspected rate-limiting. May need manual review.",
+  "sample_fixes": [
+    {
+      "original": "https://www.nscc.ca/apprenticeship/",
+      "fixed_to": "https://www.nscc.ca"
+    },
+    {
+      "original": "https://shipsforcanada.ca/centre-of-excellence",
+      "fixed_to": "https://shipsforcanada.ca"
+    },
+    {
+      "original": "https://www.nscc.ca/about/news/stories/2015/pathways-to-shipbuilding.asp",
+      "fixed_to": "https://www.nscc.ca"
+    },
+    {
+      "original": "https://www.dal.ca/faculty/open-learning-career-development.html",
+      "fixed_to": "https://www.dal.ca"
+    },
+    {
+      "original": "https://coveocean.com/start-up-yard/",
+      "fixed_to": "https://coveocean.com"
+    },
+    {
+      "original": "https://www.halifax.ca/business/doing-business-halifax/social-procurement",
+      "fixed_to": "https://www.halifax.ca"
+    },
+    {
+      "original": "https://www.isans.ca/program/professional-mentoring/",
+      "fixed_to": "https://www.isans.ca"
+    },
+    {
+      "original": "https://perennia.ca/our-services/rural-innovation-centre/",
+      "fixed_to": "https://perennia.ca"
+    },
+    {
+      "original": "https://www.cbdc.ca/en/cbdcs/blue-water",
+      "fixed_to": "https://www.cbdc.ca"
+    },
+    {
+      "original": "https://www.halifax.ca/transportation/halifax-transit/fares/low-income-transit-pass",
+      "fixed_to": "https://www.halifax.ca"
+    },
+    {
+      "original": "https://www.wolfvillefarmersmarket.ca/nourishing-communities",
+      "fixed_to": "https://www.wolfvillefarmersmarket.ca"
+    },
+    {
+      "original": "https://ngfarmmarket.com/goodfoodaccess/",
+      "fixed_to": "https://ngfarmmarket.com"
+    }
+  ],
+  "sample_removed": [
+    {
+      "url": "https://halifaxpartnership.com/work/connector-program",
+      "error": "403"
+    },
+    {
+      "url": "https://digitalnovascotia.com/jobs",
+      "error": "403"
+    }
+  ]
+}
