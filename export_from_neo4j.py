@@ -8,14 +8,29 @@ This script:
 3. Exports to schema-compliant JSON files matching data/ repo format
 
 Usage:
-    # Start fly proxy first:
-    fly proxy 7687:7687 -a datagraph-neo4j
+    # --- Production Neo4j connection ---
+    # The neo4j Python driver lives in the datagraph.city venv.
+    # If import neo4j fails: python3 -m venv /home/kkells/gosr/datagraph.city/venv --clear
+    #   && /home/kkells/gosr/datagraph.city/venv/bin/pip install -r /home/kkells/gosr/datagraph.city/scripts/requirements.txt
+
+    # Verify driver:
+    /home/kkells/gosr/datagraph.city/venv/bin/python -c "import neo4j; print('OK')"
+
+    # Start fly proxy (redirect + & is mandatory):
+    pkill -f "fly proxy 7687" 2>/dev/null; sleep 2
+    fly proxy 7687:7687 -a datagraph-neo4j > /tmp/neo4j_proxy.log 2>&1 &
+    sleep 5
+
+    # Connection: bolt://localhost:7687, user=neo4j, password="" (empty)
 
     # Export a dataset:
-    python3 export_from_neo4j.py rust-belt-union-blues
+    /home/kkells/gosr/datagraph.city/venv/bin/python export_from_neo4j.py rust-belt-union-blues
 
     # Export all datasets:
-    python3 export_from_neo4j.py --all
+    /home/kkells/gosr/datagraph.city/venv/bin/python export_from_neo4j.py --all
+
+    # Read-only alternative (no proxy needed):
+    curl -s https://api.datagraph.city/datasets | python3 -m json.tool
 
 Output files:
     - {dataset-name}/{dataset-name}-resources.json
@@ -33,7 +48,7 @@ from datetime import datetime
 
 
 # Neo4j connection configuration
-# Connects via fly proxy: ~/.fly/bin/flyctl proxy 7687:7687 -a datagraph-neo4j &
+# Connects via fly proxy: fly proxy 7687:7687 -a datagraph-neo4j &
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "")  # Empty password for datagraph-neo4j
@@ -286,7 +301,7 @@ def connect_to_neo4j() -> GraphDatabase.driver:
     except Exception as e:
         print(f"\n❌ Failed to connect to Neo4j: {e}")
         print("\n💡 Make sure fly proxy is running in background:")
-        print("   ~/.fly/bin/flyctl proxy 7687:7687 -a datagraph-neo4j &")
+        print("   fly proxy 7687:7687 -a datagraph-neo4j &")
         print("\n💡 Wait for Neo4j to be ready:")
         print("   until python3 -c \"from neo4j import GraphDatabase; driver = GraphDatabase.driver('bolt://localhost:7687', auth=('neo4j', '')); driver.verify_connectivity(); driver.close()\" 2>/dev/null; do printf \".\"; sleep 2; done")
         print("   echo -e \"\\nNeo4j is ready!\"")
